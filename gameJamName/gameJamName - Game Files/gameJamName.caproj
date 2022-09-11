@@ -11,11 +11,14 @@
     <saved-with-version>25500</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Car" version="1">Car</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -63,6 +66,36 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Obst" sid="607695725647176">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="939147235633430">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="800178538141486" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.488" y="0.104" />
+                            <point x="0.944" y="0.212" />
+                            <point x="0.788" y="0.624" />
+                            <point x="0.888" y="0.888" />
+                            <point x="0.5" y="0.976" />
+                            <point x="0.092" y="0.908" />
+                            <point x="0.016" y="0.412" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Water" sid="434385803179995">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Keyboard" sid="473206271084058">
+            <plugin id="Keyboard" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -73,6 +106,7 @@
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="0" />
+        <global-instance type="Keyboard" uid="5" />
     </global-instances>
     <sounds-folder />
     <music-folder />

@@ -9,5 +9,25 @@
             </conditions>
             <actions />
         </event-block>
+        <event-block sid="104336363417029">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="464808314644993" type="Keyboard">
+                    <param id="0" name="Key">87</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="3" name="Set speed" sid="876391694023317" type="Player">
+                    <param id="0" name="Speed">Player.Car.MaxSpeed</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="272099664089589">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="276688932390987" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
     </events>
 </c2eventsheet>
