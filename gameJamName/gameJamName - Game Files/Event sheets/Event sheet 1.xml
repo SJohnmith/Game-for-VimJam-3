@@ -7,19 +7,58 @@
             <conditions>
                 <condition id="-2" name="On start of layout" sid="332278642185405" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action id="-20" name="Set layout scale" sid="659555219570656" type="System">
+                    <param id="0" name="Scale">2</param>
+                </action>
+                <action id="-17" name="Set layer scale" sid="326695976044764" type="System">
+                    <param id="0" name="Layer">&quot;UI&quot;</param>
+                    <param id="1" name="Scale">0.5</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="571404033520311">
+                    <conditions>
+                        <condition id="-12" name="Repeat" sid="752830373450399" type="System">
+                            <param id="0" name="Count">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="685780420758004" type="System">
+                            <param id="0" name="Object to create">Rock1</param>
+                            <param id="1" name="Layer">&quot;Rocks&quot;</param>
+                            <param id="2" name="X">random(0, LayoutWidth)</param>
+                            <param id="3" name="Y">random(0, LayoutHeight)</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="928711985282198" type="Rock1">
+                            <param id="0" name="Animation">&quot;Rock1_&quot;&amp;int(random(0, 7))</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
+        <event-block sid="994669846510814">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="122045241251608" type="Rock1">
+                    <param id="0" name="Object">Rock1</param>
+                </condition>
+                <condition id="-17" name="Pick top/bottom" sid="726844192685661" type="Rock1">
+                    <param id="0" name="Which">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="123871849647458" type="Rock1" />
+            </actions>
+        </event-block>
+        <comment>Digital Speed Control of Boat</comment>
         <event-block sid="104336363417029">
             <conditions>
                 <condition id="0" name="On key pressed" sid="464808314644993" type="Keyboard">
                     <param id="0" name="Key">87</param>
                 </condition>
             </conditions>
-            <actions>
-                <action behavior="Car" id="3" name="Set speed" sid="876391694023317" type="Player">
-                    <param id="0" name="Speed">Player.Car.MaxSpeed</param>
-                </action>
-            </actions>
+            <actions />
         </event-block>
         <event-block sid="272099664089589">
             <conditions>
@@ -28,6 +67,68 @@
                 </condition>
             </conditions>
             <actions />
+        </event-block>
+        <comment>Boat Control</comment>
+        <event-block sid="402081535995216">
+            <conditions>
+                <condition id="2" name="Key is down" sid="545953081337506" type="Keyboard">
+                    <param id="0" name="Key">87</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="7" name="Simulate control" sid="711047217873995" type="Ship">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="277682345194236">
+            <conditions>
+                <condition id="2" name="Key is down" sid="926024667942775" type="Keyboard">
+                    <param id="0" name="Key">65</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="7" name="Simulate control" sid="735851917398461" type="Ship">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="668581871286732">
+            <conditions>
+                <condition id="2" name="Key is down" sid="741004424106695" type="Keyboard">
+                    <param id="0" name="Key">83</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="7" name="Simulate control" sid="616979822293980" type="Ship">
+                    <param id="0" name="Control">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="267736845711878">
+            <conditions>
+                <condition id="2" name="Key is down" sid="286782383328731" type="Keyboard">
+                    <param id="0" name="Key">68</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="7" name="Simulate control" sid="520762271851111" type="Ship">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Boat Collision</comment>
+        <event-block sid="461768852997334">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="331171743896144" type="Ship">
+                    <param id="0" name="Object">Rock1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Car" id="3" name="Set speed" sid="781622118133643" type="Ship">
+                    <param id="0" name="Speed">0</param>
+                </action>
+            </actions>
         </event-block>
     </events>
 </c2eventsheet>

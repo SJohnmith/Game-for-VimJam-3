@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Holder Event</name>
+    <events>
+        <event-block sid="122370529845518">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="587476070698767" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="417515075717174" type="Stats">
+                    <param id="0" name="Text">&quot;Str: x&quot;&amp;newline&amp;&quot;Int: y&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
