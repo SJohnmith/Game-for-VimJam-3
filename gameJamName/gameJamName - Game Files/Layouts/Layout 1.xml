@@ -123,13 +123,19 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <Fuel>10</Fuel>
+                        <Morale>100</Morale>
+                        <Supplies>8</Supplies>
+                        <Spd_Lv>0</Spd_Lv>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Car">
                             <properties>
                                 <max-speed>50</max-speed>
-                                <acceleration>20</acceleration>
-                                <deceleration>30</deceleration>
-                                <steer-speed>30</steer-speed>
+                                <acceleration>10</acceleration>
+                                <deceleration>10</deceleration>
+                                <steer-speed>10</steer-speed>
                                 <drift-recover>185</drift-recover>
                                 <friction>0.2</friction>
                                 <set-angle>Yes</set-angle>
@@ -146,8 +152,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>131</x>
-                        <y>131</y>
+                        <x>996</x>
+                        <y>598</y>
                         <z>0</z>
                         <width>100</width>
                         <height>60</height>

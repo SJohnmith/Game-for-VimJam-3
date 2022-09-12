@@ -11,7 +11,17 @@
                 <action id="0" name="Set text" sid="417515075717174" type="Stats">
                     <param id="0" name="Text">&quot;Str: x&quot;&amp;newline&amp;&quot;Int: y&quot;</param>
                 </action>
+                <action id="-10" name="Set value" sid="776780886919147" type="Bar_Morale">
+                    <param id="0" name="Instance variable">const</param>
+                    <param id="1" name="Value">Ship.Morale</param>
+                </action>
             </actions>
+        </event-block>
+        <event-block sid="822878233107622">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="756716572033305" type="System" />
+            </conditions>
+            <actions />
         </event-block>
     </events>
 </c2eventsheet>

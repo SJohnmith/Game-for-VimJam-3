@@ -38,6 +38,16 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="626570944546845">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="808223329659458" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="329464778333034" type="ShipSpeedTxt">
+                    <param id="0" name="Text">&quot;Speed: &quot;&amp;Ship.Spd_Lv&amp;newline&amp;&quot;Cur Speed = &quot;&amp;round(Ship.Car.Speed)</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="994669846510814">
             <conditions>
                 <condition id="1" name="Is overlapping another object" sid="122045241251608" type="Rock1">
@@ -51,84 +61,201 @@
                 <action id="-9" name="Destroy" sid="123871849647458" type="Rock1" />
             </actions>
         </event-block>
-        <comment>Digital Speed Control of Boat</comment>
-        <event-block sid="104336363417029">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="464808314644993" type="Keyboard">
-                    <param id="0" name="Key">87</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
-        <event-block sid="272099664089589">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="276688932390987" type="Keyboard">
-                    <param id="0" name="Key">83</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
-        <comment>Boat Control</comment>
-        <event-block sid="402081535995216">
-            <conditions>
-                <condition id="2" name="Key is down" sid="545953081337506" type="Keyboard">
-                    <param id="0" name="Key">87</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="711047217873995" type="Ship">
-                    <param id="0" name="Control">2</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="277682345194236">
-            <conditions>
-                <condition id="2" name="Key is down" sid="926024667942775" type="Keyboard">
-                    <param id="0" name="Key">65</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="735851917398461" type="Ship">
-                    <param id="0" name="Control">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="668581871286732">
-            <conditions>
-                <condition id="2" name="Key is down" sid="741004424106695" type="Keyboard">
-                    <param id="0" name="Key">83</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="616979822293980" type="Ship">
-                    <param id="0" name="Control">3</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="267736845711878">
-            <conditions>
-                <condition id="2" name="Key is down" sid="286782383328731" type="Keyboard">
-                    <param id="0" name="Key">68</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Car" id="7" name="Simulate control" sid="520762271851111" type="Ship">
-                    <param id="0" name="Control">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <comment>Boat Collision</comment>
-        <event-block sid="461768852997334">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="331171743896144" type="Ship">
-                    <param id="0" name="Object">Rock1</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="Car" id="3" name="Set speed" sid="781622118133643" type="Ship">
-                    <param id="0" name="Speed">0</param>
-                </action>
-            </actions>
-        </event-block>
+        <event-group description="" sid="933094771850492" title="Ship Control on Water">
+            <sub-events>
+                <comment>Ship Steer Control</comment>
+                <event-block sid="720624928257590">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="258429704199690" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="911356479913054" type="Ship">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="227025719686293">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="642444829464512" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="743715139813936" type="Ship">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Ship Speed Control</comment>
+                <event-block sid="104336363417029">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="464808314644993" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="784827880825377" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">-3</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="165614552128742" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="812408421972225" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="272099664089589">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="276688932390987" type="Keyboard">
+                            <param id="0" name="Key">83</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="866423751279704" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">-3</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="431756633960380" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="168574965445211" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Ship Set Speed</comment>
+                <event-block sid="673478286732369">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="839561581302481" type="System">
+                            <param id="0" name="First value">abs(Ship.Spd_Lv)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="4" name="Set max speed" sid="102515882648677" type="Ship">
+                            <param id="0" name="Max Speed">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="463020668994437">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="379743815556424" type="System">
+                            <param id="0" name="First value">abs(Ship.Spd_Lv)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="4" name="Set max speed" sid="557503532817736" type="Ship">
+                            <param id="0" name="Max Speed">25</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="597517292733872">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="722987168354158" type="System">
+                            <param id="0" name="First value">abs(Ship.Spd_Lv)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="4" name="Set max speed" sid="219477583600248" type="Ship">
+                            <param id="0" name="Max Speed">50</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Move Ship</comment>
+                <event-block sid="987912808986601">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="238181426854995" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="348401055373734" type="System">
+                            <param id="0" name="First value">Ship.Car.Speed</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">Ship.Car.MaxSpeed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="425076192873941" type="Ship">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="586412767213764">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="420106564242582" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="892267757904954" type="System">
+                            <param id="0" name="First value">Ship.Car.Speed</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">Ship.Car.MaxSpeed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="249016312934945" type="Ship">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="321343299179618">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="390696517798565" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="462474781544962" type="System">
+                            <param id="0" name="First value">abs(Ship.Car.Speed)</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">Ship.Car.MaxSpeed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="120266803194783" type="Ship">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="139933519905353">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="373331837582516" type="Ship">
+                            <param id="0" name="Instance variable">Spd_Lv</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="580663068535607" type="System">
+                            <param id="0" name="First value">abs(Ship.Car.Speed)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">Ship.Car.MaxSpeed</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Car" id="7" name="Simulate control" sid="198061487573568" type="Ship">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
