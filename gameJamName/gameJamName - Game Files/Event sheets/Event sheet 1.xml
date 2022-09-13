@@ -20,7 +20,7 @@
                 <event-block sid="571404033520311">
                     <conditions>
                         <condition id="-12" name="Repeat" sid="752830373450399" type="System">
-                            <param id="0" name="Count">100</param>
+                            <param id="0" name="Count">10</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -34,6 +34,22 @@
                             <param id="0" name="Animation">&quot;Rock1_&quot;&amp;int(random(0, 7))</param>
                             <param id="1" name="From">1</param>
                         </action>
+                        <action id="-8" name="Set angle" sid="325312079576757" type="Rock1">
+                            <param id="0" name="Angle">round(random(0, 360))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="994669846510814">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="122045241251608" type="Rock1">
+                            <param id="0" name="Object">Rock1</param>
+                        </condition>
+                        <condition id="-17" name="Pick top/bottom" sid="726844192685661" type="Rock1">
+                            <param id="0" name="Which">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="123871849647458" type="Rock1" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -44,21 +60,8 @@
             </conditions>
             <actions>
                 <action id="0" name="Set text" sid="329464778333034" type="ShipSpeedTxt">
-                    <param id="0" name="Text">&quot;Speed: &quot;&amp;Ship.Spd_Lv&amp;newline&amp;&quot;Cur Speed = &quot;&amp;round(Ship.Car.Speed)</param>
+                    <param id="0" name="Text">&quot;Speed: &quot;&amp;Ship.Spd_Lv&amp;newline&amp;&quot;Fuel: &quot;&amp;Ship.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Ship.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Ship.Morale</param>
                 </action>
-            </actions>
-        </event-block>
-        <event-block sid="994669846510814">
-            <conditions>
-                <condition id="1" name="Is overlapping another object" sid="122045241251608" type="Rock1">
-                    <param id="0" name="Object">Rock1</param>
-                </condition>
-                <condition id="-17" name="Pick top/bottom" sid="726844192685661" type="Rock1">
-                    <param id="0" name="Which">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="123871849647458" type="Rock1" />
             </actions>
         </event-block>
         <event-group description="" sid="933094771850492" title="Ship Control on Water">
@@ -71,8 +74,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Car" id="7" name="Simulate control" sid="911356479913054" type="Ship">
-                            <param id="0" name="Control">0</param>
+                        <action id="-19" name="Rotate counter-clockwise" sid="140726375257024" type="Ship">
+                            <param id="0" name="Degrees">15*dt</param>
                         </action>
                     </actions>
                 </event-block>
@@ -83,8 +86,8 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Car" id="7" name="Simulate control" sid="743715139813936" type="Ship">
-                            <param id="0" name="Control">1</param>
+                        <action id="-18" name="Rotate clockwise" sid="543243322170733" type="Ship">
+                            <param id="0" name="Degrees">15*dt</param>
                         </action>
                     </actions>
                 </event-block>
@@ -257,5 +260,121 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="975290081536103" title="Ship Stats">
+            <sub-events>
+                <comment>Using Supplies</comment>
+                <event-block sid="857795870582963">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="629531001657044" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="223586489368294" type="Bar_Supplies">
+                            <param id="0" name="Width">Self.Width - 2*Ship.CrewAmnt*dt</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <comment>Using Fuel</comment>
+                        <event-block sid="479561572818478">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="707862093901385" type="Ship">
+                                    <param id="0" name="Instance variable">Spd_Lv</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="698603440441259" type="System">
+                                    <param id="0" name="First value">abs(Ship.Car.Speed)</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="506592911512021" type="Bar_Fuel">
+                                    <param id="0" name="Width">Self.Width - 5*abs(Ship.Car.Speed)*dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="249535699280354">
+                    <conditions>
+                        <condition id="-5" name="Compare width" sid="802304159510686" type="Bar_Fuel">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Width">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="654760914256976" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="804997127955545" type="Ship">
+                            <param id="0" name="Instance variable">Fuel</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="147441186827361" type="Bar_Fuel">
+                            <param id="0" name="Width">Bar_Bg.Width - 8</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="272159613428685">
+                    <conditions>
+                        <condition id="-5" name="Compare width" sid="803916060617308" type="Bar_Supplies">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="Width">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="821166310780001" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="348188313995035" type="Ship">
+                            <param id="0" name="Instance variable">Supplies</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="132516127583177" type="Bar_Supplies">
+                            <param id="0" name="Width">Bar_Bg.Width - 8</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment>Rocks Bounce Off Ship</comment>
+        <event-block sid="573576888746349">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="663504236629525" type="Rock1">
+                    <param id="0" name="Object">Ship</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="395665961537414" type="Ship">
+                    <param id="0" name="Instance variable">Spd_Lv</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="687539785874490" type="Rock1">
+                    <param id="0" name="Speed">abs(Ship.Car.Speed)</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="167750537213800" type="Rock1">
+                    <param id="0" name="Angle">-Ship.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="897883396487999">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="918087106976011" type="Rock1">
+                    <param id="0" name="Object">Ship</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="630726973575169" type="Ship">
+                    <param id="0" name="Instance variable">Spd_Lv</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">-1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="701378656202823" type="Rock1">
+                    <param id="0" name="Speed">abs(Ship.Car.Speed)</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="381065068585665" type="Rock1">
+                    <param id="0" name="Angle">Ship.Angle</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

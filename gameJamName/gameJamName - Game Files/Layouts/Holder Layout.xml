@@ -49,10 +49,10 @@
             <instances>
                 <instance type="Bar_Bg" uid="14">
                     <properties>
-                        <left-margin>8</left-margin>
-                        <right-margin>8</right-margin>
-                        <top-margin>8</top-margin>
-                        <bottom-margin>8</bottom-margin>
+                        <left-margin>5</left-margin>
+                        <right-margin>5</right-margin>
+                        <top-margin>5</top-margin>
+                        <bottom-margin>5</bottom-margin>
                         <edges>Tile</edges>
                         <fill>Tile</fill>
                         <initial-visibility>Visible</initial-visibility>
@@ -75,10 +75,10 @@
                 </instance>
                 <instance type="Bar_Bg" uid="15">
                     <properties>
-                        <left-margin>8</left-margin>
-                        <right-margin>8</right-margin>
-                        <top-margin>8</top-margin>
-                        <bottom-margin>8</bottom-margin>
+                        <left-margin>5</left-margin>
+                        <right-margin>5</right-margin>
+                        <top-margin>5</top-margin>
+                        <bottom-margin>5</bottom-margin>
                         <edges>Tile</edges>
                         <fill>Tile</fill>
                         <initial-visibility>Visible</initial-visibility>
@@ -101,10 +101,10 @@
                 </instance>
                 <instance type="Bar_Bg" uid="13">
                     <properties>
-                        <left-margin>8</left-margin>
-                        <right-margin>8</right-margin>
-                        <top-margin>8</top-margin>
-                        <bottom-margin>8</bottom-margin>
+                        <left-margin>5</left-margin>
+                        <right-margin>5</right-margin>
+                        <top-margin>5</top-margin>
+                        <bottom-margin>5</bottom-margin>
                         <edges>Tile</edges>
                         <fill>Tile</fill>
                         <initial-visibility>Visible</initial-visibility>
@@ -261,10 +261,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>64</x>
-                        <y>64</y>
+                        <y>16</y>
                         <z>0</z>
                         <width>384</width>
-                        <height>80</height>
+                        <height>128</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
