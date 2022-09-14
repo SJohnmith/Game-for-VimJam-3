@@ -11,6 +11,7 @@
     <saved-with-version>25500</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
@@ -21,10 +22,13 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Car" version="1">Car</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
-    <used-effects />
+    <used-effects>
+        <effect author="Scirra" id="multiply">Multiply</effect>
+    </used-effects>
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
     </configurations>
@@ -57,6 +61,9 @@
             </object-type>
             <object-type name="Mouse" sid="926561604980633">
                 <plugin id="Mouse" />
+            </object-type>
+            <object-type name="Function" sid="476431712314384">
+                <plugin id="Function" />
             </object-type>
         </object-folder>
         <object-folder name="UI Assets">
@@ -255,21 +262,124 @@
         <object-type name="ShipSpeedTxt" sid="996144861028833">
             <plugin id="Text" />
         </object-type>
+        <object-type name="InspectArea" sid="788384669294343">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="391670098549177" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Blcks" sid="286504557045999">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Created" sid="982232557183084" type="boolean" />
+                <instance-variable name="Type" sid="276470473220626" type="string" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Solid1" pingpong="0" repeatcount="0" repeatto="0" sid="302979809355674" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Solid2" pingpong="0" repeatcount="0" repeatto="0" sid="949047545918502" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Solid3" pingpong="0" repeatcount="0" repeatto="0" sid="730273282642864" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Ice1" pingpong="0" repeatcount="0" repeatto="0" sid="589560942143897" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Ice2" pingpong="0" repeatcount="0" repeatto="0" sid="606619102694393" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Ice3" pingpong="0" repeatcount="0" repeatto="0" sid="386607946819088" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Area1" pingpong="0" repeatcount="0" repeatto="0" sid="250820910496891" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Boat" sid="626302745366415">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="CrewAmnt" sid="296881566659143" type="number" />
+                <instance-variable name="Fuel" sid="368534370769536" type="number" />
+                <instance-variable name="Supplies" sid="184075917274823" type="number" />
+                <instance-variable name="Morale" sid="869116636563138" type="number" />
+                <instance-variable name="moving" sid="514981974614210" type="boolean" />
+                <instance-variable name="boatX" sid="642680183105788" type="number" />
+                <instance-variable name="boatY" sid="677040845324148" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="ScrollTo" sid="778266340563228">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="719111213758344" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.72" y="0.366667" />
+                            <point x="0.72" y="0.666667" />
+                            <point x="0.15" y="0.666667" />
+                            <point x="0.15" y="0.366667" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Exit" sid="271165098427703">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="491531865339515" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Light" sid="533673983611011">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="594330150596940">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="radius1" pingpong="0" repeatcount="0" repeatto="0" sid="927793451417401" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="radius2" pingpong="0" repeatcount="0" repeatto="0" sid="609257471137860" speed="0">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BoatRange" sid="505604075455825">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Pin" sid="392383028857215">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>
         <layout>Layout 2.xml</layout>
         <layout>Holder Layout.xml</layout>
+        <layout>Layout 3.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>
         <event-sheet>Holder Event.xml</event-sheet>
         <event-sheet>Event sheet 2.xml</event-sheet>
+        <event-sheet>Event sheet 3.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="0" />
         <global-instance type="Keyboard" uid="5" />
+        <global-instance type="Function" uid="25" />
     </global-instances>
     <sounds-folder />
     <music-folder />

@@ -17,11 +17,5 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="822878233107622">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="756716572033305" type="System" />
-            </conditions>
-            <actions />
-        </event-block>
     </events>
 </c2eventsheet>

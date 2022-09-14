@@ -376,5 +376,15 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="419963087103461">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="609947004302631" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">InspectArea</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
     </events>
 </c2eventsheet>
