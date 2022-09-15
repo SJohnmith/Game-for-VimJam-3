@@ -47,7 +47,59 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Bar_Bg" uid="14">
+                <instance type="ActnBg" uid="33">
+                    <properties>
+                        <left-margin>5</left-margin>
+                        <right-margin>5</right-margin>
+                        <top-margin>5</top-margin>
+                        <bottom-margin>5</bottom-margin>
+                        <edges>Tile</edges>
+                        <fill>Tile</fill>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>544</x>
+                        <y>96</y>
+                        <z>0</z>
+                        <width>864</width>
+                        <height>896</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="StatsBg" uid="32">
+                    <properties>
+                        <left-margin>16</left-margin>
+                        <right-margin>5</right-margin>
+                        <top-margin>5</top-margin>
+                        <bottom-margin>16</bottom-margin>
+                        <edges>Stretch</edges>
+                        <fill>Stretch</fill>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>8</x>
+                        <y>8</y>
+                        <z>0</z>
+                        <width>400</width>
+                        <height>308</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="BarBg" uid="14">
                     <properties>
                         <left-margin>5</left-margin>
                         <right-margin>5</right-margin>
@@ -62,8 +114,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>64</x>
-                        <y>208</y>
+                        <x>16</x>
+                        <y>228</y>
                         <z>0</z>
                         <width>384</width>
                         <height>32</height>
@@ -73,7 +125,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bar_Bg" uid="15">
+                <instance type="BarBg" uid="15">
                     <properties>
                         <left-margin>5</left-margin>
                         <right-margin>5</right-margin>
@@ -88,8 +140,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>64</x>
-                        <y>256</y>
+                        <x>16</x>
+                        <y>276</y>
                         <z>0</z>
                         <width>384</width>
                         <height>32</height>
@@ -99,7 +151,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bar_Bg" uid="13">
+                <instance type="BarBg" uid="13">
                     <properties>
                         <left-margin>5</left-margin>
                         <right-margin>5</right-margin>
@@ -114,8 +166,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>64</x>
-                        <y>160</y>
+                        <x>16</x>
+                        <y>180</y>
                         <z>0</z>
                         <width>384</width>
                         <height>32</height>
@@ -125,7 +177,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Button" uid="1">
+                <instance type="ActnBtn" uid="1">
                     <properties>
                         <type>Button</type>
                         <text>Inspect</text>
@@ -133,17 +185,17 @@
                         <initial-visibility>Visible</initial-visibility>
                         <enabled>Yes</enabled>
                         <auto-font-size>Yes</auto-font-size>
-                        <id-optional></id-optional>
+                        <id-optional>actnBtn</id-optional>
                         <checked>No</checked>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1728</x>
-                        <y>960</y>
+                        <x>640</x>
+                        <y>928</y>
                         <z>0</z>
-                        <width>72</width>
-                        <height>24</height>
+                        <width>96</width>
+                        <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -154,7 +206,7 @@
                         <text>Statistics Text</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-24,400,0</font>
-                        <color>0,0,0</color>
+                        <color>255,255,255</color>
                         <horizontal-alignment>Left</horizontal-alignment>
                         <vertical-alignment>Top</vertical-alignment>
                         <hotspot>Top-left</hotspot>
@@ -164,11 +216,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1024</x>
-                        <y>64</y>
+                        <x>1184</x>
+                        <y>0</y>
                         <z>0</z>
-                        <width>832</width>
-                        <height>448</height>
+                        <width>736</width>
+                        <height>288</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
@@ -176,7 +228,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bar_Fuel" uid="10">
+                <instance type="BarFuel" uid="10">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -187,8 +239,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>68</x>
-                        <y>164</y>
+                        <x>20</x>
+                        <y>184</y>
                         <z>0</z>
                         <width>64</width>
                         <height>24</height>
@@ -199,7 +251,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bar_Supplies" uid="11">
+                <instance type="BarSupplies" uid="11">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -210,8 +262,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>68</x>
-                        <y>212</y>
+                        <x>20</x>
+                        <y>232</y>
                         <z>0</z>
                         <width>64</width>
                         <height>24</height>
@@ -222,7 +274,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bar_Morale" uid="12">
+                <instance type="BarMorale" uid="12">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -233,8 +285,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>68</x>
-                        <y>260</y>
+                        <x>20</x>
+                        <y>280</y>
                         <z>0</z>
                         <width>64</width>
                         <height>24</height>
@@ -245,7 +297,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ShipSpeedTxt" uid="16">
+                <instance type="StatsTxt" uid="16">
                     <properties>
                         <text>Speed: 0</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -260,7 +312,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>64</x>
+                        <x>16</x>
                         <y>16</y>
                         <z>0</z>
                         <width>384</width>
@@ -270,6 +322,81 @@
                         <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="debug" uid="31">
+                    <properties>
+                        <text>Debug</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <font>Arial,-26.6667,400,0</font>
+                        <color>255,0,255</color>
+                        <horizontal-alignment>Left</horizontal-alignment>
+                        <vertical-alignment>Top</vertical-alignment>
+                        <hotspot>Top-left</hotspot>
+                        <wrapping>Word</wrapping>
+                        <line-height>0</line-height>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1536</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>384</width>
+                        <height>192</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="ActnBtn" uid="34">
+                    <properties>
+                        <type>Button</type>
+                        <text>Mine</text>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <auto-font-size>Yes</auto-font-size>
+                        <id-optional>actnBtn</id-optional>
+                        <checked>No</checked>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>960</x>
+                        <y>928</y>
+                        <z>0</z>
+                        <width>96</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                    </world>
+                </instance>
+                <instance type="ActnBtn" uid="35">
+                    <properties>
+                        <type>Button</type>
+                        <text>Leave</text>
+                        <tooltip></tooltip>
+                        <initial-visibility>Visible</initial-visibility>
+                        <enabled>Yes</enabled>
+                        <auto-font-size>Yes</auto-font-size>
+                        <id-optional>actnBtn</id-optional>
+                        <checked>No</checked>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>1216</x>
+                        <y>928</y>
+                        <z>0</z>
+                        <width>96</width>
+                        <height>32</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                     </world>
                 </instance>
             </instances>

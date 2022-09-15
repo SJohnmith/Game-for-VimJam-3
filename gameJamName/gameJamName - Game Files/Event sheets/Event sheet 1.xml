@@ -59,7 +59,7 @@
                 <condition id="-1" name="Every tick" sid="808223329659458" type="System" />
             </conditions>
             <actions>
-                <action id="0" name="Set text" sid="329464778333034" type="ShipSpeedTxt">
+                <action id="0" name="Set text" sid="329464778333034" type="StatsTxt">
                     <param id="0" name="Text">&quot;Speed: &quot;&amp;Ship.Spd_Lv&amp;newline&amp;&quot;Fuel: &quot;&amp;Ship.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Ship.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Ship.Morale</param>
                 </action>
             </actions>
@@ -270,7 +270,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-5" name="Set width" sid="223586489368294" type="Bar_Supplies">
+                        <action id="-5" name="Set width" sid="223586489368294" type="BarSupplies">
                             <param id="0" name="Width">Self.Width - 2*Ship.CrewAmnt*dt</param>
                         </action>
                     </actions>
@@ -290,7 +290,7 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-5" name="Set width" sid="506592911512021" type="Bar_Fuel">
+                                <action id="-5" name="Set width" sid="506592911512021" type="BarFuel">
                                     <param id="0" name="Width">Self.Width - 5*abs(Ship.Car.Speed)*dt</param>
                                 </action>
                             </actions>
@@ -299,7 +299,7 @@
                 </event-block>
                 <event-block sid="249535699280354">
                     <conditions>
-                        <condition id="-5" name="Compare width" sid="802304159510686" type="Bar_Fuel">
+                        <condition id="-5" name="Compare width" sid="802304159510686" type="BarFuel">
                             <param id="0" name="Comparison">3</param>
                             <param id="1" name="Width">0</param>
                         </condition>
@@ -310,14 +310,14 @@
                             <param id="0" name="Instance variable">Fuel</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-5" name="Set width" sid="147441186827361" type="Bar_Fuel">
-                            <param id="0" name="Width">Bar_Bg.Width - 8</param>
+                        <action id="-5" name="Set width" sid="147441186827361" type="BarFuel">
+                            <param id="0" name="Width">BarBg.Width - 8</param>
                         </action>
                     </actions>
                 </event-block>
                 <event-block sid="272159613428685">
                     <conditions>
-                        <condition id="-5" name="Compare width" sid="803916060617308" type="Bar_Supplies">
+                        <condition id="-5" name="Compare width" sid="803916060617308" type="BarSupplies">
                             <param id="0" name="Comparison">3</param>
                             <param id="1" name="Width">0</param>
                         </condition>
@@ -328,8 +328,8 @@
                             <param id="0" name="Instance variable">Supplies</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="-5" name="Set width" sid="132516127583177" type="Bar_Supplies">
-                            <param id="0" name="Width">Bar_Bg.Width - 8</param>
+                        <action id="-5" name="Set width" sid="132516127583177" type="BarSupplies">
+                            <param id="0" name="Width">BarBg.Width - 8</param>
                         </action>
                     </actions>
                 </event-block>

@@ -11,11 +11,84 @@
                 <action id="0" name="Set text" sid="417515075717174" type="Stats">
                     <param id="0" name="Text">&quot;Str: x&quot;&amp;newline&amp;&quot;Int: y&quot;</param>
                 </action>
-                <action id="-10" name="Set value" sid="776780886919147" type="Bar_Morale">
+                <action id="-10" name="Set value" sid="776780886919147" type="BarMorale">
                     <param id="0" name="Instance variable">const</param>
                     <param id="1" name="Value">Ship.Morale</param>
                 </action>
+                <action id="-30" name="Set from JSON" sid="754320065809426" type="ActnBtn">
+                    <param id="0" name="JSON">&quot;&quot;</param>
+                </action>
+                <action id="-16" name="Wait" sid="912914211450050" type="System">
+                    <param id="0" name="Seconds">0.1</param>
+                </action>
+                <action id="5" name="Set web font" sid="205743411329420" type="debug">
+                    <param id="0" name="Family name">&quot;actnBtn&quot;</param>
+                    <param id="1" name="CSS URL">&quot;btnStyle.css&quot;</param>
+                </action>
             </actions>
+        </event-block>
+        <event-block sid="276528437053759">
+            <conditions>
+                <condition id="0" name="On clicked" sid="670492010937731" type="ActnBtn" />
+            </conditions>
+            <actions>
+                <action id="8" name="Set unfocused" sid="305933904501627" type="ActnBtn" />
+            </actions>
+            <sub-events>
+                <event-block sid="249764273469868">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="287694409360967" type="System">
+                            <param id="0" name="First value">RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Inspect&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="825659772508573" type="debug">
+                            <param id="0" name="Text">&quot;Want to Inspect&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="237268199694870">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="684972967956418" type="System">
+                            <param id="0" name="First value">RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Mine&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="598054693650966" type="debug">
+                            <param id="0" name="Text">&quot;Mine or more like search&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="185526440403815">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="932712495508279" type="System">
+                            <param id="0" name="First value">RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Leave&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="173767336146170" type="debug">
+                            <param id="0" name="Text">&quot;You Clicked Leave&quot;</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="770763989903813" type="ActnBg">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="123273296147793">
+            <conditions>
+                <condition id="0" name="On function" sid="692087530753126" type="Function">
+                    <param id="0" name="Name">&quot;Inspect&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
         </event-block>
     </events>
 </c2eventsheet>

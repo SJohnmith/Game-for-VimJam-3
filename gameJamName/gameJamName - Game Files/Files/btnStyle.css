@@ -1,0 +1,17 @@
+#actnBtn {
+  font-family: arial;
+  color: #000000 !important;
+  font-size: 14px;
+  text-shadow: 1px 1px 0px #91C6FC;
+  box-shadow: 1px 1px 1px #677B87;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 2px solid #3866A3;
+  background: #EE9B1F;
+  background: linear-gradient(to top, #EE9B1F, #F09C20);
+}
+#actnBtn:hover {
+  color: #14396A !important;
+  background: #468CCF;
+  background: linear-gradient(to top, #468CCF, #63B8EE);
+}

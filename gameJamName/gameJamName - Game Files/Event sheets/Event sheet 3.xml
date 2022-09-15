@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 3</name>
     <events>
+        <include>Holder Event</include>
         <variable constant="0" name="CellSize" sid="985990847521313" static="0" type="number">64</variable>
         <variable constant="0" name="Height" sid="933342187522514" static="0" type="number">15</variable>
         <variable constant="0" name="Width" sid="829878210591293" static="0" type="number">28</variable>
@@ -12,10 +13,10 @@
                 <condition id="-2" name="On start of layout" sid="823477195613591" type="System" />
             </conditions>
             <actions>
-                <action disabled="1" id="-20" name="Set layout scale" sid="930700381327314" type="System">
+                <action id="-20" name="Set layout scale" sid="930700381327314" type="System">
                     <param id="0" name="Scale">2</param>
                 </action>
-                <action disabled="1" id="-17" name="Set layer scale" sid="559040232057501" type="System">
+                <action id="-17" name="Set layer scale" sid="559040232057501" type="System">
                     <param id="0" name="Layer">&quot;UI&quot;</param>
                     <param id="1" name="Scale">0.5</param>
                 </action>
@@ -23,8 +24,8 @@
                     <param id="0" name="Name">&quot;Maze&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action behavior="ScrollTo" id="1" name="Set enabled" sid="597349737494374" type="Boat">
-                    <param id="0" name="State">0</param>
+                <action id="0" name="Set text" sid="912306749945249" type="StatsTxt">
+                    <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
                 </action>
             </actions>
         </event-block>
@@ -41,491 +42,665 @@
                 </action>
             </actions>
         </event-block>
-        <comment>Create the Maze</comment>
-        <event-block sid="695137171183602">
-            <conditions>
-                <condition id="0" name="On function" sid="286740119240898" type="Function">
-                    <param id="0" name="Name">&quot;Maze&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="347852410003891" type="Blcks" />
-                <action id="-9" name="Destroy" sid="397211394532262" type="Exit" />
-                <action id="-9" name="Destroy" sid="994681351936772" type="Boat" />
-                <action id="-9" name="Destroy" sid="281114234428544" type="Light" />
-                <action id="-9" name="Destroy" sid="518274062846474" type="BoatRange" />
-                <action id="-3" name="Create object" sid="356432074186830" type="System">
-                    <param id="0" name="Object to create">Boat</param>
-                    <param id="1" name="Layer">&quot;Main&quot;</param>
-                    <param id="2" name="X">round(random(2, Width))*CellSize</param>
-                    <param id="3" name="Y">round(random(2, Height))*CellSize</param>
-                </action>
-                <action id="-10" name="Set value" sid="508742473793147" type="Boat">
-                    <param id="0" name="Instance variable">boatX</param>
-                    <param id="1" name="Value">Self.X</param>
-                </action>
-                <action id="-10" name="Set value" sid="444903915390798" type="Boat">
-                    <param id="0" name="Instance variable">boatY</param>
-                    <param id="1" name="Value">Self.Y</param>
-                </action>
-                <action id="-3" name="Create object" sid="537146962852988" type="System">
-                    <param id="0" name="Object to create">Light</param>
-                    <param id="1" name="Layer">&quot;Fog&quot;</param>
-                    <param id="2" name="X">Boat.boatX</param>
-                    <param id="3" name="Y">Boat.boatY</param>
-                </action>
-                <action id="-3" name="Create object" sid="889160576144925" type="System">
-                    <param id="0" name="Object to create">BoatRange</param>
-                    <param id="1" name="Layer">&quot;Main&quot;</param>
-                    <param id="2" name="X">Boat.boatX</param>
-                    <param id="3" name="Y">Boat.boatY</param>
-                </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="851961859029857" type="Light">
-                    <param id="0" name="Pin to">Boat</param>
-                    <param id="1" name="Mode">0</param>
-                </action>
-                <action behavior="Pin" id="0" name="Pin to object" sid="699545099322307" type="BoatRange">
-                    <param id="0" name="Pin to">Boat</param>
-                    <param id="1" name="Mode">0</param>
-                </action>
-                <action id="-25" name="Move to bottom" sid="398723742351575" type="BoatRange" />
-            </actions>
+        <event-group description="" sid="875997347740356" title="Maze Generator">
             <sub-events>
-                <event-block sid="119989704640982">
+                <comment>Create the Maze</comment>
+                <event-block sid="695137171183602">
                     <conditions>
-                        <condition id="-10" name="For" sid="482216308475733" type="System">
-                            <param id="0" name="Name">&quot;x&quot;</param>
-                            <param id="1" name="Start index">1</param>
-                            <param id="2" name="End index">Width</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="246193308378510" type="System">
-                            <param id="0" name="First value">loopindex</param>
-                            <param id="1" name="Comparison">1</param>
-                            <param id="2" name="Second value">1</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="598886120350924" type="System">
-                            <param id="0" name="First value">loopindex</param>
-                            <param id="1" name="Comparison">1</param>
-                            <param id="2" name="Second value">Width</param>
+                        <condition id="0" name="On function" sid="286740119240898" type="Function">
+                            <param id="0" name="Name">&quot;Maze&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Create object" sid="209453435039225" type="System">
-                            <param id="0" name="Object to create">Blcks</param>
-                            <param id="1" name="Layer">Blcks.LayerName</param>
-                            <param id="2" name="X">loopindex*CellSize</param>
-                            <param id="3" name="Y">CellSize</param>
+                        <action id="-9" name="Destroy" sid="347852410003891" type="Blcks" />
+                        <action id="-9" name="Destroy" sid="397211394532262" type="Exit" />
+                        <action id="-9" name="Destroy" sid="994681351936772" type="Boat" />
+                        <action id="-9" name="Destroy" sid="281114234428544" type="Light" />
+                        <action id="-9" name="Destroy" sid="518274062846474" type="BoatRange" />
+                        <action disabled="1" id="-3" name="Create object" sid="356432074186830" type="System">
+                            <param id="0" name="Object to create">Boat</param>
+                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                            <param id="2" name="X">round(random(2, Width))*CellSize</param>
+                            <param id="3" name="Y">round(random(2, Height))*CellSize</param>
                         </action>
-                        <action id="-3" name="Create object" sid="136394823952950" type="System">
-                            <param id="0" name="Object to create">Blcks</param>
-                            <param id="1" name="Layer">Blcks.LayerName</param>
-                            <param id="2" name="X">loopindex*CellSize</param>
-                            <param id="3" name="Y">CellSize*Height</param>
+                        <action id="-3" name="Create object" sid="247163442562557" type="System">
+                            <param id="0" name="Object to create">Boat</param>
+                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                            <param id="2" name="X">round(random(Width/2 - 1, Width/2 + 1))*CellSize</param>
+                            <param id="3" name="Y">round(random(Height/2 - 1, Height/2 + 1))*CellSize</param>
                         </action>
-                        <action id="-13" name="Set boolean" sid="562741366425097" type="Blcks">
-                            <param id="0" name="Instance variable">Created</param>
-                            <param id="1" name="Value">1</param>
+                        <action id="-10" name="Set value" sid="508742473793147" type="Boat">
+                            <param id="0" name="Instance variable">boatX</param>
+                            <param id="1" name="Value">Self.X</param>
                         </action>
-                        <action id="4" name="Set animation" sid="202982468579217" type="Blcks">
-                            <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
-                            <param id="1" name="From">1</param>
+                        <action id="-10" name="Set value" sid="444903915390798" type="Boat">
+                            <param id="0" name="Instance variable">boatY</param>
+                            <param id="1" name="Value">Self.Y</param>
                         </action>
+                        <action id="-3" name="Create object" sid="537146962852988" type="System">
+                            <param id="0" name="Object to create">Light</param>
+                            <param id="1" name="Layer">&quot;Fog&quot;</param>
+                            <param id="2" name="X">Boat.boatX</param>
+                            <param id="3" name="Y">Boat.boatY</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="889160576144925" type="System">
+                            <param id="0" name="Object to create">BoatRange</param>
+                            <param id="1" name="Layer">&quot;Main&quot;</param>
+                            <param id="2" name="X">Boat.boatX</param>
+                            <param id="3" name="Y">Boat.boatY</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="851961859029857" type="Light">
+                            <param id="0" name="Pin to">Boat</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="699545099322307" type="BoatRange">
+                            <param id="0" name="Pin to">Boat</param>
+                            <param id="1" name="Mode">0</param>
+                        </action>
+                        <action id="-25" name="Move to bottom" sid="398723742351575" type="BoatRange" />
                     </actions>
-                </event-block>
-                <event-block sid="331220346825674">
-                    <conditions>
-                        <condition id="-10" name="For" sid="570398345897668" type="System">
-                            <param id="0" name="Name">&quot;y&quot;</param>
-                            <param id="1" name="Start index">2</param>
-                            <param id="2" name="End index">Height-1</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-3" name="Create object" sid="382911598339721" type="System">
-                            <param id="0" name="Object to create">Blcks</param>
-                            <param id="1" name="Layer">Blcks.LayerName</param>
-                            <param id="2" name="X">CellSize</param>
-                            <param id="3" name="Y">loopindex*CellSize</param>
-                        </action>
-                        <action id="-3" name="Create object" sid="590355318170392" type="System">
-                            <param id="0" name="Object to create">Blcks</param>
-                            <param id="1" name="Layer">Blcks.LayerName</param>
-                            <param id="2" name="X">CellSize*Width</param>
-                            <param id="3" name="Y">loopindex*CellSize</param>
-                        </action>
-                        <action id="-13" name="Set boolean" sid="456842896851826" type="Blcks">
-                            <param id="0" name="Instance variable">Created</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="160172835473581" type="Blcks">
-                            <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="662506014726563">
-                    <conditions>
-                        <condition id="-10" name="For" sid="833315737989397" type="System">
-                            <param id="0" name="Name">&quot;x&quot;</param>
-                            <param id="1" name="Start index">3</param>
-                            <param id="2" name="End index">Width - 1</param>
-                        </condition>
-                    </conditions>
-                    <actions />
                     <sub-events>
-                        <variable constant="0" name="r" sid="645234338225519" static="0" type="number">0</variable>
-                        <event-block sid="553436606933267">
+                        <comment>Border X</comment>
+                        <event-block sid="119989704640982">
                             <conditions>
-                                <condition id="-10" name="For" sid="286434645580663" type="System">
+                                <condition id="-10" name="For" sid="482216308475733" type="System">
+                                    <param id="0" name="Name">&quot;x&quot;</param>
+                                    <param id="1" name="Start index">1</param>
+                                    <param id="2" name="End index">Width</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="246193308378510" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="598886120350924" type="System">
+                                    <param id="0" name="First value">loopindex</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">Width</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="209453435039225" type="System">
+                                    <param id="0" name="Object to create">Blcks</param>
+                                    <param id="1" name="Layer">Blcks.LayerName</param>
+                                    <param id="2" name="X">loopindex*CellSize</param>
+                                    <param id="3" name="Y">CellSize</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="563992945143810" type="Blcks">
+                                    <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="638433209785790" type="Blcks">
+                                    <param id="0" name="Instance variable">Created</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="136394823952950" type="System">
+                                    <param id="0" name="Object to create">Blcks</param>
+                                    <param id="1" name="Layer">Blcks.LayerName</param>
+                                    <param id="2" name="X">loopindex*CellSize</param>
+                                    <param id="3" name="Y">CellSize*Height</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="202982468579217" type="Blcks">
+                                    <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="562741366425097" type="Blcks">
+                                    <param id="0" name="Instance variable">Created</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Border Y</comment>
+                        <event-block sid="331220346825674">
+                            <conditions>
+                                <condition id="-10" name="For" sid="570398345897668" type="System">
                                     <param id="0" name="Name">&quot;y&quot;</param>
+                                    <param id="1" name="Start index">2</param>
+                                    <param id="2" name="End index">Height-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="382911598339721" type="System">
+                                    <param id="0" name="Object to create">Blcks</param>
+                                    <param id="1" name="Layer">Blcks.LayerName</param>
+                                    <param id="2" name="X">CellSize</param>
+                                    <param id="3" name="Y">loopindex*CellSize</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="661993562995279" type="Blcks">
+                                    <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="178392667641356" type="Blcks">
+                                    <param id="0" name="Instance variable">Created</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-3" name="Create object" sid="590355318170392" type="System">
+                                    <param id="0" name="Object to create">Blcks</param>
+                                    <param id="1" name="Layer">Blcks.LayerName</param>
+                                    <param id="2" name="X">CellSize*Width</param>
+                                    <param id="3" name="Y">loopindex*CellSize</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="160172835473581" type="Blcks">
+                                    <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="456842896851826" type="Blcks">
+                                    <param id="0" name="Instance variable">Created</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Random X and Y</comment>
+                        <event-block sid="662506014726563">
+                            <conditions>
+                                <condition id="-10" name="For" sid="833315737989397" type="System">
+                                    <param id="0" name="Name">&quot;x&quot;</param>
                                     <param id="1" name="Start index">3</param>
-                                    <param id="2" name="End index">Height - 1</param>
+                                    <param id="2" name="End index">Width - 1</param>
                                 </condition>
                             </conditions>
                             <actions />
                             <sub-events>
-                                <event-block sid="624456864885163">
+                                <variable constant="0" name="r" sid="645234338225519" static="0" type="number">0</variable>
+                                <event-block sid="553436606933267">
                                     <conditions>
-                                        <condition id="-8" name="Compare two values" sid="967037065166104" type="System">
-                                            <param id="0" name="First value">loopindex(&quot;x&quot;)%2</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">1</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="203511342268401" type="System">
-                                            <param id="0" name="First value">loopindex(&quot;y&quot;)%2</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Second value">1</param>
-                                        </condition>
-                                        <condition id="-8" name="Compare two values" sid="527748938715172" type="System">
-                                            <param id="0" name="First value">random(10)</param>
-                                            <param id="1" name="Comparison">4</param>
-                                            <param id="2" name="Second value">Gap</param>
+                                        <condition id="-10" name="For" sid="286434645580663" type="System">
+                                            <param id="0" name="Name">&quot;y&quot;</param>
+                                            <param id="1" name="Start index">3</param>
+                                            <param id="2" name="End index">Height - 1</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action id="-3" name="Create object" sid="164283204262617" type="System">
-                                            <param id="0" name="Object to create">Blcks</param>
-                                            <param id="1" name="Layer">Blcks.LayerName</param>
-                                            <param id="2" name="X">loopindex(&quot;x&quot;)*CellSize</param>
-                                            <param id="3" name="Y">loopindex(&quot;y&quot;)*CellSize</param>
-                                        </action>
-                                        <action id="-9" name="Set value" sid="560756571467277" type="System">
-                                            <param id="0" name="Variable">r</param>
-                                            <param id="1" name="Value">round(random(0, 4))</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="100425419347710" type="System">
-                                            <param id="0" name="Object to create">Blcks</param>
-                                            <param id="1" name="Layer">Blcks.LayerName</param>
-                                            <param id="2" name="X">(loopindex(&quot;x&quot;)*CellSize) + ((CellSize*(r=0)) - (CellSize*(r=2)))</param>
-                                            <param id="3" name="Y">(loopindex(&quot;y&quot;)*CellSize) + ((CellSize*(r=1)) - (CellSize*(r=3)))</param>
-                                        </action>
-                                        <action id="4" name="Set animation" sid="670198235350243" type="Blcks">
-                                            <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;, &quot;Ice1&quot;, &quot;Ice2&quot;, &quot;Ice3&quot;, &quot;Area1&quot;)</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="827505354069789" type="Blcks">
-                                            <param id="0" name="Instance variable">Type</param>
-                                            <param id="1" name="Value">Self.AnimationName</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="624456864885163">
+                                            <conditions>
+                                                <condition id="-8" name="Compare two values" sid="967037065166104" type="System">
+                                                    <param id="0" name="First value">loopindex(&quot;x&quot;)%2</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">1</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="203511342268401" type="System">
+                                                    <param id="0" name="First value">loopindex(&quot;y&quot;)%2</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Second value">1</param>
+                                                </condition>
+                                                <condition id="-8" name="Compare two values" sid="527748938715172" type="System">
+                                                    <param id="0" name="First value">random(10)</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Second value">Gap</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-3" name="Create object" sid="164283204262617" type="System">
+                                                    <param id="0" name="Object to create">Blcks</param>
+                                                    <param id="1" name="Layer">Blcks.LayerName</param>
+                                                    <param id="2" name="X">loopindex(&quot;x&quot;)*CellSize</param>
+                                                    <param id="3" name="Y">loopindex(&quot;y&quot;)*CellSize</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="699113277819381" type="Blcks">
+                                                    <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;, &quot;Ice1&quot;, &quot;Ice2&quot;, &quot;Ice3&quot;, &quot;Area1&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="360369158097418" type="Blcks">
+                                                    <param id="0" name="Instance variable">Type</param>
+                                                    <param id="1" name="Value">Blcks.AnimationName</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="560756571467277" type="System">
+                                                    <param id="0" name="Variable">r</param>
+                                                    <param id="1" name="Value">round(random(0, 4))</param>
+                                                </action>
+                                                <action id="-3" name="Create object" sid="100425419347710" type="System">
+                                                    <param id="0" name="Object to create">Blcks</param>
+                                                    <param id="1" name="Layer">Blcks.LayerName</param>
+                                                    <param id="2" name="X">(loopindex(&quot;x&quot;)*CellSize) + ((CellSize*(r=0)) - (CellSize*(r=2)))</param>
+                                                    <param id="3" name="Y">(loopindex(&quot;y&quot;)*CellSize) + ((CellSize*(r=1)) - (CellSize*(r=3)))</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="670198235350243" type="Blcks">
+                                                    <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;, &quot;Ice1&quot;, &quot;Ice2&quot;, &quot;Ice3&quot;, &quot;Area1&quot;)</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="972033047287713" type="Blcks">
+                                                    <param id="0" name="Instance variable">Type</param>
+                                                    <param id="1" name="Value">Blcks.AnimationName</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>
+                        <comment>Make Space for Boat</comment>
+                        <event-block sid="319804005311141">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="171948109950145" type="Boat">
+                                    <param id="0" name="Object">Blcks</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="473172871957208" type="Blcks" />
+                            </actions>
+                        </event-block>
+                        <comment>Remove if any Overlapping Blocks</comment>
+                        <event-block sid="492107060634132">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="406597943138855" type="Blcks">
+                                    <param id="0" name="Object">Blcks</param>
+                                </condition>
+                                <condition id="-17" name="Pick top/bottom" sid="736464339093040" type="Blcks">
+                                    <param id="0" name="Which">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="330057101981349" type="Blcks" />
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
-                <event-block sid="319804005311141">
+                <comment>Create an Exit in the Maze</comment>
+                <event-block sid="463587340452121">
                     <conditions>
-                        <condition id="1" name="Is overlapping another object" sid="171948109950145" type="Boat">
-                            <param id="0" name="Object">Blcks</param>
+                        <condition id="-8" name="Is boolean instance variable set" sid="497663163741213" type="Blcks">
+                            <param id="0" name="Instance variable">Created</param>
                         </condition>
+                        <condition id="-4" name="Trigger once while true" sid="467240230782684" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="473172871957208" type="Blcks" />
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
-        <event-block sid="492107060634132">
-            <conditions>
-                <condition id="1" name="Is overlapping another object" sid="406597943138855" type="Blcks">
-                    <param id="0" name="Object">Blcks</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="330057101981349" type="Blcks" />
-            </actions>
-        </event-block>
-        <comment>Create an Exit in the Maze</comment>
-        <event-block sid="463587340452121">
-            <conditions>
-                <condition id="-8" name="Is boolean instance variable set" sid="497663163741213" type="Blcks">
-                    <param id="0" name="Instance variable">Created</param>
-                </condition>
-                <condition id="-4" name="Trigger once while true" sid="467240230782684" type="System" />
-            </conditions>
-            <actions>
-                <action id="-13" name="Set boolean" sid="182806150076184" type="Blcks">
-                    <param id="0" name="Instance variable">Created</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-            </actions>
-            <sub-events>
-                <event-block sid="816075135798185">
-                    <conditions>
-                        <condition id="-16" name="Pick random instance" sid="523568531485727" type="System">
-                            <param id="0" name="Object">Blcks</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Spawn another object" sid="199186200281268" type="Blcks">
-                            <param id="0" name="Object">Exit</param>
-                            <param id="1" name="Layer">Blcks.LayerName</param>
-                            <param id="2" name="Image point">0</param>
+                        <action id="-13" name="Set boolean" sid="182806150076184" type="Blcks">
+                            <param id="0" name="Instance variable">Created</param>
+                            <param id="1" name="Value">0</param>
                         </action>
-                        <action id="-9" name="Destroy" sid="275325755595322" type="Blcks" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="816075135798185">
+                            <conditions>
+                                <condition id="-16" name="Pick random instance" sid="523568531485727" type="System">
+                                    <param id="0" name="Object">Blcks</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="199186200281268" type="Blcks">
+                                    <param id="0" name="Object">Exit</param>
+                                    <param id="1" name="Layer">Blcks.LayerName</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="275325755595322" type="Blcks" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="580067712416305">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="983728050691868" type="Exit">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="X co-ordinate">Width*CellSize</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="467131009086789" type="Blcks">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="X co-ordinate">Exit.X - CellSize</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="199562489419619" type="Blcks">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">Exit.Y</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="965222767177526" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="234484243569132" type="Blcks" />
+                    </actions>
+                </event-block>
+                <event-block sid="552958688726236">
+                    <conditions>
+                        <condition id="-2" name="Compare Y" sid="366264638676715" type="Exit">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">Height*CellSize</param>
+                        </condition>
+                        <condition id="-1" name="Compare X" sid="461782266505153" type="Blcks">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="X co-ordinate">Exit.X</param>
+                        </condition>
+                        <condition id="-2" name="Compare Y" sid="179532909581255" type="Blcks">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Y co-ordinate">Exit.Y - CellSize</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="955656695363681" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="563082418137336" type="Blcks" />
+                    </actions>
+                </event-block>
+                <event-block sid="360936875464068">
+                    <conditions>
+                        <condition id="-11" name="For Each" sid="658134186801728" type="System">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="100827528644232" type="Blcks">
+                            <param id="0" name="Animation">Blcks.Type</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="580067712416305">
-            <conditions>
-                <condition id="-1" name="Compare X" sid="983728050691868" type="Exit">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="X co-ordinate">Width*CellSize</param>
-                </condition>
-                <condition id="-1" name="Compare X" sid="467131009086789" type="Blcks">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="X co-ordinate">Exit.X - CellSize</param>
-                </condition>
-                <condition id="-2" name="Compare Y" sid="199562489419619" type="Blcks">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">Exit.Y</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="234484243569132" type="Blcks" />
-            </actions>
-        </event-block>
-        <event-block sid="552958688726236">
-            <conditions>
-                <condition id="-2" name="Compare Y" sid="366264638676715" type="Exit">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">Height*CellSize</param>
-                </condition>
-                <condition id="-1" name="Compare X" sid="461782266505153" type="Blcks">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="X co-ordinate">Exit.X</param>
-                </condition>
-                <condition id="-2" name="Compare Y" sid="179532909581255" type="Blcks">
-                    <param id="0" name="Comparison">0</param>
-                    <param id="1" name="Y co-ordinate">Exit.Y - CellSize</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="563082418137336" type="Blcks" />
-            </actions>
-        </event-block>
-        <comment>Grid Based Movement</comment>
-        <event-block any="1" sid="276002521526603">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="835159991061787" type="Keyboard">
-                    <param id="0" name="Key">87</param>
-                </condition>
-                <condition id="0" name="On key pressed" sid="800738331304150" type="Keyboard">
-                    <param id="0" name="Key">38</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-8" name="Set angle" sid="606297210022267" type="Boat">
-                    <param id="0" name="Angle">-90</param>
-                </action>
-                <action id="-17" name="Move forward" sid="458294871595972" type="Boat">
-                    <param id="0" name="Distance">64</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="830234113792726" type="Boat">
-                    <param id="0" name="Instance variable">moving</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block any="1" sid="847352475393933">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="325213120921968" type="Keyboard">
-                    <param id="0" name="Key">65</param>
-                </condition>
-                <condition id="0" name="On key pressed" sid="858775072589291" type="Keyboard">
-                    <param id="0" name="Key">37</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-8" name="Set angle" sid="878319888920935" type="Boat">
-                    <param id="0" name="Angle">180</param>
-                </action>
-                <action id="-17" name="Move forward" sid="849347233264288" type="Boat">
-                    <param id="0" name="Distance">64</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="121652423067905" type="Boat">
-                    <param id="0" name="Instance variable">moving</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block any="1" sid="983123255377070">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="856745727733742" type="Keyboard">
-                    <param id="0" name="Key">83</param>
-                </condition>
-                <condition id="0" name="On key pressed" sid="486491539200596" type="Keyboard">
-                    <param id="0" name="Key">40</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-8" name="Set angle" sid="527068878786760" type="Boat">
-                    <param id="0" name="Angle">90</param>
-                </action>
-                <action id="-17" name="Move forward" sid="664612918582138" type="Boat">
-                    <param id="0" name="Distance">64</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="670572659638307" type="Boat">
-                    <param id="0" name="Instance variable">moving</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block any="1" sid="697001765250409">
-            <conditions>
-                <condition id="0" name="On key pressed" sid="530391745883900" type="Keyboard">
-                    <param id="0" name="Key">68</param>
-                </condition>
-                <condition id="0" name="On key pressed" sid="819693775385646" type="Keyboard">
-                    <param id="0" name="Key">39</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-8" name="Set angle" sid="154374849725908" type="Boat">
-                    <param id="0" name="Angle">0</param>
-                </action>
-                <action id="-17" name="Move forward" sid="960187582069461" type="Boat">
-                    <param id="0" name="Distance">64</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="681390788978630" type="Boat">
-                    <param id="0" name="Instance variable">moving</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <comment>Fuel, Supply, and Crew Use</comment>
-        <event-block sid="497582421315419">
-            <conditions>
-                <condition id="0" name="On function" sid="860554418865078" type="Function">
-                    <param id="0" name="Name">&quot;Moved&quot;</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Set text" sid="615180867636652" type="ShipSpeedTxt">
-                    <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
-                </action>
-                <action id="-12" name="Subtract from" sid="165723652328489" type="Boat">
-                    <param id="0" name="Instance variable">Fuel</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-                <action id="-12" name="Subtract from" sid="994040927084268" type="Boat">
-                    <param id="0" name="Instance variable">Supplies</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <comment>Boat Move</comment>
-        <event-block sid="754800757780248">
-            <conditions>
-                <condition id="1" inverted="1" name="Is overlapping another object" sid="120828103957375" type="Boat">
-                    <param id="0" name="Object">Blcks</param>
-                </condition>
-                <condition id="-8" name="Is boolean instance variable set" sid="994153812412999" type="Boat">
-                    <param id="0" name="Instance variable">moving</param>
-                </condition>
-                <condition id="-4" name="Trigger once while true" sid="917769321363516" type="System" />
-            </conditions>
-            <actions>
-                <action id="-10" name="Set value" sid="889941116439952" type="Boat">
-                    <param id="0" name="Instance variable">boatX</param>
-                    <param id="1" name="Value">Self.X</param>
-                </action>
-                <action id="-10" name="Set value" sid="578608496575316" type="Boat">
-                    <param id="0" name="Instance variable">boatY</param>
-                    <param id="1" name="Value">Self.y</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="632184519527037" type="Boat">
-                    <param id="0" name="Instance variable">moving</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="0" name="Call function" sid="767154225900171" type="Function">
-                    <param id="0" name="Name">&quot;Moved&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
-            </actions>
-        </event-block>
-        <comment>Block Boat Movement</comment>
-        <event-block sid="786560689313122">
-            <conditions>
-                <condition id="1" name="Is overlapping another object" sid="430215654259240" type="Boat">
-                    <param id="0" name="Object">Blcks</param>
-                </condition>
-                <condition id="-4" name="Trigger once while true" sid="307193418742624" type="System" />
-            </conditions>
-            <actions>
-                <action id="-3" name="Set position" sid="698854375070744" type="Boat">
-                    <param id="0" name="X">Boat.boatX</param>
-                    <param id="1" name="Y">Boat.boatY</param>
-                </action>
-                <action id="-13" name="Set boolean" sid="350791003629954" type="Boat">
-                    <param id="0" name="Instance variable">moving</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-            </actions>
-        </event-block>
-        <comment>Interact with Blocks</comment>
-        <event-block disabled="1" sid="512707633899161">
-            <conditions>
-                <condition id="6" name="On object clicked" sid="651234008109366" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                    <param id="2" name="Object clicked">Blcks</param>
-                </condition>
-                <condition id="1" name="Is overlapping another object" sid="188172643343424" type="Blcks">
-                    <param id="0" name="Object">BoatRange</param>
-                </condition>
-                <condition id="-7" name="Compare instance variable" sid="595693054143238" type="Blcks">
-                    <param id="0" name="Instance variable">Type</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">left(Blcks.AnimationName, find(Blcks.AnimationName, &quot;Ice&quot;))</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-9" name="Destroy" sid="341704382426479" type="Blcks" />
-            </actions>
-        </event-block>
-        <event-block sid="109117588783690">
-            <conditions>
-                <condition id="6" name="On object clicked" sid="641289049481820" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                    <param id="2" name="Object clicked">Blcks</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Set text" sid="639298744074815" type="Stats">
-                    <param id="0" name="Text">&quot;You  Win&quot;</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="902078956954370">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="286437061735178" type="Boat">
-                    <param id="0" name="Object">Exit</param>
-                </condition>
-            </conditions>
-            <actions />
-        </event-block>
+        </event-group>
+        <event-group description="" sid="792232637840153" title="Player Controls">
+            <sub-events>
+                <comment>Grid Based Movement</comment>
+                <event-block any="1" sid="276002521526603">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="835159991061787" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                        <condition id="0" name="On key pressed" sid="800738331304150" type="Keyboard">
+                            <param id="0" name="Key">38</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="606297210022267" type="Boat">
+                            <param id="0" name="Angle">-90</param>
+                        </action>
+                        <action id="-17" name="Move forward" sid="458294871595972" type="Boat">
+                            <param id="0" name="Distance">64</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="830234113792726" type="Boat">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="847352475393933">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="325213120921968" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                        <condition id="0" name="On key pressed" sid="858775072589291" type="Keyboard">
+                            <param id="0" name="Key">37</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="878319888920935" type="Boat">
+                            <param id="0" name="Angle">180</param>
+                        </action>
+                        <action id="-17" name="Move forward" sid="849347233264288" type="Boat">
+                            <param id="0" name="Distance">64</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="121652423067905" type="Boat">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="983123255377070">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="856745727733742" type="Keyboard">
+                            <param id="0" name="Key">83</param>
+                        </condition>
+                        <condition id="0" name="On key pressed" sid="486491539200596" type="Keyboard">
+                            <param id="0" name="Key">40</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="527068878786760" type="Boat">
+                            <param id="0" name="Angle">90</param>
+                        </action>
+                        <action id="-17" name="Move forward" sid="664612918582138" type="Boat">
+                            <param id="0" name="Distance">64</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="670572659638307" type="Boat">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="697001765250409">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="530391745883900" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                        <condition id="0" name="On key pressed" sid="819693775385646" type="Keyboard">
+                            <param id="0" name="Key">39</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-8" name="Set angle" sid="154374849725908" type="Boat">
+                            <param id="0" name="Angle">0</param>
+                        </action>
+                        <action id="-17" name="Move forward" sid="960187582069461" type="Boat">
+                            <param id="0" name="Distance">64</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="681390788978630" type="Boat">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Boat Can Move</comment>
+                <event-block sid="754800757780248">
+                    <conditions>
+                        <condition id="1" inverted="1" name="Is overlapping another object" sid="120828103957375" type="Boat">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="994153812412999" type="Boat">
+                            <param id="0" name="Instance variable">moving</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="917769321363516" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="889941116439952" type="Boat">
+                            <param id="0" name="Instance variable">boatX</param>
+                            <param id="1" name="Value">Self.X</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="578608496575316" type="Boat">
+                            <param id="0" name="Instance variable">boatY</param>
+                            <param id="1" name="Value">Self.y</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="632184519527037" type="Boat">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="767154225900171" type="Function">
+                            <param id="0" name="Name">&quot;Moved&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Block Boat Move</comment>
+                <event-block sid="786560689313122">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="430215654259240" type="Boat">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="307193418742624" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="698854375070744" type="Boat">
+                            <param id="0" name="X">Boat.boatX</param>
+                            <param id="1" name="Y">Boat.boatY</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="350791003629954" type="Boat">
+                            <param id="0" name="Instance variable">moving</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="890010818370517" title="Results of Actions">
+            <sub-events>
+                <comment>Fuel, Supply, and Crew Use</comment>
+                <event-block sid="497582421315419">
+                    <conditions>
+                        <condition id="0" name="On function" sid="860554418865078" type="Function">
+                            <param id="0" name="Name">&quot;Moved&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="165723652328489" type="Boat">
+                            <param id="0" name="Instance variable">Fuel</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="994040927084268" type="Boat">
+                            <param id="0" name="Instance variable">Supplies</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="615180867636652" type="StatsTxt">
+                            <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="297463313237487" title="Interaction with Blocks">
+            <sub-events>
+                <comment>Selecting Blocks (Interact with Blocks)</comment>
+                <event-block sid="512707633899161">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="651234008109366" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">Blcks</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="188172643343424" type="Blcks">
+                            <param id="0" name="Object">BoatRange</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="408385322549571" type="System">
+                            <param id="0" name="First value">str(left(Blcks.Type, find(Blcks.Type, &quot;Ice&quot;) + len(&quot;Ice&quot;)))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Ice&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-9" name="Destroy" sid="341704382426479" type="Blcks" />
+                        <action id="-15" name="Set visible" sid="710747480021110" type="ActnBg">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="278134485405849" type="debug">
+                            <param id="0" name="Text">Blcks.UID</param>
+                        </action>
+                        <action id="1" name="Set blend mode" sid="792942809256940" type="Blcks">
+                            <param id="0" name="Blend mode">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="254086144729235" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="1" name="Set blend mode" sid="498823157518827" type="Blcks">
+                            <param id="0" name="Blend mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="948104172711909">
+                    <conditions>
+                        <condition id="6" name="On object clicked" sid="349096173208243" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                            <param id="2" name="Object clicked">Blcks</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="590335718928479" type="Blcks">
+                            <param id="0" name="Object">BoatRange</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="457910828012564" type="System">
+                            <param id="0" name="First value">str(left(Blcks.Type, find(Blcks.Type, &quot;Area&quot;) + len(&quot;Area&quot;)))</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Area&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="4" name="Set animation" sid="949633087508068" type="Blcks">
+                            <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action disabled="1" id="-10" name="Set value" sid="845467840883990" type="Blcks">
+                            <param id="0" name="Instance variable">Type</param>
+                            <param id="1" name="Value">Blcks.AnimationName</param>
+                        </action>
+                        <action disabled="1" id="-11" name="Add to" sid="557521023334940" type="Boat">
+                            <param id="0" name="Instance variable">Fuel</param>
+                            <param id="1" name="Value">int(random(1, 5))</param>
+                        </action>
+                        <action disabled="1" id="-11" name="Add to" sid="996777834612552" type="Boat">
+                            <param id="0" name="Instance variable">Supplies</param>
+                            <param id="1" name="Value">int(random(1, 5))</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="763932859581288" type="ActnBg">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action disabled="1" id="0" name="Set text" sid="782482646625599" type="StatsTxt">
+                            <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        </action>
+                        <action id="1" name="Set blend mode" sid="366746941346666" type="Blcks">
+                            <param id="0" name="Blend mode">1</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="382140573459267" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                        <action id="1" name="Set blend mode" sid="332192352953112" type="Blcks">
+                            <param id="0" name="Blend mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Hover Over Blocks</comment>
+                <event-block disabled="1" sid="996530527884851">
+                    <conditions>
+                        <condition id="7" name="Cursor is over object" sid="336304620275090" type="Mouse">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="111231745729334" type="debug">
+                            <param id="0" name="Text">&quot;Type: &quot;&amp;Blcks.Type&amp;newline&amp;&quot;Anim:&quot;&amp;Blcks.AnimationName&amp;newline&amp;&quot;UID: &quot;&amp;Blcks.UID</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="115610463508327" type="debug">
+                            <param id="0" name="X">Mouse.X</param>
+                            <param id="1" name="Y">Mouse.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="848905959909732">
+                    <conditions>
+                        <condition id="7" name="Cursor is over object" sid="282644151029455" type="Mouse">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="342826681029711" type="Blcks">
+                            <param id="0" name="Object">BoatRange</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="482196709501505" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set blend mode" sid="566200115288948" type="Blcks">
+                            <param id="0" name="Blend mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="798916398933918">
+                    <conditions>
+                        <condition id="7" inverted="1" name="Cursor is over object" sid="494343208645689" type="Mouse">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="639065404916301" type="Blcks">
+                            <param id="0" name="Object">BoatRange</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="360831572721282" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="1" name="Set blend mode" sid="873081619318785" type="Blcks">
+                            <param id="0" name="Blend mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Reached the Exit</comment>
+                <event-block sid="902078956954370">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="286437061735178" type="Boat">
+                            <param id="0" name="Object">Exit</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="639298744074815" type="Stats">
+                            <param id="0" name="Text">&quot;You  Win&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
