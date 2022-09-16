@@ -8,7 +8,15 @@
                 <condition id="-2" name="On start of layout" sid="587476070698767" type="System" />
             </conditions>
             <actions>
-                <action id="0" name="Set text" sid="417515075717174" type="Stats">
+                <action id="1" name="Request project file" sid="305284357048375" type="AJAX">
+                    <param id="0" name="Tag">&quot;StgData&quot;</param>
+                    <param id="1" name="File">StgData.json</param>
+                </action>
+                <action id="1" name="Request project file" sid="719466616069736" type="AJAX">
+                    <param id="0" name="Tag">&quot;StgTxt&quot;</param>
+                    <param id="1" name="File">StgTxt.json</param>
+                </action>
+                <action id="0" name="Set text" sid="417515075717174" type="SomeStats">
                     <param id="0" name="Text">&quot;Str: x&quot;&amp;newline&amp;&quot;Int: y&quot;</param>
                 </action>
                 <action id="-10" name="Set value" sid="776780886919147" type="BarMorale">
@@ -27,6 +35,49 @@
                 </action>
             </actions>
         </event-block>
+        <comment>Load Data Stage Data and Text</comment>
+        <event-block sid="279911418607195">
+            <conditions>
+                <condition id="0" name="On completed" sid="973630683261716" type="AJAX">
+                    <param id="0" name="Tag">&quot;StgData&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="413148408309375" type="AryStgData">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="336870102368462">
+                    <conditions>
+                        <condition id="-10" name="For" sid="444493510815037" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">AryStgData.Height-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="701754531659477" type="AryStgData">
+                            <param id="0" name="Instance variable">yIdx</param>
+                            <param id="1" name="Value">AryStgData.yIdx&amp;loopindex&amp;AryStgData.At(0, loopindex)&amp;&quot;,&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="375027947770690">
+            <conditions>
+                <condition id="0" name="On completed" sid="335782843778888" type="AJAX">
+                    <param id="0" name="Tag">&quot;StgTxt&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Load" sid="601895715775960" type="DxnryRdTxt">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>On Action Button Clicked</comment>
         <event-block sid="276528437053759">
             <conditions>
                 <condition id="0" name="On clicked" sid="670492010937731" type="ActnBtn" />
@@ -78,17 +129,142 @@
                         <action id="-15" name="Set visible" sid="770763989903813" type="ActnBg">
                             <param id="0" name="Visibility">0</param>
                         </action>
+                        <action id="-15" name="Set visible" sid="927433882692864" type="ReadEventImg">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="739466777960941">
+                            <conditions>
+                                <condition id="-19" name="Pick all" sid="113514486006222" type="System">
+                                    <param id="0" name="Object">ActnBtn</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set visible" sid="476075200759043" type="ActnBtn">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>Get IndexOf Y</comment>
+        <event-block sid="989931323163882">
+            <conditions>
+                <condition id="0" name="On function" sid="631447553844002" type="Function">
+                    <param id="0" name="Name">&quot;YIndex&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set return value" sid="929927454277930" type="Function">
+                    <param id="0" name="Value">int(left(RegexMatchAt(Function.Param(0), &quot;[\d]&quot;&amp;Function.Param(1), &quot;i&quot;, 0), 1))</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>On Clicked Block Update Stage</comment>
         <event-block sid="123273296147793">
             <conditions>
                 <condition id="0" name="On function" sid="692087530753126" type="Function">
-                    <param id="0" name="Name">&quot;Inspect&quot;</param>
+                    <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                 </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="2" name="Set visible" sid="573552563632813" type="ActnBtn">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="541981359818148" type="ActnBg">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="171637659763944" type="ReadEventImg">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="0" name="Set text" sid="339554660601615" type="ReadEventTxt">
+                    <param id="0" name="Text">AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Title&quot;))&amp;newline</param>
+                </action>
+                <action id="1" name="Append text" sid="166607687018436" type="ReadEventTxt">
+                    <param id="0" name="Text">newline&amp;DxnryRdTxt.Get(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Text&quot;)))</param>
+                </action>
+                <action id="4" name="Set animation" sid="289605566094303" type="ReadEventImg">
+                    <param id="0" name="Animation">AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Image&quot;))</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="289392683144954">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="572924643465350" type="ActnBtn">
+                            <param id="0" name="Unique ID">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="366271760930693" type="ActnBtn">
+                            <param id="0" name="Text">tokenat(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;ActnBtns&quot;)), 0, &quot;|&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="129883139591745">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="513283044894256" type="ActnBtn">
+                            <param id="0" name="Unique ID">34</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="990529638603710" type="ActnBtn">
+                            <param id="0" name="Text">tokenat(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;ActnBtns&quot;)), 1, &quot;|&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="866750674609384">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="193152768396684" type="ActnBtn">
+                            <param id="0" name="Unique ID">35</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="813754624042409" type="ActnBtn">
+                            <param id="0" name="Text">tokenat(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;ActnBtns&quot;)), 2, &quot;|&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="838063374493621">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="231654198284823" type="ActnResTxt">
+                            <param id="0" name="Unique ID">38</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="323993853075525" type="ActnResTxt">
+                            <param id="0" name="Text">DxnryRdTxt.Get(tokenat(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Text&quot;)), 0, &quot;|&quot;))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="642327869538336">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="767006707023410" type="ActnResTxt">
+                            <param id="0" name="Unique ID">42</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="669630164789908" type="ActnResTxt">
+                            <param id="0" name="Text">DxnryRdTxt.Get(tokenat(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Text&quot;)), 1, &quot;|&quot;))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="803636704292669">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="913038682613632" type="ActnResTxt">
+                            <param id="0" name="Unique ID">43</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="359086703561163" type="ActnResTxt">
+                            <param id="0" name="Text">DxnryRdTxt.Get(tokenat(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Text&quot;)), 2, &quot;|&quot;))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

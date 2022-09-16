@@ -59,6 +59,7 @@
                     <instance-variables>
                         <Created>false</Created>
                         <Type></Type>
+                        <Stg>0</Stg>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>

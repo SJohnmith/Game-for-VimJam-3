@@ -571,7 +571,7 @@
                     </conditions>
                     <actions>
                         <action disabled="1" id="-9" name="Destroy" sid="341704382426479" type="Blcks" />
-                        <action id="-15" name="Set visible" sid="710747480021110" type="ActnBg">
+                        <action disabled="1" id="-15" name="Set visible" sid="710747480021110" type="ActnBg">
                             <param id="0" name="Visibility">1</param>
                         </action>
                         <action id="0" name="Set text" sid="278134485405849" type="debug">
@@ -621,7 +621,7 @@
                             <param id="0" name="Instance variable">Supplies</param>
                             <param id="1" name="Value">int(random(1, 5))</param>
                         </action>
-                        <action id="-15" name="Set visible" sid="763932859581288" type="ActnBg">
+                        <action disabled="1" id="-15" name="Set visible" sid="763932859581288" type="ActnBg">
                             <param id="0" name="Visibility">1</param>
                         </action>
                         <action disabled="1" id="0" name="Set text" sid="782482646625599" type="StatsTxt">
@@ -635,6 +635,10 @@
                         </action>
                         <action id="1" name="Set blend mode" sid="332192352953112" type="Blcks">
                             <param id="0" name="Blend mode">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="337883213322897" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
                         </action>
                     </actions>
                 </event-block>
@@ -695,7 +699,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="639298744074815" type="Stats">
+                        <action id="0" name="Set text" sid="639298744074815" type="SomeStats">
                             <param id="0" name="Text">&quot;You  Win&quot;</param>
                         </action>
                     </actions>

@@ -10,7 +10,10 @@
     <unique-id>2o38dljjeqzur</unique-id>
     <saved-with-version>25500</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
@@ -65,12 +68,20 @@
             <object-type name="Function" sid="476431712314384">
                 <plugin id="Function" />
             </object-type>
+            <object-type name="AJAX" sid="823634147979027">
+                <plugin id="AJAX" />
+            </object-type>
         </object-folder>
         <object-folder name="UI Assets">
             <object-type name="ActnBtn" sid="855333873174090">
                 <plugin id="Button" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="934094414349223">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
             </object-type>
-            <object-type name="Stats" sid="187885645609472">
+            <object-type name="SomeStats" sid="187885645609472">
                 <plugin id="Text" />
             </object-type>
             <object-type name="BarFuel" sid="377693272226736">
@@ -110,7 +121,7 @@
                 <plugin id="Text" />
             </object-type>
         </object-folder>
-        <object-folder name="Rocks">
+        <object-folder name="Old Assets">
             <object-type name="Rock1" sid="607695725647176">
                 <plugin id="Sprite" />
                 <behaviors>
@@ -208,10 +219,73 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="NPC_1" sid="517200097177260">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="164071164167993" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Player" sid="173896860127113">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="887833437523141" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="InspectArea" sid="788384669294343">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="391670098549177" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Ship" sid="793597191395181">
+                <plugin id="Sprite" />
+                <instance-variables>
+                    <instance-variable name="CrewAmnt" sid="682684636221133" type="number" />
+                    <instance-variable name="Fuel" sid="558079075720281" type="number" />
+                    <instance-variable name="Morale" sid="362210546086198" type="number" />
+                    <instance-variable name="Supplies" sid="914066999735690" type="number" />
+                    <instance-variable name="Spd_Lv" sid="169150272962565" type="number" />
+                </instance-variables>
+                <behaviors>
+                    <behavior-type name="Car" sid="233401851555321">
+                        <behavior id="Car" />
+                    </behavior-type>
+                    <behavior-type name="ScrollTo" sid="931461819410843">
+                        <behavior id="scrollto" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="881752438706569" speed="5">
+                        <frame duration="1" hotspotX="0.14" hotspotY="0.5">
+                            <collision-poly>
+                                <point x="0.72" y="0.366667" />
+                                <point x="0.72" y="0.666667" />
+                                <point x="0.15" y="0.666667" />
+                                <point x="0.15" y="0.366667" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
         </object-folder>
         <object-folder name="Textures">
             <object-type name="Water" sid="434385803179995">
                 <plugin id="TiledBg" />
+                <texture />
+            </object-type>
+            <object-type name="Gnd" sid="744210483471235">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="415953632689655">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
                 <texture />
             </object-type>
         </object-folder>
@@ -221,6 +295,7 @@
                 <instance-variables>
                     <instance-variable name="Created" sid="982232557183084" type="boolean" />
                     <instance-variable name="Type" sid="276470473220626" type="string" />
+                    <instance-variable name="Stg" sid="494550374874160" type="number" />
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Solid1" pingpong="0" repeatcount="0" repeatto="0" sid="302979809355674" speed="0">
@@ -309,69 +384,41 @@
                 </animation-folder>
             </object-type>
         </object-folder>
-        <object-type name="Ship" sid="793597191395181">
-            <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="CrewAmnt" sid="682684636221133" type="number" />
-                <instance-variable name="Fuel" sid="558079075720281" type="number" />
-                <instance-variable name="Morale" sid="362210546086198" type="number" />
-                <instance-variable name="Supplies" sid="914066999735690" type="number" />
-                <instance-variable name="Spd_Lv" sid="169150272962565" type="number" />
-            </instance-variables>
-            <behaviors>
-                <behavior-type name="Car" sid="233401851555321">
-                    <behavior id="Car" />
-                </behavior-type>
-                <behavior-type name="ScrollTo" sid="931461819410843">
-                    <behavior id="scrollto" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="881752438706569" speed="5">
-                    <frame duration="1" hotspotX="0.14" hotspotY="0.5">
-                        <collision-poly>
-                            <point x="0.72" y="0.366667" />
-                            <point x="0.72" y="0.666667" />
-                            <point x="0.15" y="0.666667" />
-                            <point x="0.15" y="0.366667" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="Gnd" sid="744210483471235">
-            <plugin id="TiledBg" />
-            <behaviors>
-                <behavior-type name="Solid" sid="415953632689655">
-                    <behavior id="solid" />
-                </behavior-type>
-            </behaviors>
-            <texture />
-        </object-type>
-        <object-type name="Player" sid="173896860127113">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="887833437523141" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="NPC_1" sid="517200097177260">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="164071164167993" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="InspectArea" sid="788384669294343">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="391670098549177" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                </animation>
-            </animation-folder>
-        </object-type>
+        <object-folder name="Stage Assets">
+            <object-type name="ActnResTxt" sid="423253778771844">
+                <plugin id="Text" />
+            </object-type>
+            <object-type global="1" name="AryStgData" sid="644749158299759">
+                <plugin id="Arr" />
+                <instance-variables>
+                    <instance-variable name="yIdx" sid="334919705962144" type="string" />
+                </instance-variables>
+            </object-type>
+            <object-type global="1" name="DxnryRdTxt" sid="313779319422672">
+                <plugin id="Dictionary" />
+            </object-type>
+            <object-type name="ReadEventImg" sid="493883782936702">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="179201546784827">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Shelter" pingpong="0" repeatcount="0" repeatto="0" sid="855682442275960" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ReadEventTxt" sid="416353542007714">
+                <plugin id="Text" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="584487835650514">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
+        </object-folder>
         <object-type name="debug" sid="743128089893687">
             <plugin id="Text" />
         </object-type>
@@ -393,6 +440,7 @@
         <global-instance type="Mouse" uid="0" />
         <global-instance type="Keyboard" uid="5" />
         <global-instance type="Function" uid="25" />
+        <global-instance type="AJAX" uid="41" />
     </global-instances>
     <sounds-folder />
     <music-folder />
@@ -406,5 +454,7 @@
             <file name="loading-logo.png" />
         </file-folder>
         <file name="btnStyle.css" />
+        <file name="StgData.json" />
+        <file name="StgTxt.json" />
     </files-folder>
 </c2project>
