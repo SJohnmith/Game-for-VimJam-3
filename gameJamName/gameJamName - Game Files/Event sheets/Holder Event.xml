@@ -161,9 +161,6 @@
                             <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                             <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
                         </action>
-                        <action disabled="1" id="0" name="Set text" sid="825659772508573" type="debug">
-                            <param id="0" name="Text">Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg</param>
-                        </action>
                     </actions>
                 </event-block>
                 <comment>Increment the Story Stage by 2</comment>
@@ -178,14 +175,11 @@
                     <actions>
                         <action id="0" name="Call function" sid="812177590027319" type="Function">
                             <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
-                            <param id="1" name="Parameter {n}">50{###}Blcks.Stg{###}2</param>
+                            <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}2</param>
                         </action>
                         <action id="0" name="Call function" sid="524232516156462" type="Function">
                             <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                             <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
-                        </action>
-                        <action id="0" name="Set text" sid="912320979830521" type="debug">
-                            <param id="0" name="Text">Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg</param>
                         </action>
                     </actions>
                 </event-block>
@@ -239,6 +233,32 @@
                 </condition>
             </conditions>
             <actions />
+            <sub-events>
+                <event-block sid="709519676864515">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="805520822118489" type="SuccessFailNum">
+                            <param id="0" name="Unique ID">51</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="222278957329980" type="SuccessFailNum">
+                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="205683695018378">
+                    <conditions>
+                        <condition id="-14" name="Pick by unique ID" sid="862185900315157" type="SuccessFailNum">
+                            <param id="0" name="Unique ID">52</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="667860090912839" type="SuccessFailNum">
+                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;F&quot;))</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
         <event-group description="" sid="858259632421571" title="Functions Group">
             <sub-events>
@@ -263,19 +283,34 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="2" name="Set visible" sid="573552563632813" type="ActnBtn">
-                            <param id="0" name="Visibility">1</param>
-                        </action>
                         <action id="-15" name="Set visible" sid="541981359818148" type="ActnBg">
                             <param id="0" name="Visibility">1</param>
                         </action>
-                        <action id="-15" name="Set visible" sid="171637659763944" type="ReadEventImg">
+                        <action id="-15" name="Set visible" sid="524690312943458" type="ReadEventTitle">
                             <param id="0" name="Visibility">1</param>
                         </action>
                         <action id="-15" name="Set visible" sid="647149722771408" type="ReadEventTxt">
                             <param id="0" name="Visibility">1</param>
                         </action>
+                        <action id="-15" name="Set visible" sid="171637659763944" type="ReadEventImg">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="2" name="Set visible" sid="573552563632813" type="ActnBtn">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
                         <action id="-15" name="Set visible" sid="640642257988834" type="ActnResTxt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="422604798818540" type="SuccessFailTxt">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="298490808332037" type="SuccessFailNum">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="952313683744158" type="TbgFail">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="206251952181081" type="TbgSuccess">
                             <param id="0" name="Visibility">1</param>
                         </action>
                         <action id="0" name="Set text" sid="339554660601615" type="ReadEventTitle">
@@ -364,7 +399,7 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <comment>Compute Probability</comment>
+                <comment>Compute Probability&#x0D;&#x0A;Function.Parm(0) = Btn Success Probability&#x0D;&#x0A;Function.Parm(1) = Blck Stage Level&#x0D;&#x0A;Function.Parm(2) = Stage Increment</comment>
                 <event-block sid="890973213088286">
                     <conditions>
                         <condition id="0" name="On function" sid="463550508094295" type="Function">
@@ -378,7 +413,7 @@
                     <sub-events>
                         <event-block sid="347839684940429">
                             <conditions>
-                                <condition id="-8" name="Compare two values" sid="943375143381738" type="System">
+                                <condition id="-8" name="Compare two values" sid="128203295618974" type="System">
                                     <param id="0" name="First value">int(random(100))</param>
                                     <param id="1" name="Comparison">3</param>
                                     <param id="2" name="Second value">Function.Param(0)</param>
@@ -388,6 +423,10 @@
                                 <action id="-10" name="Set value" sid="131405695645408" type="Blcks">
                                     <param id="0" name="Instance variable">Stg</param>
                                     <param id="1" name="Value">str(int(Function.Param(1)) + Function.Param(2))&amp;&quot;S&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="907820257165303" type="Function">
+                                    <param id="0" name="Name">&quot;Gain&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;))</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -399,6 +438,10 @@
                                 <action id="-10" name="Set value" sid="207421393961121" type="Blcks">
                                     <param id="0" name="Instance variable">Stg</param>
                                     <param id="1" name="Value">str(int(Function.Param(1)) + Function.Param(2))&amp;&quot;F&quot;</param>
+                                </action>
+                                <action id="0" name="Call function" sid="493767055492954" type="Function">
+                                    <param id="0" name="Name">&quot;Lose&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;))</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -415,16 +458,31 @@
                         <action id="-15" name="Set visible" sid="770763989903813" type="ActnBg">
                             <param id="0" name="Visibility">0</param>
                         </action>
-                        <action id="-15" name="Set visible" sid="927433882692864" type="ReadEventImg">
+                        <action id="-15" name="Set visible" sid="367066637179634" type="ReadEventTitle">
                             <param id="0" name="Visibility">0</param>
                         </action>
                         <action id="-15" name="Set visible" sid="375427446799712" type="ReadEventTxt">
                             <param id="0" name="Visibility">0</param>
                         </action>
-                        <action id="-15" name="Set visible" sid="964334910828232" type="ActnResTxt">
+                        <action id="-15" name="Set visible" sid="927433882692864" type="ReadEventImg">
                             <param id="0" name="Visibility">0</param>
                         </action>
                         <action id="2" name="Set visible" sid="861597622320956" type="ActnBtn">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="964334910828232" type="ActnResTxt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="345709278205190" type="SuccessFailTxt">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="246467547086797" type="SuccessFailNum">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="195576127496499" type="TbgFail">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="256950180094982" type="TbgSuccess">
                             <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>

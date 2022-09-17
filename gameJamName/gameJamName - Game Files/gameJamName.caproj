@@ -128,6 +128,10 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="TbgCst" sid="567522987530448">
+                <plugin id="TiledBg" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="Old Assets">
             <object-type name="Rock1" sid="607695725647176">
@@ -481,6 +485,9 @@
                     <animation framecount="1" loop="0" name="report" pingpong="0" repeatcount="0" repeatto="0" sid="526079855709202" speed="0">
                         <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
+                    <animation framecount="1" loop="0" name="empty" pingpong="0" repeatcount="0" repeatto="0" sid="497681071932145" speed="0">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
                 </animation-folder>
             </object-type>
             <object-type name="ReadEventTitle" sid="827676304813745">
@@ -494,10 +501,6 @@
         </object-folder>
         <object-type name="debug" sid="743128089893687">
             <plugin id="Text" />
-        </object-type>
-        <object-type name="TbgCst" sid="567522987530448">
-            <plugin id="TiledBg" />
-            <texture />
         </object-type>
     </object-folder>
     <families />

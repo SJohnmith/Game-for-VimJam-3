@@ -373,7 +373,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
-                        <y>160</y>
+                        <y>128</y>
                         <z>0</z>
                         <width>800</width>
                         <height>192</height>
@@ -594,7 +594,7 @@
                         <bottom-margin>5</bottom-margin>
                         <edges>Tile</edges>
                         <fill>Tile</fill>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <hotspot>Top-left</hotspot>
                         <seams>Overlap</seams>
                     </properties>
@@ -620,7 +620,7 @@
                         <bottom-margin>5</bottom-margin>
                         <edges>Tile</edges>
                         <fill>Tile</fill>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <hotspot>Top-left</hotspot>
                         <seams>Overlap</seams>
                     </properties>
@@ -641,7 +641,7 @@
                 <instance type="SuccessFailTxt" uid="45">
                     <properties>
                         <text>Success</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial,-29.3333,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Center</horizontal-alignment>
@@ -668,7 +668,7 @@
                 <instance type="SuccessFailTxt" uid="46">
                     <properties>
                         <text>Fail</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial,-29.3333,400,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Center</horizontal-alignment>
@@ -695,7 +695,7 @@
                 <instance type="SuccessFailNum" uid="51">
                     <properties>
                         <text>28%</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial,-26.6667,400,0</font>
                         <color>0,255,0</color>
                         <horizontal-alignment>Center</horizontal-alignment>
@@ -725,7 +725,7 @@
                 <instance type="SuccessFailNum" uid="52">
                     <properties>
                         <text>72%</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial,-26.6667,400,0</font>
                         <color>255,0,0</color>
                         <horizontal-alignment>Center</horizontal-alignment>
@@ -754,7 +754,7 @@
                 </instance>
                 <instance type="ItemIcons" uid="53">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -762,7 +762,7 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>1344</x>
+                        <x>1312</x>
                         <y>928</y>
                         <z>0</z>
                         <width>42</width>
@@ -777,7 +777,7 @@
                 <instance type="ReadEventTitle" uid="54">
                     <properties>
                         <text>Title</text>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <font>Arial Black,-32,900,0</font>
                         <color>0,0,0</color>
                         <horizontal-alignment>Left</horizontal-alignment>
@@ -793,7 +793,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>576</x>
-                        <y>96</y>
+                        <y>64</y>
                         <z>0</z>
                         <width>800</width>
                         <height>64</height>
