@@ -296,23 +296,10 @@
                                 <condition id="1" name="Is overlapping another object" sid="171948109950145" type="Boat">
                                     <param id="0" name="Object">Blcks</param>
                                 </condition>
+                                <condition id="-4" name="Trigger once while true" sid="823819509783255" type="System" />
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="473172871957208" type="Blcks" />
-                            </actions>
-                        </event-block>
-                        <comment>Remove if any Overlapping Blocks</comment>
-                        <event-block sid="492107060634132">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="406597943138855" type="Blcks">
-                                    <param id="0" name="Object">Blcks</param>
-                                </condition>
-                                <condition id="-17" name="Pick top/bottom" sid="736464339093040" type="Blcks">
-                                    <param id="0" name="Which">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="330057101981349" type="Blcks" />
                             </actions>
                         </event-block>
                     </sub-events>
@@ -400,6 +387,17 @@
                             <param id="0" name="Animation">Blcks.Type</param>
                             <param id="1" name="From">1</param>
                         </action>
+                    </actions>
+                </event-block>
+                <comment>Remove if any Overlapping Blocks</comment>
+                <event-block sid="509475789977807">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="219426309230972" type="Blcks">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="835634103186107" type="Blcks" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -567,6 +565,10 @@
                         <action id="0" name="Set text" sid="615180867636652" type="StatsTxt">
                             <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
                         </action>
+                        <action id="0" name="Call function" sid="736183524466237" type="Function">
+                            <param id="0" name="Name">&quot;ActnPnts&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>Gain Fuel, Supply, and/or Crew</comment>
@@ -586,6 +588,33 @@
                         </condition>
                     </conditions>
                     <actions />
+                </event-block>
+                <event-block sid="157066664980525">
+                    <conditions>
+                        <condition id="0" name="On function" sid="620982361449121" type="Function">
+                            <param id="0" name="Name">&quot;ActnPnts&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Set frame" sid="415046542156811" type="ActnPntsAmnt">
+                            <param id="0" name="Frame number">ActnPntsAmnt.AnimationFrame + 1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="136681765868188">
+                            <conditions>
+                                <condition id="3" name="Compare frame" sid="614156438962232" type="ActnPntsAmnt">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="Number">ActnPntsAmnt.AnimationFrameCount - 1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Set frame" sid="916538091315682" type="ActnPntsAmnt">
+                                    <param id="0" name="Frame number">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -624,6 +653,10 @@
                         </action>
                         <action id="1" name="Set blend mode" sid="498823157518827" type="Blcks">
                             <param id="0" name="Blend mode">0</param>
+                        </action>
+                        <action disabled="1" id="-12" name="Set group active" sid="346676574751574" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -686,6 +719,10 @@
                         <action id="0" name="Set text" sid="890326430996200" type="debug">
                             <param id="0" name="Text">Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg</param>
                         </action>
+                        <action id="-12" name="Set group active" sid="756431634738281" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>Identify Interactive Block </comment>
@@ -726,7 +763,7 @@
         <event-group description="" sid="683682685252953" title="Win and Lose Events">
             <sub-events>
                 <comment>Run Out of Fuel</comment>
-                <event-block sid="658718366829677">
+                <event-block disabled="1" sid="658718366829677">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="901588576627458" type="Boat">
                             <param id="0" name="Instance variable">Fuel</param>
@@ -749,7 +786,7 @@
                     </actions>
                 </event-block>
                 <comment>Run Out of Supplies</comment>
-                <event-block sid="413260607006684">
+                <event-block disabled="1" sid="413260607006684">
                     <conditions>
                         <condition id="-7" name="Compare instance variable" sid="151109488563683" type="Boat">
                             <param id="0" name="Instance variable">Supplies</param>

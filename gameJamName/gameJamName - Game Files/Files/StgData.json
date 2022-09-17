@@ -1,17 +1,17 @@
 {
 	"c2array":true,
-	"size":[10,7,1],
+	"size":[10,5,1],
 	"data":
 	[
-		[["StageState"],	["Title"],				["Text"], 			["Image"],			["ActnBtns"],					["Success"],["Fail"]],
-		[["Area1_0"],		["Abandoned Shelter"],	["Area1_stg0_I"],	["Shelter"],		["Inspect|Search|Leave"],		["50|report*1|actn*-1"],["50|crew*-1|actn*-1"]],
-		[["Area2_0"],		["Abandoned Camp"],		[0],				[0],[0],[0],[0]],
-		[["Area3_0"],		["Abandoned Boat"],		[0],				[0],[0],[0],[0]],
-		[["Area1_1F"],		["Abandoned Shelter"],	["Area1_stg1_F"],	["ShelterConfuse"],	["Scout|Investigate|Abandon"],	[""],[""]],
-		[["Area1_1S"],		["Abandoned Shelter"],	["Area1_stg1_S"],	["ShelterReveal"],	["-|Collect|Set Sail"],			[""],[""]],
-		[["Area1_2F"],		["Abandoned Shelter"],	["Area1_stg2_F"],	["ShelterFlee"],	["-|-|Flee"],					[0],[0]],
-		[["Area1_2S"],		["Abandoned Shelter"],	["Area1_stg2_S"],	["ShelterEmpty"],	["-|-|Done"],					[0],[0]],
-		[["Area2_1F"],		[0],					[0],				[0],[0],[0],[0]],
-		[["Area2_1S"],		[0],					[0],				[0],[0],[0],[0]]
+		[["StageState"],	["Title"],				["Text"], 			["Image"],			["ActnBtns"]],
+		[["Area1_0"],		["Abandoned Shelter"],	["Area1_stg0_I"],	["Shelter"],		["Inspect|Search|Leave"]],
+		[["Area2_0"],		["Abandoned Camp"],		[0],				[0],				[0]],
+		[["Area3_0"],		["Abandoned Boat"],		[0],				[0],				[0]],
+		[["Area1_1F"],		["Abandoned Shelter"],	["Area1_stg1_F"],	["ShelterConfuse"],	["Scout|Investigate|Abandon"]],
+		[["Area1_1S"],		["Abandoned Shelter"],	["Area1_stg1_S"],	["ShelterReveal"],	["-|Collect|Set Sail"]],
+		[["Area1_2F"],		["Abandoned Shelter"],	["Area1_stg2_F"],	["ShelterFlee"],	["-|-|Flee"]],
+		[["Area1_2S"],		["Abandoned Shelter"],	["Area1_stg2_S"],	["ShelterEmpty"],	["-|-|Done"]],
+		[["Area2_1F"],		[0],					[0],				["img1"],			[0]],
+		[["Area2_1S"],		[0],					[0],				["img2"],			[0]]
 	]
 }

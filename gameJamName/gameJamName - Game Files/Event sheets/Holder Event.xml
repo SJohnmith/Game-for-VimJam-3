@@ -14,6 +14,10 @@
                     <param id="0" name="Tag">&quot;StgData&quot;</param>
                     <param id="1" name="File">StgData.json</param>
                 </action>
+                <action id="1" name="Request project file" sid="993521508946261" type="AJAX">
+                    <param id="0" name="Tag">&quot;StgRes&quot;</param>
+                    <param id="1" name="File">StgRes.json</param>
+                </action>
                 <action id="1" name="Request project file" sid="719466616069736" type="AJAX">
                     <param id="0" name="Tag">&quot;StgTxt&quot;</param>
                     <param id="1" name="File">StgTxt.json</param>
@@ -62,6 +66,35 @@
                         <action id="-10" name="Set value" sid="701754531659477" type="AryStgData">
                             <param id="0" name="Instance variable">yIdx</param>
                             <param id="1" name="Value">AryStgData.yIdx&amp;loopindex&amp;AryStgData.At(0, loopindex)&amp;&quot;,&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="578865562816893">
+            <conditions>
+                <condition id="0" name="On completed" sid="593911489981912" type="AJAX">
+                    <param id="0" name="Tag">&quot;StgRes&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="11" name="Load" sid="427636682884673" type="AryStgRes">
+                    <param id="0" name="JSON">AJAX.LastData</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="898847787463415">
+                    <conditions>
+                        <condition id="-10" name="For" sid="205480848148201" type="System">
+                            <param id="0" name="Name">&quot;&quot;</param>
+                            <param id="1" name="Start index">0</param>
+                            <param id="2" name="End index">AryStgRes.Height-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="398145877898663" type="AryStgRes">
+                            <param id="0" name="Instance variable">yIdx</param>
+                            <param id="1" name="Value">AryStgRes.yIdx&amp;loopindex&amp;AryStgRes.At(0, loopindex)&amp;&quot;,&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -122,13 +155,13 @@
                     <actions>
                         <action id="0" name="Call function" sid="871221095166884" type="Function">
                             <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
-                            <param id="1" name="Parameter {n}">50{###}Blcks.Stg{###}1</param>
+                            <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}1</param>
                         </action>
                         <action id="0" name="Call function" sid="436695423586845" type="Function">
                             <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                             <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
                         </action>
-                        <action id="0" name="Set text" sid="825659772508573" type="debug">
+                        <action disabled="1" id="0" name="Set text" sid="825659772508573" type="debug">
                             <param id="0" name="Text">Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg</param>
                         </action>
                     </actions>
@@ -190,13 +223,26 @@
                             <param id="0" name="Name">&quot;CloseStg&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
+                        <action id="-12" name="Set group active" sid="242719098737668" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
+        <comment>On Action Button Hover</comment>
+        <event-block sid="675246277486125">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="110119938516604" type="Mouse">
+                    <param id="0" name="Object">ActnBtn</param>
+                </condition>
+            </conditions>
+            <actions />
+        </event-block>
         <event-group description="" sid="858259632421571" title="Functions Group">
             <sub-events>
-                <comment>Get IndexOf Y</comment>
+                <comment>Get IndexOf Y&#x0D;&#x0A;Function.Parm(0) = Array.yIdx&#x0D;&#x0A;Function.Parm(1) = Text to Search for</comment>
                 <event-block sid="989931323163882">
                     <conditions>
                         <condition id="0" name="On function" sid="631447553844002" type="Function">
@@ -232,10 +278,10 @@
                         <action id="-15" name="Set visible" sid="640642257988834" type="ActnResTxt">
                             <param id="0" name="Visibility">1</param>
                         </action>
-                        <action id="0" name="Set text" sid="339554660601615" type="ReadEventTxt">
+                        <action id="0" name="Set text" sid="339554660601615" type="ReadEventTitle">
                             <param id="0" name="Text">AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Title&quot;))&amp;newline</param>
                         </action>
-                        <action id="1" name="Append text" sid="166607687018436" type="ReadEventTxt">
+                        <action id="0" name="Set text" sid="166607687018436" type="ReadEventTxt">
                             <param id="0" name="Text">newline&amp;DxnryRdTxt.Get(AryStgData.At(AryStgData.IndexOf(Function.Param(0)&amp;&quot;_&quot;&amp;Function.Param(1)), Function.Call(&quot;YIndex&quot;, AryStgData.yIdx, &quot;Text&quot;)))</param>
                         </action>
                         <action id="4" name="Set animation" sid="289605566094303" type="ReadEventImg">
