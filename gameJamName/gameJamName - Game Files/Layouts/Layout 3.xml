@@ -213,8 +213,8 @@
                         <x>128</x>
                         <y>128</y>
                         <z>0</z>
-                        <width>256</width>
-                        <height>256</height>
+                        <width>512</width>
+                        <height>512</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>

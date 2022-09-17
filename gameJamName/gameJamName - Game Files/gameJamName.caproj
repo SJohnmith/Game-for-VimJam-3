@@ -73,14 +73,6 @@
             </object-type>
         </object-folder>
         <object-folder name="UI Assets">
-            <object-type name="ActnBtn" sid="855333873174090">
-                <plugin id="Button" />
-                <behaviors>
-                    <behavior-type name="Pin" sid="934094414349223">
-                        <behavior id="Pin" />
-                    </behavior-type>
-                </behaviors>
-            </object-type>
             <object-type name="SomeStats" sid="187885645609472">
                 <plugin id="Text" />
             </object-type>
@@ -110,10 +102,6 @@
                 <texture />
             </object-type>
             <object-type name="StatsBg" sid="187413955287816">
-                <plugin id="NinePatch" />
-                <texture />
-            </object-type>
-            <object-type name="ActnBg" sid="634226388516662">
                 <plugin id="NinePatch" />
                 <texture />
             </object-type>
@@ -295,7 +283,7 @@
                 <instance-variables>
                     <instance-variable name="Created" sid="982232557183084" type="boolean" />
                     <instance-variable name="Type" sid="276470473220626" type="string" />
-                    <instance-variable name="Stg" sid="494550374874160" type="number" />
+                    <instance-variable name="Stg" sid="800536592241846" type="string" />
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Solid1" pingpong="0" repeatcount="0" repeatto="0" sid="302979809355674" speed="0">
@@ -375,10 +363,10 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="radius2" pingpong="0" repeatcount="0" repeatto="0" sid="609257471137860" speed="0">
+                    <animation framecount="1" loop="0" name="radius1" pingpong="0" repeatcount="0" repeatto="0" sid="927793451417401" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
-                    <animation framecount="1" loop="0" name="radius1" pingpong="0" repeatcount="0" repeatto="0" sid="927793451417401" speed="0">
+                    <animation framecount="1" loop="0" name="radius2" pingpong="0" repeatcount="0" repeatto="0" sid="609257471137860" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -418,9 +406,29 @@
                     </behavior-type>
                 </behaviors>
             </object-type>
+            <object-type name="ActnBtn" sid="855333873174090">
+                <plugin id="Button" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="934094414349223">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
+            <object-type name="ActnBg" sid="634226388516662">
+                <plugin id="NinePatch" />
+                <texture />
+            </object-type>
         </object-folder>
         <object-type name="debug" sid="743128089893687">
             <plugin id="Text" />
+        </object-type>
+        <object-type name="ActnPntsAmnt" sid="919229641078267">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="474013893613008" speed="0">
+                    <frame duration="1" hotspotX="0.502488" hotspotY="0.502488" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families />

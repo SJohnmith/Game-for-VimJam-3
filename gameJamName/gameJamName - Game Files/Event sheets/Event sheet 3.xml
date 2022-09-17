@@ -29,6 +29,27 @@
                 </action>
             </actions>
         </event-block>
+        <comment>(Debug) Hover Over Blocks</comment>
+        <event-block disabled="1" sid="996530527884851">
+            <conditions>
+                <condition id="7" name="Cursor is over object" sid="336304620275090" type="Mouse">
+                    <param id="0" name="Object">Blcks</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action disabled="1" id="0" name="Set text" sid="111231745729334" type="debug">
+                    <param id="0" name="Text">&quot;Type: &quot;&amp;Blcks.Type&amp;newline&amp;&quot;Stg: &quot;&amp;Blcks.Stg&amp;newline&amp;&quot;Anim:&quot;&amp;Blcks.AnimationName&amp;newline&amp;&quot;UID: &quot;&amp;Blcks.UID</param>
+                </action>
+                <action id="-3" name="Set position" sid="115610463508327" type="debug">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+                <action id="0" name="Set text" sid="538889978877080" type="debug">
+                    <param id="0" name="Text">&quot;Type: &quot;&amp;Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg&amp;newline&amp;&quot;IID: &quot;&amp;Blcks.IID</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>(Debug) Create New Maze</comment>
         <event-block sid="166209734337707">
             <conditions>
                 <condition id="0" name="On key pressed" sid="242864429012426" type="Keyboard">
@@ -527,7 +548,7 @@
         </event-group>
         <event-group description="" sid="890010818370517" title="Results of Actions">
             <sub-events>
-                <comment>Fuel, Supply, and Crew Use</comment>
+                <comment>Use Fuel, Supply, and/or Crew</comment>
                 <event-block sid="497582421315419">
                     <conditions>
                         <condition id="0" name="On function" sid="860554418865078" type="Function">
@@ -547,6 +568,24 @@
                             <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
                         </action>
                     </actions>
+                </event-block>
+                <comment>Gain Fuel, Supply, and/or Crew</comment>
+                <event-block sid="958463579725650">
+                    <conditions>
+                        <condition id="0" name="On function" sid="821912145179437" type="Function">
+                            <param id="0" name="Name">&quot;Gain&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <comment>Loss Fuel, Supply, and/or Crew</comment>
+                <event-block sid="681428059220352">
+                    <conditions>
+                        <condition id="0" name="On function" sid="802808286669956" type="Function">
+                            <param id="0" name="Name">&quot;Lose&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
                 </event-block>
             </sub-events>
         </event-group>
@@ -605,6 +644,14 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="0" name="Call function" sid="337883213322897" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="139393684713573" type="System">
+                            <param id="0" name="Variable">BlcksUID</param>
+                            <param id="1" name="Value">Blcks.UID</param>
+                        </action>
                         <action disabled="1" id="4" name="Set animation" sid="949633087508068" type="Blcks">
                             <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
                             <param id="1" name="From">1</param>
@@ -636,29 +683,12 @@
                         <action id="1" name="Set blend mode" sid="332192352953112" type="Blcks">
                             <param id="0" name="Blend mode">0</param>
                         </action>
-                        <action id="0" name="Call function" sid="337883213322897" type="Function">
-                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                        <action id="0" name="Set text" sid="890326430996200" type="debug">
+                            <param id="0" name="Text">Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg</param>
                         </action>
                     </actions>
                 </event-block>
-                <comment>Hover Over Blocks</comment>
-                <event-block disabled="1" sid="996530527884851">
-                    <conditions>
-                        <condition id="7" name="Cursor is over object" sid="336304620275090" type="Mouse">
-                            <param id="0" name="Object">Blcks</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="111231745729334" type="debug">
-                            <param id="0" name="Text">&quot;Type: &quot;&amp;Blcks.Type&amp;newline&amp;&quot;Anim:&quot;&amp;Blcks.AnimationName&amp;newline&amp;&quot;UID: &quot;&amp;Blcks.UID</param>
-                        </action>
-                        <action id="-3" name="Set position" sid="115610463508327" type="debug">
-                            <param id="0" name="X">Mouse.X</param>
-                            <param id="1" name="Y">Mouse.Y</param>
-                        </action>
-                    </actions>
-                </event-block>
+                <comment>Identify Interactive Block </comment>
                 <event-block sid="848905959909732">
                     <conditions>
                         <condition id="7" name="Cursor is over object" sid="282644151029455" type="Mouse">
@@ -691,6 +721,56 @@
                         </action>
                     </actions>
                 </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="683682685252953" title="Win and Lose Events">
+            <sub-events>
+                <comment>Run Out of Fuel</comment>
+                <event-block sid="658718366829677">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="901588576627458" type="Boat">
+                            <param id="0" name="Instance variable">Fuel</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="566070491956725" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="703119729317392" type="SomeStats">
+                            <param id="0" name="Text">&quot;You  Lose&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="645338575011893" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="505766238502181" type="Function">
+                            <param id="0" name="Name">&quot;Maze&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Run Out of Supplies</comment>
+                <event-block sid="413260607006684">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="151109488563683" type="Boat">
+                            <param id="0" name="Instance variable">Supplies</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="212980135600551" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="453515604678313" type="SomeStats">
+                            <param id="0" name="Text">&quot;You  Lose&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="161916744500241" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="165277195414906" type="Function">
+                            <param id="0" name="Name">&quot;Maze&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
                 <comment>Reached the Exit</comment>
                 <event-block sid="902078956954370">
                     <conditions>
@@ -701,6 +781,13 @@
                     <actions>
                         <action id="0" name="Set text" sid="639298744074815" type="SomeStats">
                             <param id="0" name="Text">&quot;You  Win&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="501650590591149" type="System">
+                            <param id="0" name="Seconds">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="713645218385726" type="Function">
+                            <param id="0" name="Name">&quot;Maze&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
                 </event-block>

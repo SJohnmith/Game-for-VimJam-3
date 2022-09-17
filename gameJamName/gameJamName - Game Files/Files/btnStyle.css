@@ -10,13 +10,31 @@
   background: #EE9B1F;
   background: linear-gradient(to top, #EE9B1F, #F09C20);
 }
-
 #actnBtn:hover {
   color: #14396A !important;
   background: #468CCF;
   background: linear-gradient(to top, #468CCF, #63B8EE);
 }
-
 #actnBtn:active{
+  background: #677B87;
+}
+
+#btn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  background: #e2f0d9;
+  padding: 10px 20px 10px 20px;
+  border: solid #000000 4px;
+  text-decoration: none;
+}
+#btn:hover {
+  background: #3cb0fd;
+  text-decoration: none;
+}
+#btn:active{
   background: #677B87;
 }
