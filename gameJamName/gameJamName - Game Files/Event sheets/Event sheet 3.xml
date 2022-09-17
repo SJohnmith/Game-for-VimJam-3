@@ -390,7 +390,7 @@
                     </actions>
                 </event-block>
                 <comment>Remove if any Overlapping Blocks</comment>
-                <event-block sid="509475789977807">
+                <event-block disabled="1" sid="509475789977807">
                     <conditions>
                         <condition id="1" name="Is overlapping another object" sid="219426309230972" type="Blcks">
                             <param id="0" name="Object">Blcks</param>

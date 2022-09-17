@@ -289,7 +289,7 @@
         <object-folder name="Textures">
             <object-type name="Water" sid="434385803179995">
                 <plugin id="TiledBg" />
-                <texture />
+                <texture original-source="C:\Users\KMI\Desktop\water.png" />
             </object-type>
             <object-type name="Gnd" sid="744210483471235">
                 <plugin id="TiledBg" />
@@ -311,25 +311,25 @@
                 </instance-variables>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Solid1" pingpong="0" repeatcount="0" repeatto="0" sid="302979809355674" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\KMI\Desktop\solid1.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="Solid2" pingpong="0" repeatcount="0" repeatto="0" sid="949047545918502" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\KMI\Desktop\solid2.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="Solid3" pingpong="0" repeatcount="0" repeatto="0" sid="730273282642864" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\KMI\Desktop\solid3.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="Ice1" pingpong="0" repeatcount="0" repeatto="0" sid="589560942143897" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\KMI\Desktop\ice1.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="Ice2" pingpong="0" repeatcount="0" repeatto="0" sid="606619102694393" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\KMI\Desktop\ice2.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="Ice3" pingpong="0" repeatcount="0" repeatto="0" sid="386607946819088" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\KMI\Desktop\ice3.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="Area1" pingpong="0" repeatcount="0" repeatto="0" sid="250820910496891" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\KMI\Desktop\are1.png" />
                     </animation>
                 </animation-folder>
             </object-type>
