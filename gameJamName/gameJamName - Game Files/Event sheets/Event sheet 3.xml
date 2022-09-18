@@ -587,37 +587,22 @@
                             <param id="0" name="Instance variable">Type</param>
                             <param id="1" name="Value">Blcks.AnimationName</param>
                         </action>
-                        <action disabled="1" id="-11" name="Add to" sid="557521023334940" type="Boat">
+                        <action id="-11" name="Add to" sid="557521023334940" type="Boat">
                             <param id="0" name="Instance variable">Fuel</param>
-                            <param id="1" name="Value">int(random(1, 5))</param>
+                            <param id="1" name="Value">int(random(1, int(tokenat(Function.Param(0), 0, &quot;|&quot;))))</param>
                         </action>
-                        <action disabled="1" id="-11" name="Add to" sid="996777834612552" type="Boat">
+                        <action id="-11" name="Add to" sid="996777834612552" type="Boat">
                             <param id="0" name="Instance variable">Supplies</param>
-                            <param id="1" name="Value">int(random(1, 5))</param>
+                            <param id="1" name="Value">int(random(1, int(tokenat(Function.Param(0), 1, &quot;|&quot;))))</param>
                         </action>
-                        <action disabled="1" id="-15" name="Set visible" sid="763932859581288" type="ActnBg">
-                            <param id="0" name="Visibility">1</param>
+                        <action id="0" name="Set text" sid="887146999658361" type="StatsTxt">
+                            <param id="0" name="Text">&quot;Crew: &quot;&amp;Boat.CrewAmnt&amp;newline&amp;&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
                         </action>
-                        <action disabled="1" id="0" name="Set text" sid="782482646625599" type="StatsTxt">
-                            <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        <action id="0" name="Call function" sid="583824253496265" type="Function">
+                            <param id="0" name="Name">&quot;ActnPnts&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                     </actions>
-                    <sub-events>
-                        <event-block sid="935848638360292">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="737067213787570" type="System">
-                                    <param id="0" name="First value">find(Function.Param(0), &quot;actn&quot;)</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Set text" sid="847696228047531" type="debug">
-                                    <param id="0" name="Text">&quot;YEP&quot;</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
                 <comment>Loss Fuel, Supply, and/or Crew</comment>
                 <event-block sid="681428059220352">
@@ -626,7 +611,19 @@
                             <param id="0" name="Name">&quot;Lose&quot;</param>
                         </condition>
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action id="-11" name="Add to" sid="128908130488763" type="Boat">
+                            <param id="0" name="Instance variable">CrewAmnt</param>
+                            <param id="1" name="Value">int(random(1, int(tokenat(Function.Param(0), 0, &quot;|&quot;))))</param>
+                        </action>
+                        <action id="0" name="Set text" sid="481996857136440" type="StatsTxt">
+                            <param id="0" name="Text">&quot;Crew: &quot;&amp;Boat.CrewAmnt&amp;newline&amp;&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        </action>
+                        <action id="0" name="Call function" sid="107167839894913" type="Function">
+                            <param id="0" name="Name">&quot;ActnPnts&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
                 </event-block>
                 <event-block sid="157066664980525">
                     <conditions>
@@ -678,9 +675,6 @@
                     </conditions>
                     <actions>
                         <action disabled="1" id="-9" name="Destroy" sid="341704382426479" type="Blcks" />
-                        <action disabled="1" id="-15" name="Set visible" sid="710747480021110" type="ActnBg">
-                            <param id="0" name="Visibility">1</param>
-                        </action>
                         <action id="1" name="Set blend mode" sid="792942809256940" type="Blcks">
                             <param id="0" name="Blend mode">1</param>
                         </action>
@@ -729,9 +723,6 @@
                         </action>
                         <action id="1" name="Set blend mode" sid="332192352953112" type="Blcks">
                             <param id="0" name="Blend mode">0</param>
-                        </action>
-                        <action disabled="1" id="0" name="Set text" sid="890326430996200" type="debug">
-                            <param id="0" name="Text">Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg</param>
                         </action>
                         <action id="-12" name="Set group active" sid="756431634738281" type="System">
                             <param id="0" name="Group name">&quot;Player Controls&quot;</param>
