@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Event sheet 3</name>
+    <name>Main Event</name>
     <events>
         <include>Holder Event</include>
         <variable constant="0" name="CellSize" sid="985990847521313" static="0" type="number">64</variable>
@@ -24,8 +24,9 @@
                     <param id="0" name="Name">&quot;Maze&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
-                <action id="0" name="Set text" sid="912306749945249" type="StatsTxt">
-                    <param id="0" name="Text">&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                <action id="0" name="Call function" sid="656603463060003" type="Function">
+                    <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
                 </action>
             </actions>
         </event-block>
@@ -388,17 +389,22 @@
                             <param id="1" name="From">1</param>
                         </action>
                     </actions>
-                </event-block>
-                <comment>Remove if any Overlapping Blocks</comment>
-                <event-block disabled="1" sid="509475789977807">
-                    <conditions>
-                        <condition id="1" name="Is overlapping another object" sid="219426309230972" type="Blcks">
-                            <param id="0" name="Object">Blcks</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="835634103186107" type="Blcks" />
-                    </actions>
+                    <sub-events>
+                        <comment>Remove if any Overlapping Blocks</comment>
+                        <event-block sid="509475789977807">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="219426309230972" type="Blcks">
+                                    <param id="0" name="Object">Blcks</param>
+                                </condition>
+                                <condition id="-17" name="Pick top/bottom" sid="553791862780433" type="Blcks">
+                                    <param id="0" name="Which">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="835634103186107" type="Blcks" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -562,8 +568,9 @@
                             <param id="0" name="Instance variable">Supplies</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="0" name="Set text" sid="615180867636652" type="StatsTxt">
-                            <param id="0" name="Text">&quot;Crew: &quot;&amp;Boat.CrewAmnt&amp;newline&amp;&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        <action id="0" name="Call function" sid="176446213209591" type="Function">
+                            <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                         <action id="0" name="Call function" sid="736183524466237" type="Function">
                             <param id="0" name="Name">&quot;ActnPnts&quot;</param>
@@ -595,8 +602,9 @@
                             <param id="0" name="Instance variable">Supplies</param>
                             <param id="1" name="Value">int(random(1, int(tokenat(Function.Param(0), 1, &quot;|&quot;))))</param>
                         </action>
-                        <action id="0" name="Set text" sid="887146999658361" type="StatsTxt">
-                            <param id="0" name="Text">&quot;Crew: &quot;&amp;Boat.CrewAmnt&amp;newline&amp;&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        <action id="0" name="Call function" sid="241531605489555" type="Function">
+                            <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                         <action id="0" name="Call function" sid="583824253496265" type="Function">
                             <param id="0" name="Name">&quot;ActnPnts&quot;</param>
@@ -616,8 +624,9 @@
                             <param id="0" name="Instance variable">CrewAmnt</param>
                             <param id="1" name="Value">int(random(1, int(tokenat(Function.Param(0), 0, &quot;|&quot;))))</param>
                         </action>
-                        <action id="0" name="Set text" sid="481996857136440" type="StatsTxt">
-                            <param id="0" name="Text">&quot;Crew: &quot;&amp;Boat.CrewAmnt&amp;newline&amp;&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        <action id="0" name="Call function" sid="969510418467176" type="Function">
+                            <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
                         </action>
                         <action id="0" name="Call function" sid="107167839894913" type="Function">
                             <param id="0" name="Name">&quot;ActnPnts&quot;</param>
@@ -652,6 +661,68 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="402475145054016">
+                    <conditions>
+                        <condition id="0" name="On function" sid="659663899699211" type="Function">
+                            <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="0" name="Set text" sid="303665998669874" type="StatsTxt">
+                            <param id="0" name="Text">&quot;Crew: &quot;&amp;Boat.CrewAmnt&amp;newline&amp;&quot;Fuel: &quot;&amp;Boat.Fuel&amp;newline&amp;&quot;Supplies: &quot;&amp;Boat.Supplies&amp;newline&amp;&quot;Morale: &quot;&amp;Boat.Morale</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="314132750203079">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="280145476583411" type="StatsTxt">
+                                    <param id="0" name="Unique ID">16</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="889346319077567" type="StatsTxt">
+                                    <param id="0" name="Text">Boat.CrewAmnt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="247725633988030">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="217077715536623" type="StatsTxt">
+                                    <param id="0" name="Unique ID">59</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="195278717905665" type="StatsTxt">
+                                    <param id="0" name="Text">Boat.Fuel</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="867005540761131">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="137402204554985" type="StatsTxt">
+                                    <param id="0" name="Unique ID">60</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="685305671227332" type="StatsTxt">
+                                    <param id="0" name="Text">Boat.Supplies</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="249838638614990">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="566057305746193" type="StatsTxt">
+                                    <param id="0" name="Unique ID">61</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="243702325639135" type="StatsTxt">
+                                    <param id="0" name="Text">Boat.Morale</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="297463313237487" title="Interaction with Blocks">
@@ -675,6 +746,10 @@
                     </conditions>
                     <actions>
                         <action disabled="1" id="-9" name="Destroy" sid="341704382426479" type="Blcks" />
+                        <action id="0" name="Call function" sid="370773425820356" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                        </action>
                         <action id="1" name="Set blend mode" sid="792942809256940" type="Blcks">
                             <param id="0" name="Blend mode">1</param>
                         </action>
@@ -731,7 +806,7 @@
                     </actions>
                 </event-block>
                 <comment>Identify Interactive Block </comment>
-                <event-block sid="848905959909732">
+                <event-block disabled="1" sid="848905959909732">
                     <conditions>
                         <condition id="7" name="Cursor is over object" sid="282644151029455" type="Mouse">
                             <param id="0" name="Object">Blcks</param>
@@ -747,7 +822,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="798916398933918">
+                <event-block disabled="1" sid="798916398933918">
                     <conditions>
                         <condition id="7" inverted="1" name="Cursor is over object" sid="494343208645689" type="Mouse">
                             <param id="0" name="Object">Blcks</param>

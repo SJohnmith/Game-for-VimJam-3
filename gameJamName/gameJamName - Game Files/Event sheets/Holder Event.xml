@@ -151,6 +151,11 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">&quot;Collect&quot;</param>
                         </condition>
+                        <condition id="-8" name="Compare two values" sid="619204800884150" type="System">
+                            <param id="0" name="First value">TxtMatch</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Analyze&quot;</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Call function" sid="871221095166884" type="Function">
@@ -211,6 +216,11 @@
                             <param id="1" name="Comparison">0</param>
                             <param id="2" name="Second value">&quot;Done&quot;</param>
                         </condition>
+                        <condition id="-8" name="Compare two values" sid="172613289583182" type="System">
+                            <param id="0" name="First value">TxtMatch</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;Ignore&quot;</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="0" name="Call function" sid="600661635187316" type="Function">
@@ -242,7 +252,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="222278957329980" type="SuccessFailNum">
-                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;))</param>
+                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;))&amp;&quot;%&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -254,13 +264,13 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="667860090912839" type="SuccessFailNum">
-                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;F&quot;))</param>
+                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;F&quot;))&amp;&quot;%&quot;</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
-        <event-group description="" sid="858259632421571" title="Functions Group">
+        <event-group description="" sid="858259632421571" title="UI Update Group">
             <sub-events>
                 <comment>Get IndexOf Y&#x0D;&#x0A;Function.Parm(0) = Array.yIdx&#x0D;&#x0A;Function.Parm(1) = Text to Search for</comment>
                 <event-block sid="989931323163882">

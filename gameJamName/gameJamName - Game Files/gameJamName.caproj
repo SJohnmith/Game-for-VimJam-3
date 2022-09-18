@@ -43,6 +43,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Main Layout</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -133,6 +134,29 @@
             <object-type name="TbgCst" sid="567522987530448">
                 <plugin id="TiledBg" />
                 <texture />
+            </object-type>
+            <object-type name="ItemIcons" sid="727416455374088">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="actn" pingpong="0" repeatcount="0" repeatto="0" sid="158673308200638" speed="0">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="crew" pingpong="0" repeatcount="0" repeatto="0" sid="454687358184754" speed="0">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="fuel" pingpong="0" repeatcount="0" repeatto="0" sid="923378377312061" speed="0">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="supply" pingpong="0" repeatcount="0" repeatto="0" sid="663296378481435" speed="0">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="report" pingpong="0" repeatcount="0" repeatto="0" sid="526079855709202" speed="0">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="morale" pingpong="0" repeatcount="0" repeatto="0" sid="497681071932145" speed="0">
+                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                    </animation>
+                </animation-folder>
             </object-type>
         </object-folder>
         <object-folder name="Old Assets">
@@ -287,6 +311,15 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="Gnd" sid="744210483471235">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="415953632689655">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
         </object-folder>
         <object-folder name="Textures">
             <object-type name="Water" sid="434385803179995">
@@ -300,15 +333,6 @@
                     </effect-type>
                 </effects>
                 <texture original-source="C:\Users\mlobo\Desktop\TIle\g3224.png" />
-            </object-type>
-            <object-type name="Gnd" sid="744210483471235">
-                <plugin id="TiledBg" />
-                <behaviors>
-                    <behavior-type name="Solid" sid="415953632689655">
-                        <behavior id="solid" />
-                    </behavior-type>
-                </behaviors>
-                <texture />
             </object-type>
         </object-folder>
         <object-folder name="Game Assets">
@@ -477,29 +501,6 @@
             <object-type name="SuccessFailTxt" sid="927570432228288">
                 <plugin id="Text" />
             </object-type>
-            <object-type name="ItemIcons" sid="727416455374088">
-                <plugin id="Sprite" />
-                <animation-folder>
-                    <animation framecount="1" loop="0" name="actn" pingpong="0" repeatcount="0" repeatto="0" sid="158673308200638" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="crew" pingpong="0" repeatcount="0" repeatto="0" sid="454687358184754" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="fuel" pingpong="0" repeatcount="0" repeatto="0" sid="923378377312061" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="supply" pingpong="0" repeatcount="0" repeatto="0" sid="663296378481435" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="report" pingpong="0" repeatcount="0" repeatto="0" sid="526079855709202" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="empty" pingpong="0" repeatcount="0" repeatto="0" sid="497681071932145" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
-                    </animation>
-                </animation-folder>
-            </object-type>
             <object-type name="ReadEventTitle" sid="827676304813745">
                 <plugin id="Text" />
                 <behaviors>
@@ -515,16 +516,16 @@
     </object-folder>
     <families />
     <layout-folder>
+        <layout>Main Layout.xml</layout>
+        <layout>Holder Layout.xml</layout>
         <layout>Layout 1.xml</layout>
         <layout>Layout 2.xml</layout>
-        <layout>Holder Layout.xml</layout>
-        <layout>Layout 3.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>
         <event-sheet>Holder Event.xml</event-sheet>
         <event-sheet>Event sheet 2.xml</event-sheet>
-        <event-sheet>Event sheet 3.xml</event-sheet>
+        <event-sheet>Main Event.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="0" />

@@ -1,6 +1,6 @@
 {
 	"c2array":true,
-	"size":[10,5,1],
+	"size":[11,5,1],
 	"data":
 	[
 		[["StageState"],	["Title"],				["Text"], 			["Image"],			["ActnBtns"]],
@@ -12,6 +12,7 @@
 		[["Area1_2F"],		["Abandoned Shelter"],	["Area1_stg2_F"],	["ShelterFlee"],	["-|-|Flee"]],
 		[["Area1_2S"],		["Abandoned Shelter"],	["Area1_stg2_S"],	["ShelterEmpty"],	["-|-|Done"]],
 		[["Area2_1F"],		[0],					[0],				["img1"],			[0]],
-		[["Area2_1S"],		[0],					[0],				["img2"],			[0]]
+		[["Area2_1S"],		[0],					[0],				["img2"],			[0]],
+		[["Ice1_0"],		["Large Ice Block"],	["Ice1_stg0_I"],	["imga"],			["Analyze|Mine|Ignore"]]
 	]
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Layout 3</name>
+    <name>Main Layout</name>
     <sid>515224105605473</sid>
-    <event-sheet>Event sheet 3</event-sheet>
+    <event-sheet>Main Event</event-sheet>
     <size>
         <width>1920</width>
         <height>1080</height>
@@ -15,7 +15,7 @@
     <layers>
         <layer name="Background" sid="391041638553269">
             <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
+            <background-color>0,0,51</background-color>
             <transparent>0</transparent>
             <parallax>
                 <x>1</x>
