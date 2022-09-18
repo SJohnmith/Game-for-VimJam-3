@@ -121,19 +121,162 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="13" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="474013893613008" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.503311" />
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169962.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169941.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169857.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169984.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169920.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169836.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g170005.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169899.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169815.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g170026.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169878.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169793.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.503401" original-source="C:\Users\mlobo\Desktop\TIle\g169962.png">
+                            <collision-poly>
+                                <point x="0.142857" y="0.14966" />
+                                <point x="0.5" y="0" />
+                                <point x="0.857143" y="0.14966" />
+                                <point x="1" y="0.496599" />
+                                <point x="0.857143" y="0.85034" />
+                                <point x="0.5" y="1" />
+                                <point x="0.142857" y="0.85034" />
+                                <point x="0" y="0.496599" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -148,19 +291,19 @@
                         <frame duration="1" hotspotX="0" hotspotY="0" />
                     </animation>
                     <animation framecount="1" loop="0" name="crew" pingpong="0" repeatcount="0" repeatto="0" sid="454687358184754" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\mlobo\Desktop\TIle\g55733.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="fuel" pingpong="0" repeatcount="0" repeatto="0" sid="923378377312061" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\mlobo\Desktop\TIle\g55689.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="supply" pingpong="0" repeatcount="0" repeatto="0" sid="663296378481435" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\mlobo\Desktop\TIle\g55717.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="report" pingpong="0" repeatcount="0" repeatto="0" sid="526079855709202" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\mlobo\Desktop\TIle\g55676.png" />
                     </animation>
                     <animation framecount="1" loop="0" name="morale" pingpong="0" repeatcount="0" repeatto="0" sid="497681071932145" speed="0">
-                        <frame duration="1" hotspotX="0" hotspotY="0" />
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\mlobo\Desktop\TIle\g55698.png" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -458,10 +601,30 @@
                 <plugin id="Sprite" />
                 <animation-folder>
                     <animation framecount="1" loop="0" name="red" pingpong="0" repeatcount="0" repeatto="0" sid="522138312608724" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g89558.png">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="0.5" y="0" />
+                                <point x="0.96875" y="0.03125" />
+                                <point x="0.96875" y="0.5" />
+                                <point x="0.5625" y="0.5625" />
+                                <point x="0.5" y="0.5625" />
+                                <point x="0" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                     <animation framecount="1" loop="0" name="green" pingpong="0" repeatcount="0" repeatto="0" sid="738283284267688" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g89570.png">
+                            <collision-poly>
+                                <point x="0" y="0" />
+                                <point x="0.5" y="0" />
+                                <point x="0.96875" y="0.03125" />
+                                <point x="0.96875" y="0.5" />
+                                <point x="0.5625" y="0.5625" />
+                                <point x="0.5" y="0.5625" />
+                                <point x="0" y="1" />
+                            </collision-poly>
+                        </frame>
                     </animation>
                 </animation-folder>
             </object-type>
@@ -488,7 +651,30 @@
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Shelter" pingpong="0" repeatcount="0" repeatto="0" sid="855682442275960" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g89269.png">
+                            <collision-poly>
+                                <point x="0.00390625" y="0.00390625" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.00390625" y="0.996094" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Win" pingpong="0" repeatcount="0" repeatto="0" sid="495557732191290" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g94531.png">
+                            <collision-poly>
+                                <point x="0.00390625" y="0.00390625" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.00390625" y="0.996094" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="Ice" pingpong="0" repeatcount="0" repeatto="0" sid="769443730419151" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g130128.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Victory" pingpong="0" repeatcount="0" repeatto="0" sid="817972631673991" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g131935.png" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -520,11 +706,11 @@
             </object-type>
             <object-type name="TbgSuccess" sid="308044354956504">
                 <plugin id="NinePatch" />
-                <texture />
+                <texture original-source="C:\Users\mlobo\Desktop\TIle\g56365.png" />
             </object-type>
             <object-type name="TbgFail" sid="161906852567095">
                 <plugin id="NinePatch" />
-                <texture />
+                <texture original-source="C:\Users\mlobo\Desktop\TIle\g7765.png" />
             </object-type>
             <object-type name="SuccessFailNum" sid="837720814758669">
                 <plugin id="Text" />
