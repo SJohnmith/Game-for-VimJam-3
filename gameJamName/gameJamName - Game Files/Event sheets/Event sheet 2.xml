@@ -12,7 +12,7 @@
                 </condition>
             </conditions>
             <actions>
-                <action id="0" name="Set text" sid="650621437127945" type="SomeStats">
+                <action id="0" name="Set text" sid="650621437127945" type="extra">
                     <param id="0" name="Text">&quot;Options: A, B, C, or D&quot;</param>
                 </action>
             </actions>

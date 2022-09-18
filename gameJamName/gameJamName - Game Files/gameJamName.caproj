@@ -12,6 +12,7 @@
     <used-plugins>
         <plugin author="Scirra" id="AJAX" version="1">AJAX</plugin>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
@@ -25,7 +26,9 @@
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Car" version="1">Car</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Sin" version="1">Sine</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
@@ -74,9 +77,12 @@
             <object-type name="AJAX" sid="823634147979027">
                 <plugin id="AJAX" />
             </object-type>
+            <object-type name="Audio" sid="187235954555155">
+                <plugin id="Audio" />
+            </object-type>
         </object-folder>
         <object-folder name="UI Assets">
-            <object-type name="SomeStats" sid="187885645609472">
+            <object-type name="extra" sid="187885645609472">
                 <plugin id="Text" />
             </object-type>
             <object-type name="BarFuel" sid="377693272226736">
@@ -163,6 +169,17 @@
                 <behaviors>
                     <behavior-type name="Pin" sid="428168062473162">
                         <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
+            <object-type name="FdbckTxt" sid="593758481842014">
+                <plugin id="Text" />
+                <behaviors>
+                    <behavior-type name="Fade" sid="942996883095219">
+                        <behavior id="Fade" />
+                    </behavior-type>
+                    <behavior-type name="Sine" sid="844985813163766">
+                        <behavior id="Sin" />
                     </behavior-type>
                 </behaviors>
             </object-type>
@@ -528,6 +545,9 @@
                     </behavior-type>
                 </behaviors>
             </object-type>
+            <object-type name="ExtraResTxt" sid="990186138786736">
+                <plugin id="Text" />
+            </object-type>
         </object-folder>
         <object-type name="debug" sid="743128089893687">
             <plugin id="Text" />
@@ -551,6 +571,20 @@
         <global-instance type="Keyboard" uid="5" />
         <global-instance type="Function" uid="25" />
         <global-instance type="AJAX" uid="41" />
+        <global-instance type="Audio" uid="67">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
     <sounds-folder />
     <music-folder />
@@ -563,9 +597,9 @@
             <file name="icon-256.png" />
             <file name="loading-logo.png" />
         </file-folder>
-        <file name="btnStyle.css" />
         <file name="StgData.json" />
         <file name="StgTxt.json" />
         <file name="StgRes.json" />
+        <file name="btnStyle.css" />
     </files-folder>
 </c2project>

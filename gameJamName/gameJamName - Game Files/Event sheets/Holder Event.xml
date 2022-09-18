@@ -22,7 +22,7 @@
                     <param id="0" name="Tag">&quot;StgTxt&quot;</param>
                     <param id="1" name="File">StgTxt.json</param>
                 </action>
-                <action id="0" name="Set text" sid="417515075717174" type="SomeStats">
+                <action id="0" name="Set text" sid="417515075717174" type="extra">
                     <param id="0" name="Text">&quot;Str: x&quot;&amp;newline&amp;&quot;Int: y&quot;</param>
                 </action>
                 <action id="-10" name="Set value" sid="776780886919147" type="BarMorale">
@@ -114,6 +114,70 @@
         </event-block>
         <event-group description="" sid="554354914472310" title="Action Button Interaction">
             <sub-events>
+                <event-block sid="632729226493556">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="700148469634106" type="ActnBtn" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="227506502141384" type="System">
+                            <param id="0" name="Variable">TxtMatch</param>
+                            <param id="1" name="Value">RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="467557226789533">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="972352985887500" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Leave&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="594198248377845" type="Function">
+                                    <param id="0" name="Name">&quot;CloseStg&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="516197881452517">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="764942550743263" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Find Fuel&quot;</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="290199846625850" type="Boat">
+                                    <param id="0" name="Instance variable">Supplies</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="628150622199842" type="Function">
+                                    <param id="0" name="Name">&quot;CloseStg&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="836260649913131">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="673757082169932" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Restart&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="587586191219227" type="Function">
+                                    <param id="0" name="Name">&quot;CloseStg&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-26" name="Restart layout" sid="521195296826619" type="System" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <comment>On Action Button Clicked</comment>
                 <event-block sid="276528437053759">
                     <conditions>
@@ -316,6 +380,29 @@
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="942478917611338">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="255595011650700" type="StatsTxt">
+                                            <param id="0" name="Unique ID">61</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="841228105222550" type="System">
+                                            <param id="0" name="Object to create">FdbckTxt</param>
+                                            <param id="1" name="Layer">StatsTxt.LayerName</param>
+                                            <param id="2" name="X">StatsTxt.X</param>
+                                            <param id="3" name="Y">StatsTxt.Y</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="247432085113447" type="FdbckTxt">
+                                            <param id="0" name="Text">&quot;-1 Morale&quot;</param>
+                                        </action>
+                                        <action id="4" name="Set font color" sid="416468462844284" type="FdbckTxt">
+                                            <param id="0" name="Color">rgb(255, 0, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="243734414369962">
                             <conditions>
@@ -343,6 +430,29 @@
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="779974100939756">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="485917008655263" type="StatsTxt">
+                                            <param id="0" name="Unique ID">59</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="382917076772716" type="System">
+                                            <param id="0" name="Object to create">FdbckTxt</param>
+                                            <param id="1" name="Layer">StatsTxt.LayerName</param>
+                                            <param id="2" name="X">StatsTxt.X</param>
+                                            <param id="3" name="Y">StatsTxt.Y</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="749884730903165" type="FdbckTxt">
+                                            <param id="0" name="Text">&quot;-1 Fuel&quot;</param>
+                                        </action>
+                                        <action id="4" name="Set font color" sid="756835334461448" type="FdbckTxt">
+                                            <param id="0" name="Color">rgb(255, 0, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="276569121549820">
                             <conditions>
@@ -364,13 +474,57 @@
                                 </action>
                                 <action id="-11" name="Add to" sid="881985724359657" type="Boat">
                                     <param id="0" name="Instance variable">Fuel</param>
-                                    <param id="1" name="Value">1</param>
+                                    <param id="1" name="Value">3</param>
                                 </action>
                                 <action id="0" name="Call function" sid="933140398129945" type="Function">
                                     <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="110914150758673">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="470365267797943" type="StatsTxt">
+                                            <param id="0" name="Unique ID">59</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="568824425928387" type="System">
+                                            <param id="0" name="Object to create">FdbckTxt</param>
+                                            <param id="1" name="Layer">StatsTxt.LayerName</param>
+                                            <param id="2" name="X">StatsTxt.X</param>
+                                            <param id="3" name="Y">StatsTxt.Y</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="697794904261961" type="FdbckTxt">
+                                            <param id="0" name="Text">&quot;+3 Fuel&quot;</param>
+                                        </action>
+                                        <action id="4" name="Set font color" sid="803408275671849" type="FdbckTxt">
+                                            <param id="0" name="Color">rgb(0, 255, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="472486869568607">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="555096991973617" type="StatsTxt">
+                                            <param id="0" name="Unique ID">60</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="901501371739845" type="System">
+                                            <param id="0" name="Object to create">FdbckTxt</param>
+                                            <param id="1" name="Layer">StatsTxt.LayerName</param>
+                                            <param id="2" name="X">StatsTxt.X</param>
+                                            <param id="3" name="Y">StatsTxt.Y</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="940998033363646" type="FdbckTxt">
+                                            <param id="0" name="Text">&quot;-1 Supplies&quot;</param>
+                                        </action>
+                                        <action id="4" name="Set font color" sid="239097678121184" type="FdbckTxt">
+                                            <param id="0" name="Color">rgb(255, 0, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -420,15 +574,11 @@
                                 </action>
                                 <action id="-9" name="Set value" sid="893652291792097" type="System">
                                     <param id="0" name="Variable">var1</param>
-                                    <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;)), 0, &quot;|&quot;))))</param>
+                                    <param id="1" name="Value">int(random(3, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;)), 0, &quot;|&quot;))))</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="309739851575010" type="System">
                                     <param id="0" name="Variable">var2</param>
                                     <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;)), 1, &quot;|&quot;))))</param>
-                                </action>
-                                <action disabled="1" id="0" name="Call function" sid="907820257165303" type="Function">
-                                    <param id="0" name="Name">&quot;Gain&quot;</param>
-                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;))</param>
                                 </action>
                                 <action id="0" name="Call function" sid="401925015764940" type="Function">
                                     <param id="0" name="Name">&quot;Gain&quot;</param>
@@ -447,15 +597,11 @@
                                 </action>
                                 <action id="-9" name="Set value" sid="443504843620916" type="System">
                                     <param id="0" name="Variable">var1</param>
-                                    <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;)), 0, &quot;|&quot;))))</param>
+                                    <param id="1" name="Value">int(random(-1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;)), 0, &quot;|&quot;))))</param>
                                 </action>
                                 <action id="-9" name="Set value" sid="652315106235716" type="System">
                                     <param id="0" name="Variable">var2</param>
-                                    <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;)), 1, &quot;|&quot;))))</param>
-                                </action>
-                                <action disabled="1" id="0" name="Call function" sid="493767055492954" type="Function">
-                                    <param id="0" name="Name">&quot;Lose&quot;</param>
-                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;))</param>
+                                    <param id="1" name="Value">int(random(-1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;)), 1, &quot;|&quot;))))</param>
                                 </action>
                                 <action id="0" name="Call function" sid="997248756335584" type="Function">
                                     <param id="0" name="Name">&quot;Lose&quot;</param>
@@ -592,6 +738,14 @@
                             <actions>
                                 <action id="0" name="Set text" sid="831346430205357" type="ReadEventTxt">
                                     <param id="0" name="Text">RegexReplace(ReadEventTxt.Text, &quot;\d&quot;, &quot;i&quot;, var1)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="747416753463517">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Set text" sid="760446807054290" type="ReadEventTxt">
+                                    <param id="0" name="Text">RegexReplace(ReadEventTxt.Text, &quot;\w\d&quot;, &quot;i&quot;, var2)</param>
                                 </action>
                             </actions>
                         </event-block>
