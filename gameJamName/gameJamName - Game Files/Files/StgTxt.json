@@ -4,9 +4,9 @@
 	{
 		"Area1_stg0_I":"You and your crew stubble across on what appears to be like an abandoned shelter.",
 		"Area1_stg1_F":"The inspection was a fail, our crew mate never returned and we have no information on this area.",
-		"Area1_stg1_S":"The inspection was a success, the area is safe and has x fuel and y supplies for scavenge.",
-		"Area1_stg2_F":"The search was a fail, we lost *x crew members to a polar bear. The rest barely made it out alive.",
-		"Area1_stg2_S":"The search was a success, in this process we gained *x fuel and *y supplies.",
+		"Area1_stg1_S":"The inspection was a success, the area is safe and has 8 fuel and 9 supplies for scavenge.",
+		"Area1_stg2_F":"The search was a fail, we lost 8 crew members to a polar bear. The rest barely made it out alive.",
+		"Area1_stg2_S":"The search was a success, in this process we gained 8 fuel and 9 supplies.",
 		"empty":"abcd",
 		"Inspect":"Send one soul to inspect and get a solid report of the area.",
 		"Search":"Send your crew to scavenge for fuel and supplies.",
@@ -20,6 +20,10 @@
 		"Done":"Nothing left to do but leave the area.",
 		"-":"-",
 		"Ice1_stg0_I":"Your ship has stubled towards a large ice block. What should we do with it?",
+		"Ice1_stg1_F":"",
+		"Ice1_stg1_S":"",
+		"Ice2_stg0_I":"Your ship has stubled towards a large ice block. What should we do with it?",
+		"Ice3_stg0_I":"Your ship has stubled towards a large ice block. What should we do with it?",
 		"Ignore":"Probably not worth trying to break it."
 	}
 }

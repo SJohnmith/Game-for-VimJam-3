@@ -112,164 +112,270 @@
                 </action>
             </actions>
         </event-block>
-        <comment>On Action Button Clicked</comment>
-        <event-block sid="276528437053759">
-            <conditions>
-                <condition id="0" name="On clicked" sid="670492010937731" type="ActnBtn" />
-                <condition id="-14" name="Pick by unique ID" sid="376946125699423" type="Blcks">
-                    <param id="0" name="Unique ID">BlcksUID</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="8" name="Set unfocused" sid="305933904501627" type="ActnBtn" />
-                <action id="-9" name="Set value" sid="197139117661088" type="System">
-                    <param id="0" name="Variable">TxtMatch</param>
-                    <param id="1" name="Value">RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
-                </action>
-            </actions>
+        <event-group description="" sid="554354914472310" title="Action Button Interaction">
             <sub-events>
-                <comment>Increment the Story Stage by 1</comment>
-                <event-block any="1" sid="249764273469868">
+                <comment>On Action Button Clicked</comment>
+                <event-block sid="276528437053759">
                     <conditions>
-                        <condition id="-8" name="Compare two values" sid="287694409360967" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Inspect&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="795308177334650" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Investigate&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="737204656293346" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Scout&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="528767368809186" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Collect&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="619204800884150" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Analyze&quot;</param>
+                        <condition id="0" name="On clicked" sid="670492010937731" type="ActnBtn" />
+                        <condition id="-14" name="Pick by unique ID" sid="376946125699423" type="Blcks">
+                            <param id="0" name="Unique ID">BlcksUID</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Call function" sid="871221095166884" type="Function">
-                            <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
-                            <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}1</param>
+                        <action id="8" name="Set unfocused" sid="305933904501627" type="ActnBtn" />
+                        <action id="-9" name="Set value" sid="197139117661088" type="System">
+                            <param id="0" name="Variable">TxtMatch</param>
+                            <param id="1" name="Value">RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
                         </action>
-                        <action id="0" name="Call function" sid="436695423586845" type="Function">
-                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                        <action id="0" name="Set text" sid="673828113392860" type="debug">
+                            <param id="0" name="Text">TxtMatch</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <comment>Increment the Story Stage by 1</comment>
+                        <event-block any="1" sid="249764273469868">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="287694409360967" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Inspect&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="795308177334650" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Investigate&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="737204656293346" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Scout&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="528767368809186" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Collect&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="619204800884150" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Analyze&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="871221095166884" type="Function">
+                                    <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="436695423586845" type="Function">
+                                    <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                                    <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Increment the Story Stage by 2</comment>
+                        <event-block any="1" sid="237268199694870">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="684972967956418" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Search&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="764664716255660" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Mine&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="812177590027319" type="Function">
+                                    <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}2</param>
+                                </action>
+                                <action id="0" name="Call function" sid="524232516156462" type="Function">
+                                    <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                                    <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Leave the Story Stage</comment>
+                        <event-block any="1" sid="185526440403815">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="240459800096027" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Leave&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="349251610103421" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Abandon&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="794696885814409" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Flee&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="216289529762187" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Set Sail&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="605155228684725" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Done&quot;</param>
+                                </condition>
+                                <condition id="-8" name="Compare two values" sid="172613289583182" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Ignore&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="600661635187316" type="Function">
+                                    <param id="0" name="Name">&quot;CloseStg&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="242719098737668" type="System">
+                                    <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
-                <comment>Increment the Story Stage by 2</comment>
-                <event-block sid="237268199694870">
+                <comment>On Action Button Hover Update Probability</comment>
+                <event-block sid="675246277486125">
                     <conditions>
-                        <condition id="-8" name="Compare two values" sid="684972967956418" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Search&quot;</param>
+                        <condition id="7" name="Cursor is over object" sid="110119938516604" type="Mouse">
+                            <param id="0" name="Object">ActnBtn</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="812177590027319" type="Function">
-                            <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
-                            <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}2</param>
-                        </action>
-                        <action id="0" name="Call function" sid="524232516156462" type="Function">
-                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="709519676864515">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="805520822118489" type="SuccessFailNum">
+                                    <param id="0" name="Unique ID">51</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="222278957329980" type="SuccessFailNum">
+                                    <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;))&amp;&quot;%&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="205683695018378">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="862185900315157" type="SuccessFailNum">
+                                    <param id="0" name="Unique ID">52</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="667860090912839" type="SuccessFailNum">
+                                    <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;F&quot;))&amp;&quot;%&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
-                <comment>Leave the Story Stage</comment>
-                <event-block any="1" sid="185526440403815">
+                <comment>Extra Actions Button Behaviour</comment>
+                <variable constant="0" name="usedIdle" sid="172357514712069" static="1" type="number">0</variable>
+                <event-block sid="298713395137224">
                     <conditions>
-                        <condition id="-8" name="Compare two values" sid="240459800096027" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Leave&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="349251610103421" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Abandon&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="794696885814409" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Flee&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="216289529762187" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Set Sail&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="605155228684725" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Done&quot;</param>
-                        </condition>
-                        <condition id="-8" name="Compare two values" sid="172613289583182" type="System">
-                            <param id="0" name="First value">TxtMatch</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Second value">&quot;Ignore&quot;</param>
-                        </condition>
+                        <condition id="0" name="On clicked" sid="250449050991404" type="ExtraActnBtn" />
                     </conditions>
                     <actions>
-                        <action id="0" name="Call function" sid="600661635187316" type="Function">
-                            <param id="0" name="Name">&quot;CloseStg&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                        <action id="-12" name="Set group active" sid="242719098737668" type="System">
-                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
-                            <param id="1" name="State">1</param>
-                        </action>
+                        <action id="8" name="Set unfocused" sid="439764591015049" type="ExtraActnBtn" />
                     </actions>
+                    <sub-events>
+                        <event-block sid="529643098053308">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="962222825495890" type="System">
+                                    <param id="0" name="First value">RegexMatchAt(ExtraActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Idle&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="180452692993659" type="System">
+                                    <param id="0" name="Variable">usedIdle</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="386720491313926" type="Boat">
+                                    <param id="0" name="Instance variable">Morale</param>
+                                    <param id="1" name="Value">usedIdle</param>
+                                </action>
+                                <action id="0" name="Call function" sid="231678839766552" type="Function">
+                                    <param id="0" name="Name">&quot;ActnPnts&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="0" name="Call function" sid="665330724042103" type="Function">
+                                    <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="243734414369962">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="129070426118185" type="System">
+                                    <param id="0" name="First value">RegexMatchAt(ExtraActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Stay Warm&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="174255441170775" type="System">
+                                    <param id="0" name="Variable">usedIdle</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-12" name="Subtract from" sid="859657599404247" type="Boat">
+                                    <param id="0" name="Instance variable">Fuel</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="116696110425298" type="Function">
+                                    <param id="0" name="Name">&quot;ActnPnts&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="0" name="Call function" sid="689684105613758" type="Function">
+                                    <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="276569121549820">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="689089369964587" type="System">
+                                    <param id="0" name="First value">RegexMatchAt(ExtraActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Convert Supplies&quot;</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="905242775461972" type="Boat">
+                                    <param id="0" name="Instance variable">Supplies</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="132203807917054" type="Boat">
+                                    <param id="0" name="Instance variable">Supplies</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-11" name="Add to" sid="881985724359657" type="Boat">
+                                    <param id="0" name="Instance variable">Fuel</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="933140398129945" type="Function">
+                                    <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
-        </event-block>
-        <comment>On Action Button Hover</comment>
-        <event-block sid="675246277486125">
-            <conditions>
-                <condition id="7" name="Cursor is over object" sid="110119938516604" type="Mouse">
-                    <param id="0" name="Object">ActnBtn</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="709519676864515">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="805520822118489" type="SuccessFailNum">
-                            <param id="0" name="Unique ID">51</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="222278957329980" type="SuccessFailNum">
-                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;))&amp;&quot;%&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="205683695018378">
-                    <conditions>
-                        <condition id="-14" name="Pick by unique ID" sid="862185900315157" type="SuccessFailNum">
-                            <param id="0" name="Unique ID">52</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Set text" sid="667860090912839" type="SuccessFailNum">
-                            <param id="0" name="Text">AryStgRes.At(AryStgRes.IndexOf(RegexMatchAt(ActnBtn.AsJSON, &quot;text&quot;&quot;:&quot;&quot;+([^}&quot;&quot;]+)&quot;, &quot;i&quot;, 1)), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;F&quot;))&amp;&quot;%&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
+        </event-group>
         <event-group description="" sid="858259632421571" title="UI Update Group">
             <sub-events>
                 <comment>Get IndexOf Y&#x0D;&#x0A;Function.Parm(0) = Array.yIdx&#x0D;&#x0A;Function.Parm(1) = Text to Search for</comment>
@@ -284,6 +390,80 @@
                             <param id="0" name="Value">int(left(RegexMatchAt(Function.Param(0), &quot;[\d]&quot;&amp;Function.Param(1), &quot;i&quot;, 0), 1))</param>
                         </action>
                     </actions>
+                </event-block>
+                <comment>Compute Probability&#x0D;&#x0A;Function.Parm(0) = Btn Success Probability&#x0D;&#x0A;Function.Parm(1) = Blck Stage Level&#x0D;&#x0A;Function.Parm(2) = Stage Increment</comment>
+                <variable constant="0" name="var1" sid="610719861103736" static="1" type="number">0</variable>
+                <variable constant="0" name="var2" sid="193257718350452" static="1" type="number">0</variable>
+                <event-block sid="890973213088286">
+                    <conditions>
+                        <condition id="0" name="On function" sid="463550508094295" type="Function">
+                            <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
+                        </condition>
+                        <condition id="-14" name="Pick by unique ID" sid="636330897648195" type="Blcks">
+                            <param id="0" name="Unique ID">BlcksUID</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="347839684940429">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="128203295618974" type="System">
+                                    <param id="0" name="First value">int(random(100))</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Second value">Function.Param(0)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="131405695645408" type="Blcks">
+                                    <param id="0" name="Instance variable">Stg</param>
+                                    <param id="1" name="Value">str(int(Function.Param(1)) + Function.Param(2))&amp;&quot;S&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="893652291792097" type="System">
+                                    <param id="0" name="Variable">var1</param>
+                                    <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;)), 0, &quot;|&quot;))))</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="309739851575010" type="System">
+                                    <param id="0" name="Variable">var2</param>
+                                    <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;)), 1, &quot;|&quot;))))</param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="907820257165303" type="Function">
+                                    <param id="0" name="Name">&quot;Gain&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;))</param>
+                                </action>
+                                <action id="0" name="Call function" sid="401925015764940" type="Function">
+                                    <param id="0" name="Name">&quot;Gain&quot;</param>
+                                    <param id="1" name="Parameter {n}">var1{###}var2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="729742681129904">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="689212153687059" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="207421393961121" type="Blcks">
+                                    <param id="0" name="Instance variable">Stg</param>
+                                    <param id="1" name="Value">str(int(Function.Param(1)) + Function.Param(2))&amp;&quot;F&quot;</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="443504843620916" type="System">
+                                    <param id="0" name="Variable">var1</param>
+                                    <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;)), 0, &quot;|&quot;))))</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="652315106235716" type="System">
+                                    <param id="0" name="Variable">var2</param>
+                                    <param id="1" name="Value">int(random(1, int(tokenat(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;)), 1, &quot;|&quot;))))</param>
+                                </action>
+                                <action disabled="1" id="0" name="Call function" sid="493767055492954" type="Function">
+                                    <param id="0" name="Name">&quot;Lose&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;))</param>
+                                </action>
+                                <action id="0" name="Call function" sid="997248756335584" type="Function">
+                                    <param id="0" name="Name">&quot;Lose&quot;</param>
+                                    <param id="1" name="Parameter {n}">var1{###}var2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <comment>On Clicked Block Update Stage</comment>
                 <event-block sid="123273296147793">
@@ -407,51 +587,11 @@
                                 </action>
                             </actions>
                         </event-block>
-                    </sub-events>
-                </event-block>
-                <comment>Compute Probability&#x0D;&#x0A;Function.Parm(0) = Btn Success Probability&#x0D;&#x0A;Function.Parm(1) = Blck Stage Level&#x0D;&#x0A;Function.Parm(2) = Stage Increment</comment>
-                <event-block sid="890973213088286">
-                    <conditions>
-                        <condition id="0" name="On function" sid="463550508094295" type="Function">
-                            <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
-                        </condition>
-                        <condition id="-14" name="Pick by unique ID" sid="636330897648195" type="Blcks">
-                            <param id="0" name="Unique ID">BlcksUID</param>
-                        </condition>
-                    </conditions>
-                    <actions />
-                    <sub-events>
-                        <event-block sid="347839684940429">
-                            <conditions>
-                                <condition id="-8" name="Compare two values" sid="128203295618974" type="System">
-                                    <param id="0" name="First value">int(random(100))</param>
-                                    <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Second value">Function.Param(0)</param>
-                                </condition>
-                            </conditions>
+                        <event-block sid="716058763589259">
+                            <conditions />
                             <actions>
-                                <action id="-10" name="Set value" sid="131405695645408" type="Blcks">
-                                    <param id="0" name="Instance variable">Stg</param>
-                                    <param id="1" name="Value">str(int(Function.Param(1)) + Function.Param(2))&amp;&quot;S&quot;</param>
-                                </action>
-                                <action id="0" name="Call function" sid="907820257165303" type="Function">
-                                    <param id="0" name="Name">&quot;Gain&quot;</param>
-                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Gain&quot;))</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="729742681129904">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="689212153687059" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="207421393961121" type="Blcks">
-                                    <param id="0" name="Instance variable">Stg</param>
-                                    <param id="1" name="Value">str(int(Function.Param(1)) + Function.Param(2))&amp;&quot;F&quot;</param>
-                                </action>
-                                <action id="0" name="Call function" sid="493767055492954" type="Function">
-                                    <param id="0" name="Name">&quot;Lose&quot;</param>
-                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;Lose&quot;))</param>
+                                <action id="0" name="Set text" sid="831346430205357" type="ReadEventTxt">
+                                    <param id="0" name="Text">RegexReplace(ReadEventTxt.Text, &quot;\d&quot;, &quot;i&quot;, var1)</param>
                                 </action>
                             </actions>
                         </event-block>

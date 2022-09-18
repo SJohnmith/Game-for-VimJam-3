@@ -158,6 +158,14 @@
                     </animation>
                 </animation-folder>
             </object-type>
+            <object-type name="ExtraActnBtn" sid="888822562846190">
+                <plugin id="Button" />
+                <behaviors>
+                    <behavior-type name="Pin" sid="428168062473162">
+                        <behavior id="Pin" />
+                    </behavior-type>
+                </behaviors>
+            </object-type>
         </object-folder>
         <object-folder name="Old Assets">
             <object-type name="Rock1" sid="607695725647176">
@@ -425,6 +433,17 @@
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                     <animation framecount="1" loop="0" name="radius2" pingpong="0" repeatcount="0" repeatto="0" sid="609257471137860" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="Marker" sid="172963503377601">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="red" pingpong="0" repeatcount="0" repeatto="0" sid="522138312608724" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="green" pingpong="0" repeatcount="0" repeatto="0" sid="738283284267688" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
