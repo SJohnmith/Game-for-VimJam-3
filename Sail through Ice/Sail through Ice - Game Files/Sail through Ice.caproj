@@ -487,6 +487,9 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
+                    <animation framecount="1" loop="0" name="Venture" pingpong="0" repeatcount="0" repeatto="0" sid="196669493921923" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g38290.png" />
+                    </animation>
                     <animation framecount="1" loop="0" name="Shelter" pingpong="0" repeatcount="0" repeatto="0" sid="855682442275960" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g89269.png">
                             <collision-poly>
@@ -497,7 +500,47 @@
                             </collision-poly>
                         </frame>
                     </animation>
-                    <animation framecount="1" loop="0" name="ShelterCollect" pingpong="0" repeatcount="0" repeatto="0" sid="495557732191290" speed="0">
+                    <animation framecount="1" loop="0" name="ShelterLost" pingpong="0" repeatcount="0" repeatto="0" sid="202245871299984" speed="0">
+                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g8696.png">
+                            <collision-poly>
+                                <point x="0.00390625" y="0.00390625" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.00390625" y="0.996094" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="ShelterSafe" pingpong="0" repeatcount="0" repeatto="0" sid="123322303363440" speed="0">
+                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61829.png">
+                            <collision-poly>
+                                <point x="0.00390625" y="0.00390625" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.00390625" y="0.996094" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="ShelterBear" pingpong="0" repeatcount="0" repeatto="0" sid="217429826633723" speed="0">
+                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g8608.png">
+                            <collision-poly>
+                                <point x="0.00390625" y="0.00390625" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.00390625" y="0.996094" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="ShelterCollect" pingpong="0" repeatcount="0" repeatto="0" sid="681842653189351" speed="0">
+                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61776.png">
+                            <collision-poly>
+                                <point x="0.00390625" y="0.00390625" />
+                                <point x="1" y="0" />
+                                <point x="1" y="1" />
+                                <point x="0.00390625" y="0.996094" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                    <animation framecount="1" loop="0" name="ShelterCollectx" pingpong="0" repeatcount="0" repeatto="0" sid="495557732191290" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g94531.png">
                             <collision-poly>
                                 <point x="0.00390625" y="0.00390625" />
@@ -510,81 +553,35 @@
                     <animation framecount="1" loop="0" name="Ice" pingpong="0" repeatcount="0" repeatto="0" sid="769443730419151" speed="0">
                         <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g130128.png" />
                     </animation>
-                    <animation framecount="1" loop="0" name="Victory" pingpong="0" repeatcount="0" repeatto="0" sid="817972631673991" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g131935.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation2" pingpong="0" repeatcount="0" repeatto="0" sid="681842653189351" speed="0">
-                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61776.png">
-                            <collision-poly>
-                                <point x="0.00390625" y="0.00390625" />
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                                <point x="0.00390625" y="0.996094" />
-                            </collision-poly>
-                        </frame>
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation3" pingpong="0" repeatcount="0" repeatto="0" sid="123322303363440" speed="0">
-                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61829.png">
-                            <collision-poly>
-                                <point x="0.00390625" y="0.00390625" />
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                                <point x="0.00390625" y="0.996094" />
-                            </collision-poly>
-                        </frame>
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation4" pingpong="0" repeatcount="0" repeatto="0" sid="235674390620545" speed="0">
+                    <animation framecount="1" loop="0" name="IceDanger" pingpong="0" repeatcount="0" repeatto="0" sid="235674390620545" speed="0">
                         <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61886.png" />
                     </animation>
-                    <animation framecount="1" loop="0" name="Animation5" pingpong="0" repeatcount="0" repeatto="0" sid="104879646279522" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61943.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation6" pingpong="0" repeatcount="0" repeatto="0" sid="937776199505168" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61971.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation7" pingpong="0" repeatcount="0" repeatto="0" sid="828204959962235" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g62008.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation8" pingpong="0" repeatcount="0" repeatto="0" sid="287344512247133" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g62055.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation9" pingpong="0" repeatcount="0" repeatto="0" sid="179210320902107" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g62086.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation10" pingpong="0" repeatcount="0" repeatto="0" sid="819613970797115" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g39317.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation11" pingpong="0" repeatcount="0" repeatto="0" sid="196669493921923" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g38290.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation12" pingpong="0" repeatcount="0" repeatto="0" sid="990891198859650" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g17507.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation13" pingpong="0" repeatcount="0" repeatto="0" sid="235086209616961" speed="0">
-                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g12131.png" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="Animation14" pingpong="0" repeatcount="0" repeatto="0" sid="126525923442138" speed="0">
+                    <animation framecount="1" loop="0" name="IceSafe" pingpong="0" repeatcount="0" repeatto="0" sid="126525923442138" speed="0">
                         <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g9900.png" />
                     </animation>
-                    <animation framecount="1" loop="0" name="Animation15" pingpong="0" repeatcount="0" repeatto="0" sid="202245871299984" speed="0">
-                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g8696.png">
-                            <collision-poly>
-                                <point x="0.00390625" y="0.00390625" />
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                                <point x="0.00390625" y="0.996094" />
-                            </collision-poly>
-                        </frame>
+                    <animation framecount="1" loop="0" name="IceSunk" pingpong="0" repeatcount="0" repeatto="0" sid="990891198859650" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g17507.png" />
                     </animation>
-                    <animation framecount="1" loop="0" name="Animation16" pingpong="0" repeatcount="0" repeatto="0" sid="217429826633723" speed="0">
-                        <frame duration="1" hotspotX="0.503906" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g8608.png">
-                            <collision-poly>
-                                <point x="0.00390625" y="0.00390625" />
-                                <point x="1" y="0" />
-                                <point x="1" y="1" />
-                                <point x="0.00390625" y="0.996094" />
-                            </collision-poly>
-                        </frame>
+                    <animation framecount="1" loop="0" name="IceMined" pingpong="0" repeatcount="0" repeatto="0" sid="235086209616961" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g12131.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="noFuel" pingpong="0" repeatcount="0" repeatto="0" sid="179210320902107" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g62086.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="noSupply" pingpong="0" repeatcount="0" repeatto="0" sid="828204959962235" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g62008.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="noMorale" pingpong="0" repeatcount="0" repeatto="0" sid="937776199505168" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g61971.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Victory" pingpong="0" repeatcount="0" repeatto="0" sid="819613970797115" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g39317.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Defeat" pingpong="0" repeatcount="0" repeatto="0" sid="287344512247133" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g62055.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="Victoryx" pingpong="0" repeatcount="0" repeatto="0" sid="817972631673991" speed="0">
+                        <frame duration="1" hotspotX="0.501961" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g131935.png" />
                     </animation>
                 </animation-folder>
             </object-type>
