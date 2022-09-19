@@ -28,13 +28,13 @@
                 <action id="-16" name="Wait" sid="912914211450050" type="System">
                     <param id="0" name="Seconds">0.1</param>
                 </action>
-                <action id="5" name="Set web font" sid="205743411329420" type="debug">
-                    <param id="0" name="Family name">&quot;actnBtn&quot;</param>
-                    <param id="1" name="CSS URL">&quot;btnStyle.css&quot;</param>
-                </action>
                 <action id="0" name="Call function" sid="767079325908112" type="Function">
                     <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                     <param id="1" name="Parameter {n}">&quot;Start&quot;{###}0</param>
+                </action>
+                <action id="5" name="Set web font" sid="205743411329420" type="debug">
+                    <param id="0" name="Family name">&quot;actnBtn&quot;</param>
+                    <param id="1" name="CSS URL">&quot;btnStyle.css&quot;</param>
                 </action>
             </actions>
         </event-block>
@@ -188,6 +188,40 @@
                                 <action id="-26" name="Restart layout" sid="521195296826619" type="System" />
                             </actions>
                         </event-block>
+                        <event-block sid="331768822635831">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="436625680826429" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Credits&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="736096703730131" type="CreditsBg">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="345063504452994" type="CreditsTxt">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="157426908941225">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="413863274280379" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">&quot;Credits&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="874351222758560" type="CreditsBg">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="891841257266743" type="CreditsTxt">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
                     </sub-events>
                 </event-block>
                 <comment>On Action Button Clicked</comment>
@@ -232,11 +266,6 @@
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Second value">&quot;Collect&quot;</param>
                                 </condition>
-                                <condition id="-8" name="Compare two values" sid="619204800884150" type="System">
-                                    <param id="0" name="First value">TxtMatch</param>
-                                    <param id="1" name="Comparison">0</param>
-                                    <param id="2" name="Second value">&quot;Analyze&quot;</param>
-                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="871221095166884" type="Function">
@@ -270,7 +299,26 @@
                             </actions>
                         </event-block>
                         <comment>Break the Ice</comment>
-                        <event-block disabled="1" sid="315967699025926">
+                        <event-block sid="250084465573818">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="373701374663263" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Analyze&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="895053678636702" type="Function">
+                                    <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="380763644122121" type="Function">
+                                    <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                                    <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="315967699025926">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="592897316371033" type="System">
                                     <param id="0" name="First value">TxtMatch</param>
@@ -278,50 +326,29 @@
                                     <param id="2" name="Second value">&quot;Dig&quot;</param>
                                 </condition>
                             </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block disabled="1" sid="275595427801246">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="540612367975663" type="System">
-                                            <param id="0" name="First value">int(random(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;))))</param>
-                                            <param id="1" name="Comparison">3</param>
-                                            <param id="2" name="Second value">100</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="239167543357623" type="Blcks">
-                                            <param id="0" name="Instance variable">Stg</param>
-                                            <param id="1" name="Value">str(int(Blcks.Stg) + 1)&amp;&quot;S&quot;</param>
-                                        </action>
-                                        <action id="0" name="Call function" sid="285339390486713" type="Function">
-                                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
-                                        </action>
-                                        <action id="-9" name="Destroy" sid="182375639478592" type="Blcks" />
-                                        <action id="-12" name="Set group active" sid="507424617858454" type="System">
-                                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
-                                            <param id="1" name="State">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block disabled="1" sid="803798540874318">
-                                    <conditions>
-                                        <condition id="-22" name="Else" sid="822309182924339" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="636302139078954" type="Blcks">
-                                            <param id="0" name="Instance variable">Stg</param>
-                                            <param id="1" name="Value">str(int(Blcks.Stg) + 1)&amp;&quot;F&quot;</param>
-                                        </action>
-                                        <action id="0" name="Call function" sid="485718426294140" type="Function">
-                                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
+                            <actions>
+                                <action id="0" name="Call function" sid="403233881517779" type="Function">
+                                    <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="848821195518869" type="Function">
+                                    <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                                    <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="182375639478592" type="Blcks" />
+                                <action id="0" name="Play" sid="643084269200282" type="Audio">
+                                    <param id="0" name="Audio file">IceBroke</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="507424617858454" type="System">
+                                    <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
                         </event-block>
-                        <event-block disabled="1" sid="812739083966139">
+                        <event-block sid="812739083966139">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="126351848200702" type="System">
                                     <param id="0" name="First value">TxtMatch</param>
@@ -329,48 +356,35 @@
                                     <param id="2" name="Second value">&quot;Mine&quot;</param>
                                 </condition>
                             </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block disabled="1" sid="534089013459246">
-                                    <conditions>
-                                        <condition id="-8" name="Compare two values" sid="706207051034932" type="System">
-                                            <param id="0" name="First value">int(random(AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;))))</param>
-                                            <param id="1" name="Comparison">3</param>
-                                            <param id="2" name="Second value">100</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="160275666350893" type="Blcks">
-                                            <param id="0" name="Instance variable">Stg</param>
-                                            <param id="1" name="Value">str(int(Blcks.Stg) + 2)&amp;&quot;S&quot;</param>
-                                        </action>
-                                        <action id="0" name="Call function" sid="700578424860037" type="Function">
-                                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
-                                        </action>
-                                        <action id="-9" name="Destroy" sid="366451120412736" type="Blcks" />
-                                        <action id="-12" name="Set group active" sid="308840568830686" type="System">
-                                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
-                                            <param id="1" name="State">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block disabled="1" sid="894681618293675">
-                                    <conditions>
-                                        <condition id="-22" name="Else" sid="377419354130892" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="520389092559296" type="Blcks">
-                                            <param id="0" name="Instance variable">Stg</param>
-                                            <param id="1" name="Value">str(int(Blcks.Stg) + 2)&amp;&quot;F&quot;</param>
-                                        </action>
-                                        <action id="0" name="Call function" sid="805653901184643" type="Function">
-                                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                                            <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
+                            <actions>
+                                <action id="0" name="Call function" sid="584674123460770" type="Function">
+                                    <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}2{###}Blcks.UID</param>
+                                </action>
+                                <action id="0" name="Call function" sid="575735312827948" type="Function">
+                                    <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                                    <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="562339173110451">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="943543387884998" type="System">
+                                    <param id="0" name="First value">TxtMatch</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Brute Force&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="584684030030831" type="Function">
+                                    <param id="0" name="Name">&quot;ComputePrblty&quot;</param>
+                                    <param id="1" name="Parameter {n}">AryStgRes.At(AryStgRes.IndexOf(TxtMatch), Function.Call(&quot;YIndex&quot;, AryStgRes.yIdx, &quot;S&quot;)){###}Blcks.Stg{###}1{###}Blcks.UID</param>
+                                </action>
+                                <action id="0" name="Call function" sid="806569648580317" type="Function">
+                                    <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                                    <param id="1" name="Parameter {n}">Blcks.Type{###}Blcks.Stg</param>
+                                </action>
+                            </actions>
                         </event-block>
                         <comment>Leave the Story Stage</comment>
                         <event-block any="1" sid="185526440403815">
@@ -696,6 +710,28 @@
                                     <param id="1" name="Parameter {n}">var1{###}var2</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="436313142720453">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="303812844007993" type="Blcks">
+                                            <param id="0" name="Unique ID">Function.Param(3)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="550640440724254" type="Blcks" />
+                                        <action id="-12" name="Set group active" sid="475897664089374" type="System">
+                                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                                            <param id="1" name="State">1</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="662838041861025" type="Audio">
+                                            <param id="0" name="Audio file">IceBroke</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">0</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                         <event-block sid="729742681129904">
                             <conditions>

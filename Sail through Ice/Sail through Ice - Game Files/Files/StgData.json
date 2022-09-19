@@ -1,6 +1,6 @@
 {
 	"c2array":true,
-	"size":[26,5,1],
+	"size":[31,5,1],
 	"data":
 	[
 		[["StageState"],	["Title"],				["Text"], 			["Image"],			["ActnBtns"]],
@@ -17,18 +17,22 @@
 		[["Area2_1S"],		[0],					[0],				[""],				[0]],
 
 		[["Ice1_0"],		["Large Ice Block"],	["Ice1_stg0_I"],	["Ice"],			["Analyze|Mine|Ignore"]],
-		[["Ice1_1F"],		["Large Ice Block"],	["Ice1_stg1_F"],	["Ice"],			["-|Dig|Leave"]],
+		[["Ice1_1F"],		["Large Ice Block"],	["Ice1_stg1_F"],	["Ice"],			["-|Brute Force|Leave"]],
 		[["Ice1_1S"],		["Large Ice Block"],	["Ice1_stg1_S"],	["Ice"],			["-|Dig|Leave"]],
 		[["Ice1_2F"],		["Large Ice Block"],	["Ice1_stg2_F"],	["Ice"],			["-|-|Leave"]],
 		[["Ice1_2S"],		["Large Ice Block"],	["Ice1_stg2_S"],	["Ice"],			["-|-|Leave"]],
 
 		[["Ice2_0"],		["Medium Ice Block"],	["Ice2_stg0_I"],	["Ice"],			["Analyze|Mine|Ignore"]],
-		[["Ice2_1F"],		["Medium Ice Block"],	["Ice2_stg1_F"],	["Ice"],			["-|Dig|Leave"]],
+		[["Ice2_1F"],		["Medium Ice Block"],	["Ice2_stg1_F"],	["Ice"],			["-|Brute Force|Leave"]],
 		[["Ice2_1S"],		["Medium Ice Block"],	["Ice2_stg1_S"],	["Ice"],			["-|Dig|Leave"]],
+		[["Ice2_2F"],		["Large Ice Block"],	["Ice1_stg2_F"],	["Ice"],			["-|-|Leave"]],
+		[["Ice2_2S"],		["Large Ice Block"],	["Ice1_stg2_S"],	["Ice"],			["-|-|Leave"]],
 
 		[["Ice3_0"],		["Small Ice Block"],	["Ice3_stg0_I"],	["Ice"],			["Analyze|Mine|Ignore"]],
-		[["Ice3_1F"],		["Small Ice Block"],	["Ice3_stg1_F"],	["Ice"],			["-|Dig|Leave"]],
+		[["Ice3_1F"],		["Small Ice Block"],	["Ice3_stg1_F"],	["Ice"],			["-|Brute Force|Leave"]],
 		[["Ice3_1S"],		["Small Ice Block"],	["Ice3_stg1_S"],	["Ice"],			["-|Dig|Leave"]],
+		[["Ice3_2F"],		["Large Ice Block"],	["Ice1_stg2_F"],	["Ice"],			["-|-|Leave"]],
+		[["Ice3_2S"],		["Large Ice Block"],	["Ice1_stg2_S"],	["Ice"],			["-|-|Leave"]],
 
 		[["Fuel_0"],		["Out of Fuel"],		["EmptyFuel"],		["noFuel"],			["-|Find Fuel|Restart"]],
 		[["Supply_0"],		["Out of Supplies"],	["EmptySupply"],	["noSupply"],		["-|-|Restart"]],

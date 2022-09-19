@@ -292,19 +292,18 @@
                     </behavior-type>
                 </behaviors>
             </object-type>
-        </object-folder>
-        <object-folder name="Textures">
-            <object-type name="Water" sid="434385803179995">
-                <plugin id="TiledBg" />
-                <effects>
-                    <effect-type name="Water">
-                        <effect id="water" />
-                    </effect-type>
-                    <effect-type name="BlurHorizontal">
-                        <effect id="blurhorizontal" />
-                    </effect-type>
-                </effects>
-                <texture original-source="C:\Users\mlobo\Desktop\TIle\g3224.png" />
+            <object-type name="CreditsBg" sid="962664085716214">
+                <plugin id="NinePatch" />
+                <texture />
+            </object-type>
+            <object-type name="debug" sid="743128089893687">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="ExtraResTxt" sid="990186138786736">
+                <plugin id="Text" />
+            </object-type>
+            <object-type name="CreditsTxt" sid="935207825199212">
+                <plugin id="Text" />
             </object-type>
         </object-folder>
         <object-folder name="Game Assets">
@@ -315,6 +314,14 @@
                     <instance-variable name="Type" sid="276470473220626" type="string" />
                     <instance-variable name="Stg" sid="800536592241846" type="string" />
                 </instance-variables>
+                <behaviors>
+                    <behavior-type name="VerSine" sid="919371071393687">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                    <behavior-type name="HorSine" sid="995830237656419">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                </behaviors>
                 <effects>
                     <effect-type name="AdjustHSL">
                         <effect id="hsladjust" />
@@ -359,6 +366,12 @@
                     <behavior-type name="ScrollTo" sid="778266340563228">
                         <behavior id="scrollto" />
                     </behavior-type>
+                    <behavior-type name="VerSine" sid="476575238978391">
+                        <behavior id="Sin" />
+                    </behavior-type>
+                    <behavior-type name="HorSine" sid="311765966564118">
+                        <behavior id="Sin" />
+                    </behavior-type>
                 </behaviors>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="0" repeatto="0" sid="719111213758344" speed="0">
@@ -398,13 +411,13 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
+                    <animation framecount="1" loop="0" name="radius1" pingpong="0" repeatcount="0" repeatto="0" sid="108697872552442" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
                     <animation framecount="1" loop="0" name="radius2" pingpong="0" repeatcount="0" repeatto="0" sid="927793451417401" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                     <animation framecount="1" loop="0" name="radiusx" pingpong="0" repeatcount="0" repeatto="0" sid="609257471137860" speed="0">
-                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
-                    </animation>
-                    <animation framecount="1" loop="0" name="radius1" pingpong="0" repeatcount="0" repeatto="0" sid="108697872552442" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -439,6 +452,18 @@
                         </frame>
                     </animation>
                 </animation-folder>
+            </object-type>
+            <object-type name="Water" sid="434385803179995">
+                <plugin id="TiledBg" />
+                <effects>
+                    <effect-type name="Water">
+                        <effect id="water" />
+                    </effect-type>
+                    <effect-type name="BlurHorizontal">
+                        <effect id="blurhorizontal" />
+                    </effect-type>
+                </effects>
+                <texture original-source="C:\Users\mlobo\Desktop\TIle\g3224.png" />
             </object-type>
         </object-folder>
         <object-folder name="Stage Assets">
@@ -543,13 +568,7 @@
                     </behavior-type>
                 </behaviors>
             </object-type>
-            <object-type name="ExtraResTxt" sid="990186138786736">
-                <plugin id="Text" />
-            </object-type>
         </object-folder>
-        <object-type name="debug" sid="743128089893687">
-            <plugin id="Text" />
-        </object-type>
     </object-folder>
     <families />
     <layout-folder>
@@ -580,7 +599,13 @@
             </properties>
         </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="Sunk.ogg" />
+        <file name="Hipey1.ogg" />
+        <file name="Lost.ogg" />
+        <file name="Won.ogg" />
+        <file name="IceBroke.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">

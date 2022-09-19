@@ -38,10 +38,6 @@
                 </condition>
             </conditions>
             <actions>
-                <action disabled="1" id="0" name="Call function" sid="162743295526304" type="Function">
-                    <param id="0" name="Name">&quot;Maze&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
-                </action>
                 <action id="-26" name="Restart layout" sid="471354447553588" type="System" />
             </actions>
         </event-block>
@@ -60,12 +56,6 @@
                         <action id="-9" name="Destroy" sid="994681351936772" type="Boat" />
                         <action id="-9" name="Destroy" sid="281114234428544" type="Light" />
                         <action id="-9" name="Destroy" sid="518274062846474" type="BoatRange" />
-                        <action disabled="1" id="-3" name="Create object" sid="356432074186830" type="System">
-                            <param id="0" name="Object to create">Boat</param>
-                            <param id="1" name="Layer">&quot;Main&quot;</param>
-                            <param id="2" name="X">round(random(2, Width))*CellSize</param>
-                            <param id="3" name="Y">round(random(2, Height))*CellSize</param>
-                        </action>
                         <action id="-3" name="Create object" sid="247163442562557" type="System">
                             <param id="0" name="Object to create">Boat</param>
                             <param id="1" name="Layer">&quot;Main&quot;</param>
@@ -284,6 +274,35 @@
                                 <action id="-9" name="Destroy" sid="473172871957208" type="Blcks" />
                             </actions>
                         </event-block>
+                        <event-block sid="360936875464068">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="658134186801728" type="System">
+                                    <param id="0" name="Object">Blcks</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="100827528644232" type="Blcks">
+                                    <param id="0" name="Animation">Blcks.Type</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <comment>Remove if any Overlapping Blocks</comment>
+                                <event-block sid="509475789977807">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="219426309230972" type="Blcks">
+                                            <param id="0" name="Object">Blcks</param>
+                                        </condition>
+                                        <condition disabled="1" id="-17" name="Pick top/bottom" sid="553791862780433" type="Blcks">
+                                            <param id="0" name="Which">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Destroy" sid="835634103186107" type="Blcks" />
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                     </sub-events>
                 </event-block>
                 <comment>Create an Exit in the Maze</comment>
@@ -357,35 +376,6 @@
                     <actions>
                         <action id="-9" name="Destroy" sid="563082418137336" type="Blcks" />
                     </actions>
-                </event-block>
-                <event-block disabled="1" sid="360936875464068">
-                    <conditions>
-                        <condition id="-11" name="For Each" sid="658134186801728" type="System">
-                            <param id="0" name="Object">Blcks</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="4" name="Set animation" sid="100827528644232" type="Blcks">
-                            <param id="0" name="Animation">Blcks.Type</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                    <sub-events>
-                        <comment>Remove if any Overlapping Blocks</comment>
-                        <event-block disabled="1" sid="509475789977807">
-                            <conditions>
-                                <condition id="1" name="Is overlapping another object" sid="219426309230972" type="Blcks">
-                                    <param id="0" name="Object">Blcks</param>
-                                </condition>
-                                <condition id="-17" name="Pick top/bottom" sid="553791862780433" type="Blcks">
-                                    <param id="0" name="Which">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="835634103186107" type="Blcks" />
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -534,7 +524,7 @@
         <event-group description="" sid="297463313237487" title="Interacting with Blocks">
             <sub-events>
                 <comment>Selecting Blocks (Interact with Blocks)</comment>
-                <event-block disabled="1" sid="512707633899161">
+                <event-block sid="512707633899161">
                     <conditions>
                         <condition id="6" name="On object clicked" sid="651234008109366" type="Mouse">
                             <param id="0" name="Mouse button">0</param>
@@ -623,20 +613,44 @@
                         <condition id="1" name="Is overlapping another object" sid="342826681029711" type="Blcks">
                             <param id="0" name="Object">BoatRange</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="872318930970267" type="Blcks">
-                            <param id="0" name="Instance variable">Type</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Area1&quot;</param>
-                        </condition>
-                        <condition id="-4" name="Trigger once while true" sid="482196709501505" type="System" />
                     </conditions>
-                    <actions>
-                        <action id="-28" name="Set effect parameter" sid="217576303478462" type="Blcks">
-                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
-                            <param id="1" name="Parameter index">0</param>
-                            <param id="2" name="Value">90</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="686639984075615">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="872318930970267" type="Blcks">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Area1&quot;</param>
+                                </condition>
+                                <condition disabled="1" id="-4" name="Trigger once while true" sid="482196709501505" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="217576303478462" type="Blcks">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="909248703866645">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="853326096606889" type="System">
+                                    <param id="0" name="First value">str(left(Blcks.Type, find(Blcks.Type, &quot;Ice&quot;) + len(&quot;Ice&quot;)))</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Ice&quot;</param>
+                                </condition>
+                                <condition disabled="1" id="-4" name="Trigger once while true" sid="393947832229246" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="921791986921427" type="Blcks">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">90</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="798916398933918">
                     <conditions>
@@ -646,20 +660,44 @@
                         <condition id="1" name="Is overlapping another object" sid="639065404916301" type="Blcks">
                             <param id="0" name="Object">BoatRange</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="101421355292420" type="Blcks">
-                            <param id="0" name="Instance variable">Type</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">&quot;Area1&quot;</param>
-                        </condition>
-                        <condition id="-4" name="Trigger once while true" sid="360831572721282" type="System" />
                     </conditions>
-                    <actions>
-                        <action id="-28" name="Set effect parameter" sid="270092324114713" type="Blcks">
-                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
-                            <param id="1" name="Parameter index">0</param>
-                            <param id="2" name="Value">0</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="796005853035972">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="101421355292420" type="Blcks">
+                                    <param id="0" name="Instance variable">Type</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;Area1&quot;</param>
+                                </condition>
+                                <condition disabled="1" id="-4" name="Trigger once while true" sid="360831572721282" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="270092324114713" type="Blcks">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="549975645421373">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="601971769849381" type="System">
+                                    <param id="0" name="First value">str(left(Blcks.Type, find(Blcks.Type, &quot;Ice&quot;) + len(&quot;Ice&quot;)))</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Ice&quot;</param>
+                                </condition>
+                                <condition disabled="1" id="-4" name="Trigger once while true" sid="529385063521098" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-28" name="Set effect parameter" sid="610217098924107" type="Blcks">
+                                    <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -715,6 +753,12 @@
                         <action id="0" name="Call function" sid="241531605489555" type="Function">
                             <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Play" sid="407804383709665" type="Audio">
+                            <param id="0" name="Audio file">Hipey1</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -799,6 +843,12 @@
                         <action id="0" name="Call function" sid="969510418467176" type="Function">
                             <param id="0" name="Name">&quot;StatsUpdate&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="0" name="Play" sid="958469311619037" type="Audio">
+                            <param id="0" name="Audio file">Sunk</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -1074,6 +1124,12 @@
                             <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;Fuel&quot;{###}0</param>
                         </action>
+                        <action id="0" name="Play" sid="370891274402981" type="Audio">
+                            <param id="0" name="Audio file">Lost</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>Ran out of Supplies</comment>
@@ -1094,6 +1150,12 @@
                         <action id="0" name="Call function" sid="936335049238789" type="Function">
                             <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;Supply&quot;{###}0</param>
+                        </action>
+                        <action id="0" name="Play" sid="659780047328002" type="Audio">
+                            <param id="0" name="Audio file">Lost</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1116,6 +1178,39 @@
                             <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;Morale&quot;{###}0</param>
                         </action>
+                        <action id="0" name="Play" sid="883289110518754" type="Audio">
+                            <param id="0" name="Audio file">Lost</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>No More Crew Left</comment>
+                <event-block sid="166659993042474">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="432161077709324" type="Boat">
+                            <param id="0" name="Instance variable">CrewAmnt</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="777694991302180" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="628155202475272" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="549243600016984" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Lose&quot;{###}0</param>
+                        </action>
+                        <action id="0" name="Play" sid="543445576149286" type="Audio">
+                            <param id="0" name="Audio file">Lost</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <comment>Reached the Exit</comment>
@@ -1129,6 +1224,12 @@
                         <action id="0" name="Call function" sid="702698624348860" type="Function">
                             <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
                             <param id="1" name="Parameter {n}">&quot;Win&quot;{###}0</param>
+                        </action>
+                        <action id="0" name="Play" sid="621914067172167" type="Audio">
+                            <param id="0" name="Audio file">Won</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
                         </action>
                     </actions>
                 </event-block>
