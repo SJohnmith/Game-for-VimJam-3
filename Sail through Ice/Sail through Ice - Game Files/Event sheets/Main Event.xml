@@ -30,26 +30,6 @@
                 </action>
             </actions>
         </event-block>
-        <comment>(Debug) Hover Over Blocks</comment>
-        <event-block disabled="1" sid="996530527884851">
-            <conditions>
-                <condition id="7" name="Cursor is over object" sid="336304620275090" type="Mouse">
-                    <param id="0" name="Object">Blcks</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Set text" sid="111231745729334" type="debug">
-                    <param id="0" name="Text">&quot;Type: &quot;&amp;Blcks.Type&amp;newline&amp;&quot;Stg: &quot;&amp;Blcks.Stg&amp;newline&amp;&quot;Anim:&quot;&amp;Blcks.AnimationName&amp;newline&amp;&quot;UID: &quot;&amp;Blcks.UID</param>
-                </action>
-                <action id="-3" name="Set position" sid="115610463508327" type="debug">
-                    <param id="0" name="X">Mouse.X</param>
-                    <param id="1" name="Y">Mouse.Y</param>
-                </action>
-                <action disabled="1" id="0" name="Set text" sid="538889978877080" type="debug">
-                    <param id="0" name="Text">&quot;Type: &quot;&amp;Blcks.Type&amp;&quot;_&quot;&amp;Blcks.Stg&amp;newline&amp;&quot;IID: &quot;&amp;Blcks.IID</param>
-                </action>
-            </actions>
-        </event-block>
         <comment>(Debug) Create New Maze</comment>
         <event-block sid="166209734337707">
             <conditions>
@@ -554,7 +534,7 @@
         <event-group description="" sid="297463313237487" title="Interacting with Blocks">
             <sub-events>
                 <comment>Selecting Blocks (Interact with Blocks)</comment>
-                <event-block sid="512707633899161">
+                <event-block disabled="1" sid="512707633899161">
                     <conditions>
                         <condition id="6" name="On object clicked" sid="651234008109366" type="Mouse">
                             <param id="0" name="Mouse button">0</param>
@@ -643,11 +623,18 @@
                         <condition id="1" name="Is overlapping another object" sid="342826681029711" type="Blcks">
                             <param id="0" name="Object">BoatRange</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="872318930970267" type="Blcks">
+                            <param id="0" name="Instance variable">Type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Area1&quot;</param>
+                        </condition>
                         <condition id="-4" name="Trigger once while true" sid="482196709501505" type="System" />
                     </conditions>
                     <actions>
-                        <action id="1" name="Set blend mode" sid="566200115288948" type="Blcks">
-                            <param id="0" name="Blend mode">1</param>
+                        <action id="-28" name="Set effect parameter" sid="217576303478462" type="Blcks">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">90</param>
                         </action>
                     </actions>
                 </event-block>
@@ -659,11 +646,18 @@
                         <condition id="1" name="Is overlapping another object" sid="639065404916301" type="Blcks">
                             <param id="0" name="Object">BoatRange</param>
                         </condition>
+                        <condition id="-7" name="Compare instance variable" sid="101421355292420" type="Blcks">
+                            <param id="0" name="Instance variable">Type</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;Area1&quot;</param>
+                        </condition>
                         <condition id="-4" name="Trigger once while true" sid="360831572721282" type="System" />
                     </conditions>
                     <actions>
-                        <action id="1" name="Set blend mode" sid="873081619318785" type="Blcks">
-                            <param id="0" name="Blend mode">0</param>
+                        <action id="-28" name="Set effect parameter" sid="270092324114713" type="Blcks">
+                            <param id="0" name="Effect">&quot;AdjustHSL&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -671,44 +665,6 @@
         </event-group>
         <event-group description="" sid="890010818370517" title="Results of Actions">
             <sub-events>
-                <comment>Can Move if Have Fuel</comment>
-                <event-block sid="618366463542182">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="956394202047367" type="Boat">
-                            <param id="0" name="Instance variable">Fuel</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                        <condition id="-4" name="Trigger once while true" sid="104256332369068" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="-12" name="Set group active" sid="107322433981044" type="System">
-                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
-                            <param id="1" name="State">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <comment>Can not Move if No Fuel</comment>
-                <event-block sid="253347042692001">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="569099504703925" type="Boat">
-                            <param id="0" name="Instance variable">Fuel</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                        <condition id="-4" name="Trigger once while true" sid="362927107095495" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="-12" name="Set group active" sid="123389754751461" type="System">
-                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
-                            <param id="1" name="State">0</param>
-                        </action>
-                        <action id="0" name="Call function" sid="131827723415739" type="Function">
-                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;Fuel&quot;{###}0</param>
-                        </action>
-                    </actions>
-                </event-block>
                 <comment>Use Fuel, Supply, and/or Crew</comment>
                 <event-block sid="497582421315419">
                     <conditions>
@@ -815,7 +771,7 @@
                                     <param id="3" name="Y">StatsTxt.Y</param>
                                 </action>
                                 <action id="0" name="Set text" sid="643811916633770" type="FdbckTxt">
-                                    <param id="0" name="Text">&quot;+&quot;&amp;Function.Param(1)&amp;&quot; Supplies&quot;</param>
+                                    <param id="0" name="Text">&quot;+&quot;&amp;Function.Param(1)&amp;&quot; Supply&quot;</param>
                                 </action>
                                 <action id="4" name="Set font color" sid="374035881601543" type="FdbckTxt">
                                     <param id="0" name="Color">rgb(0, 255, 0)</param>
@@ -853,14 +809,6 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action disabled="1" id="4" name="Set animation" sid="446338758107277" type="Blcks">
-                                    <param id="0" name="Animation">choose(&quot;Solid1&quot;, &quot;Solid2&quot;, &quot;Solid3&quot;)</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                                <action disabled="1" id="-10" name="Set value" sid="539439995856171" type="Blcks">
-                                    <param id="0" name="Instance variable">Type</param>
-                                    <param id="1" name="Value">Blcks.AnimationName</param>
-                                </action>
                                 <action id="0" name="Spawn another object" sid="636784960581028" type="Blcks">
                                     <param id="0" name="Object">Marker</param>
                                     <param id="1" name="Layer">Blcks.LayerName</param>
@@ -1090,36 +1038,83 @@
         </event-group>
         <event-group description="" sid="683682685252953" title="Win and Lose Events">
             <sub-events>
-                <comment>Run Out of Fuel, Supplies, and Crew</comment>
-                <event-block sid="658718366829677">
+                <comment>Can Move if Have Fuel</comment>
+                <event-block sid="618366463542182">
                     <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="901588576627458" type="Boat">
+                        <condition id="-7" name="Compare instance variable" sid="956394202047367" type="Boat">
+                            <param id="0" name="Instance variable">Fuel</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="104256332369068" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="107322433981044" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Can not Move if No Fuel</comment>
+                <event-block sid="253347042692001">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="569099504703925" type="Boat">
                             <param id="0" name="Instance variable">Fuel</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="109146398250253" type="Boat">
+                        <condition id="-4" name="Trigger once while true" sid="362927107095495" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="123389754751461" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="131827723415739" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Fuel&quot;{###}0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Ran out of Supplies</comment>
+                <event-block sid="716032381591884">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="629513174199753" type="Boat">
                             <param id="0" name="Instance variable">Supplies</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="311139283711108" type="Boat">
-                            <param id="0" name="Instance variable">CrewAmnt</param>
+                        <condition id="-4" name="Trigger once while true" sid="897386108874241" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="608074358841704" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="936335049238789" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Supply&quot;{###}0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>No More Morale Left</comment>
+                <event-block sid="776706194054616">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="776877012988080" type="Boat">
+                            <param id="0" name="Instance variable">Morale</param>
                             <param id="1" name="Comparison">3</param>
                             <param id="2" name="Value">0</param>
                         </condition>
-                        <condition id="-4" name="Trigger once while true" sid="566070491956725" type="System" />
+                        <condition id="-4" name="Trigger once while true" sid="273000277480086" type="System" />
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="703119729317392" type="extra">
-                            <param id="0" name="Text">&quot;You  Lose&quot;</param>
+                        <action id="-12" name="Set group active" sid="518280706020772" type="System">
+                            <param id="0" name="Group name">&quot;Player Controls&quot;</param>
+                            <param id="1" name="State">0</param>
                         </action>
-                        <action id="-16" name="Wait" sid="645338575011893" type="System">
-                            <param id="0" name="Seconds">1</param>
-                        </action>
-                        <action id="0" name="Call function" sid="505766238502181" type="Function">
-                            <param id="0" name="Name">&quot;Maze&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                        <action id="0" name="Call function" sid="814177394456829" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Morale&quot;{###}0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -1131,15 +1126,9 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Set text" sid="639298744074815" type="extra">
-                            <param id="0" name="Text">&quot;You  Win&quot;</param>
-                        </action>
-                        <action id="-16" name="Wait" sid="501650590591149" type="System">
-                            <param id="0" name="Seconds">1</param>
-                        </action>
-                        <action id="0" name="Call function" sid="713645218385726" type="Function">
-                            <param id="0" name="Name">&quot;Maze&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
+                        <action id="0" name="Call function" sid="702698624348860" type="Function">
+                            <param id="0" name="Name">&quot;ClickedOnBlock&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Win&quot;{###}0</param>
                         </action>
                     </actions>
                 </event-block>

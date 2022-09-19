@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2project>
-    <name>gameJamName</name>
+    <name>Sail through Ice</name>
     <description></description>
     <version>1.0.0.0</version>
     <author></author>
@@ -34,6 +34,7 @@
     </used-behaviors>
     <used-effects>
         <effect author="Scirra" id="blurhorizontal">Blur Horizontal</effect>
+        <effect author="Scirra" id="hsladjust">Adjust HSL</effect>
         <effect author="Scirra" id="multiply">Multiply</effect>
         <effect author="Viktor Korsun" id="water">Water</effect>
     </used-effects>
@@ -511,6 +512,11 @@
                     <instance-variable name="Type" sid="276470473220626" type="string" />
                     <instance-variable name="Stg" sid="800536592241846" type="string" />
                 </instance-variables>
+                <effects>
+                    <effect-type name="AdjustHSL">
+                        <effect id="hsladjust" />
+                    </effect-type>
+                </effects>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Solid1" pingpong="0" repeatcount="0" repeatto="0" sid="302979809355674" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g3939.png" />
@@ -589,10 +595,13 @@
                     </behavior-type>
                 </behaviors>
                 <animation-folder>
-                    <animation framecount="1" loop="0" name="radius1" pingpong="0" repeatcount="0" repeatto="0" sid="927793451417401" speed="0">
+                    <animation framecount="1" loop="0" name="radius2" pingpong="0" repeatcount="0" repeatto="0" sid="927793451417401" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
-                    <animation framecount="1" loop="0" name="radius2" pingpong="0" repeatcount="0" repeatto="0" sid="609257471137860" speed="0">
+                    <animation framecount="1" loop="0" name="radiusx" pingpong="0" repeatcount="0" repeatto="0" sid="609257471137860" speed="0">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="radius1" pingpong="0" repeatcount="0" repeatto="0" sid="108697872552442" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                     </animation>
                 </animation-folder>
@@ -660,7 +669,7 @@
                             </collision-poly>
                         </frame>
                     </animation>
-                    <animation framecount="1" loop="0" name="Win" pingpong="0" repeatcount="0" repeatto="0" sid="495557732191290" speed="0">
+                    <animation framecount="1" loop="0" name="ShelterCollect" pingpong="0" repeatcount="0" repeatto="0" sid="495557732191290" speed="0">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\mlobo\Desktop\TIle\g94531.png">
                             <collision-poly>
                                 <point x="0.00390625" y="0.00390625" />

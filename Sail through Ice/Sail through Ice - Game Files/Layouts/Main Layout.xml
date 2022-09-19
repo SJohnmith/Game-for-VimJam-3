@@ -44,8 +44,8 @@
                                 <intensity>3</intensity>
                                 <reflectivity>400</reflectivity>
                                 <speed>0.03</speed>
-                                <x-speed>0.1</x-speed>
-                                <y-speed>0.1</y-speed>
+                                <x-speed>0.04</x-speed>
+                                <y-speed>0.04</y-speed>
                             </parameters>
                         </effect-instance>
                         <effect-instance type="BlurHorizontal">
@@ -81,6 +81,15 @@
                         <Type></Type>
                         <Stg>0</Stg>
                     </instance-variables>
+                    <effect-instances>
+                        <effect-instance type="AdjustHSL">
+                            <parameters>
+                                <hue>0</hue>
+                                <luminosity>1</luminosity>
+                                <saturation>1</saturation>
+                            </parameters>
+                        </effect-instance>
+                    </effect-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
@@ -169,8 +178,8 @@
                     </properties>
                     <instance-variables>
                         <CrewAmnt>20</CrewAmnt>
-                        <Fuel>10</Fuel>
-                        <Supplies>8</Supplies>
+                        <Fuel>8</Fuel>
+                        <Supplies>5</Supplies>
                         <Morale>100</Morale>
                         <moving>false</moving>
                         <boatX>0</boatX>
@@ -189,8 +198,8 @@
                         <x>64</x>
                         <y>-64</y>
                         <z>0</z>
-                        <width>128</width>
-                        <height>48</height>
+                        <width>64</width>
+                        <height>24</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -208,8 +217,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-64</x>
-                        <y>-128</y>
+                        <x>-192</x>
+                        <y>-64</y>
                         <z>0</z>
                         <width>32</width>
                         <height>32</height>
