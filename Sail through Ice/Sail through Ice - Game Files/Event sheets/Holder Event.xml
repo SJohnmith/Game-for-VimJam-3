@@ -22,13 +22,6 @@
                     <param id="0" name="Tag">&quot;StgTxt&quot;</param>
                     <param id="1" name="File">StgTxt.json</param>
                 </action>
-                <action id="0" name="Set text" sid="417515075717174" type="extra">
-                    <param id="0" name="Text">&quot;Str: x&quot;&amp;newline&amp;&quot;Int: y&quot;</param>
-                </action>
-                <action id="-10" name="Set value" sid="776780886919147" type="BarMorale">
-                    <param id="0" name="Instance variable">const</param>
-                    <param id="1" name="Value">Ship.Morale</param>
-                </action>
                 <action id="-30" name="Set from JSON" sid="754320065809426" type="ActnBtn">
                     <param id="0" name="JSON">&quot;&quot;</param>
                 </action>
