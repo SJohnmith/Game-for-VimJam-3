@@ -377,6 +377,37 @@
                         <action id="-9" name="Destroy" sid="563082418137336" type="Blcks" />
                     </actions>
                 </event-block>
+                <comment>Remove if any Overlapping Blocks (Does not Work)</comment>
+                <event-block sid="158410112587139">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="183081105721912" type="Blcks" />
+                        <condition id="1" name="Is overlapping another object" sid="428581480137385" type="Blcks">
+                            <param id="0" name="Object">Blcks</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="997280328050458" type="Blcks" />
+                    </actions>
+                    <sub-events>
+                        <event-block sid="510556181567857">
+                            <conditions>
+                                <condition id="-11" name="For Each" sid="243823807043211" type="System">
+                                    <param id="0" name="Object">Blcks</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="636407903684439" type="Blcks">
+                                    <param id="0" name="Object">Blcks</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="716097999737271" type="Blcks">
+                                    <param id="0" name="Animation">Blcks.Type</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="890154227379608" type="Blcks" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="792232637840153" title="Player Controls">
