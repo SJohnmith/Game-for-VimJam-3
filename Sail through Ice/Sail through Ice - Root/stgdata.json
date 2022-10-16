@@ -1,0 +1,43 @@
+{
+	"c2array":true,
+	"size":[31,5,1],
+	"data":
+	[
+		[["StageState"],	["Title"],				["Text"], 			["Image"],			["ActnBtns"]],
+		[["Start_0"],		["How to Play"],		["Start"],			["Venture"],		["Play|New Map|Credits"]],
+		[["Area1_0"],		["Abandoned Shelter"],	["Area1_stg0_I"],	["Shelter"],		["Inspect|Search|Leave"]],
+		[["Area2_0"],		["Abandoned Camp"],		[0],				[0],				[0]],
+		[["Area3_0"],		["Abandoned Boat"],		[0],				[0],				[0]],
+		[["Area1_1F"],		["Abandoned Shelter"],	["Area1_stg1_F"],	["ShelterLost"],	["Scout|Investigate|Abandon"]],
+		[["Area1_1S"],		["Abandoned Shelter"],	["Area1_stg1_S"],	["ShelterSafe"],	["-|Collect|Set Sail"]],
+		[["Area1_2F"],		["Abandoned Shelter"],	["Area1_stg2_F"],	["ShelterBear"],	["-|-|Flee"]],
+		[["Area1_2S"],		["Abandoned Shelter"],	["Area1_stg2_S"],	["ShelterCollect"],	["-|-|Done"]],
+
+		[["Area2_1F"],		[0],					[0],				[""],				[0]],
+		[["Area2_1S"],		[0],					[0],				[""],				[0]],
+
+		[["Ice1_0"],		["Large Ice Block"],	["Ice1_stg0_I"],	["Ice"],			["Analyze|Mine|Ignore"]],
+		[["Ice1_1F"],		["Large Ice Block"],	["Ice1_stg1_F"],	["IceDanger"],		["-|Brute Force|Leave"]],
+		[["Ice1_1S"],		["Large Ice Block"],	["Ice1_stg1_S"],	["IceSafe"],		["-|Dig|Leave"]],
+		[["Ice1_2F"],		["Large Ice Block"],	["Ice1_stg2_F"],	["IceSunk"],		["-|-|Leave"]],
+		[["Ice1_2S"],		["Large Ice Block"],	["Ice1_stg2_S"],	["IceMined"],		["-|-|Leave"]],
+
+		[["Ice2_0"],		["Medium Ice Block"],	["Ice2_stg0_I"],	["Ice"],			["Analyze|Mine|Ignore"]],
+		[["Ice2_1F"],		["Medium Ice Block"],	["Ice2_stg1_F"],	["IceDanger"],		["-|Brute Force|Leave"]],
+		[["Ice2_1S"],		["Medium Ice Block"],	["Ice2_stg1_S"],	["IceSafe"],		["-|Dig|Leave"]],
+		[["Ice2_2F"],		["Large Ice Block"],	["Ice1_stg2_F"],	["IceSunk"],		["-|-|Leave"]],
+		[["Ice2_2S"],		["Large Ice Block"],	["Ice1_stg2_S"],	["IceMined"],		["-|-|Leave"]],
+
+		[["Ice3_0"],		["Small Ice Block"],	["Ice3_stg0_I"],	["Ice"],			["Analyze|Mine|Ignore"]],
+		[["Ice3_1F"],		["Small Ice Block"],	["Ice3_stg1_F"],	["IceDanger"],		["-|Brute Force|Leave"]],
+		[["Ice3_1S"],		["Small Ice Block"],	["Ice3_stg1_S"],	["IceSafe"],		["-|Dig|Leave"]],
+		[["Ice3_2F"],		["Large Ice Block"],	["Ice1_stg2_F"],	["IceSunk"],		["-|-|Leave"]],
+		[["Ice3_2S"],		["Large Ice Block"],	["Ice1_stg2_S"],	["IceMined"],		["-|-|Leave"]],
+
+		[["Fuel_0"],		["Out of Fuel"],		["EmptyFuel"],		["noFuel"],			["-|Find Fuel|Restart"]],
+		[["Supply_0"],		["Out of Supplies"],	["EmptySupply"],	["noSupply"],		["-|-|Restart"]],
+		[["Morale_0"],		["Low Morale"],			["EmptyMorale"],	["noMorale"],		["-|-|Restart"]],
+		[["Lose_0"],		["Unfortunately"],		["Lose"],			["Defeat"],			["Play Again|-|-"]],
+		[["Win_0"],			["We Made It"],			["Win"],			["Victory"],		["Play Again|Thank you|Credits"]]
+	]
+}
